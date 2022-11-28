@@ -1,0 +1,116 @@
+@import 'variable';
+@import 'mixin';
+
+@mixin imformation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    @include responsiveSize(small) {
+        h2 {
+            font-size: 15px;
+        }
+
+        p {
+            font-size: 13px;
+        }
+    }
+}
+
+.infomation {
+    padding: 10px;
+    display: flex;
+    background-color: $footer_background;
+    justify-content: space-between;
+    
+    @include responsiveSize(small) {
+        @include flexProp(flex, column) {
+            gap: 10px;
+            padding: 10px;
+        }
+    }
+
+    .follow-us {
+        @include pageSpaceing;
+        @include imformation;
+        // responsive##################
+    }
+
+    .compnay {
+        @include imformation;
+        @extend .follow-us;
+    }
+
+    .explore {
+        @include imformation;
+        @extend .follow-us;
+    }
+}
+
+footer {
+    
+    @include flexProp(flex, row) {
+        align-items: center;
+        background-color: $footer_background;
+        padding: 10px $margin-right 10px $margin-left;
+
+    }
+
+    .footer-logo {
+        @include flexProp(flex, row) {
+            flex: 1;
+            margin: auto;
+        }
+
+        @include responsiveSize(small) {
+            h3 {
+                font-size: 15px;
+            }
+        }
+    }
+
+    .contact-media {
+        @include flexProp(flex, row) {
+            flex: 1;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 20px;
+
+            // responsive##################
+            @include responsiveSize(small) {
+                gap: 5px;
+                flex: 0.9;
+            }
+
+            .fa-facebook {
+                font-size: 30px;
+                text-decoration: none;
+                color: blue;
+
+                @include responsiveSize(small) {
+                    font-size: 23px;
+                }
+            }
+
+            .fa-twitter {
+                @extend .fa-facebook;
+                color: blue;
+            }
+
+            .fa-google {
+                @extend .fa-facebook;
+                color: red;
+            }
+
+            .fa-linkedin {
+                @extend .fa-facebook;
+            }
+
+            .fa-youtube {
+                @extend .fa-facebook;
+                color: red;
+            }
+        }
+    }
+}

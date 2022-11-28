@@ -1,0 +1,28 @@
+@import 'components/nav';
+@import 'components/mixin';
+@import 'components/variable';
+
+* {
+    @include spacing(0, 0);
+}
+body {
+    @include body(370vh);
+    // --------responsive-------
+    @include responsiveSize(big) {
+        height: 170vh;
+    }
+    @include responsiveSize(small) {
+        // height:100vh;
+    }
+}
+main {
+    @include flexProp(flex,column);
+    @include flexSize(1);
+    // background-color;
+    margin-top: 6%  ;
+    @import 'components/banner';
+    @import 'components/service';
+    @import 'components/product';
+    
+}
+@import 'components/footer';

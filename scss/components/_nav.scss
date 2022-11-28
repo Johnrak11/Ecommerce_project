@@ -1,0 +1,45 @@
+
+@import 'variable';
+@import 'mixin';
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    background-color : white;
+    padding: 5px;
+    @include flexProp (flex,row);
+    .nav-left{
+        margin-left: 7%;
+        
+
+        @include flexProp (flex,row);
+        @include flexSize(1);
+        .image-container{
+            @include flexProp (flex,row);
+            img{
+                width: 40%;
+            }
+        }
+    }
+    .nav-right{
+        margin-right: 7%;
+        @include flexProp (flex,row);
+        @include flexSize(1);
+        ul{
+            @include flexProp (flex,row);
+            flex: 1;
+            list-style: none;
+            @include flex-item (space-between,center){
+            }
+            a{
+                text-decoration: none;
+                color: black;
+                font-size: 20px;
+                font-weight: bold;
+                margin-right: 10px;
+            }
+        }
+    }
+}

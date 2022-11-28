@@ -1,0 +1,36 @@
+@import 'variable';
+@import 'mixin';
+
+.product-card-contaier{
+    @include flexProp(flex,row);
+    flex-wrap: wrap;
+    // background-color: red;
+    .product-card{
+        margin: 12px;
+        padding: 10px;
+        background-color:$font-color-w;
+        .product-card-image{
+            padding: 18px;
+            img {
+                height: 40vh;
+            }
+        }
+        .product-card-text{
+            @include flexProp(flex,row);
+            @include flex-item (space-between,center);
+            h2{
+                font-size: 20px;
+            }
+            label{
+                font-size: 18px;
+                color: $btn_main;
+            }
+        }
+        .product-card-rating{
+            margin-top: 5px;
+            .checked{
+                color: orange;
+            }
+        }
+    }
+}

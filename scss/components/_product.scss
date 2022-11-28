@@ -1,0 +1,24 @@
+@import 'variable';
+@import 'mixin';
+
+.product-container{
+    @include pageSpaceing;
+    @include flexSize (1.5);
+    @include flexProp (flex,column);
+    .product-title{
+        @include flexProp (flex,column);
+        @include flex-item (center,center);
+        padding: 40px;
+        font-size: 25px;
+    }
+    @import 'card';
+    .more-product{
+        @include flexProp (flex,column);
+        @include flex-item (center,center);
+        margin: 15px;
+        button{
+            @include btn;
+            padding: 15px;
+        }
+    }
+}

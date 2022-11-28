@@ -1,0 +1,40 @@
+@import 'variable';
+@import 'mixin';
+.service-container{
+    @include flexSize (1.2);
+    @include flexProp (flex,column);
+    .service-title{
+        @include flexProp (flex,column);
+        @include flex-item (center,center);
+        padding: 40px;
+        font-size: 25px;
+    }
+    .service-card-container{
+        @include flexSize (1);
+        @include flexProp (flex,row);
+        gap: 10px;
+        @include pageSpaceing;
+        justify-content: space-between;
+        .service-card{
+            @include spacing(40px,5px);
+            @include flexProp (flex,column);
+            @include flex-item (center,center);
+            gap: 20px;
+            background-color:$card_main;
+            border-radius: 10px;
+            h3{
+                font-size: 25px;
+                font-weight: bold;
+                color: white;
+            }
+            span{
+                text-align: center;
+                color: white;
+            }
+            i{
+                color: white;
+                font-size: 45px;
+            }
+        }
+    }
+}

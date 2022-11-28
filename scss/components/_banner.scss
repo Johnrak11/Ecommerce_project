@@ -1,0 +1,30 @@
+@import 'variable';
+@import 'mixin';
+
+.banner-container {
+    background: url(../../image/slider-bg.jpg) center no-repeat;
+    background-size: cover;
+    @include flexSize(1.9);
+    @include flexProp (flex,column);
+    @include flex-item (center,start);
+    .banner{
+        margin-bottom: 10%;
+        @include flexProp (flex,column);
+        gap: 25px;
+        margin-left: 7%;
+        .title{
+            font-size: 25px;
+            line-height:inherit;
+        }
+        .banner-text{
+            font-size: 18px;
+            line-height:inherit;
+        }
+        .banner-btn{
+            button{
+                @include btn;
+            }
+        }
+
+    }
+}
