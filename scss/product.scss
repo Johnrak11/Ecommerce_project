@@ -5,7 +5,7 @@
     @include spacing(0, 0);
 }
 body {
-    @include body(370vh);
+    @include body(auto);
     // --------responsive-------
     @include responsiveSize(big) {
         height: 170vh;
@@ -15,20 +15,15 @@ body {
     }
 }
 @import 'components/nav';
-#nav-home{
+#nav-product{
     // -webkit-transform: rotate(45deg);
     // -ms-transform: rotate(45deg);
     transform: rotate(45deg);
     border-bottom: 2px solid $btn-main;
 }
 main {
-    @include flexProp(flex,column);
-    @include flexSize(1);
-    // background-color;
-    margin-top: 6%  ;
-    @import 'components/banner';
-    @import 'components/service';
-    @import 'components/product';
-    
+    margin-top: 6%;
 }
+@import 'components/discount';
+@import 'components/product';
 @import 'components/footer';

@@ -5,7 +5,7 @@
 
 body {
   font-family: "Montserrat", sans-serif;
-  height: 370vh;
+  height: auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -118,105 +118,22 @@ nav .nav-right ul a {
   margin-right: 10px;
 }
 
-#nav-home {
+#nav-product {
   -webkit-transform: rotate(45deg);
           transform: rotate(45deg);
   border-bottom: 2px solid rgb(247, 68, 78);
 }
 
 main {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
   margin-top: 6%;
 }
-main .banner-container {
-  background: url(../../image/slider-bg.jpg) center no-repeat;
-  background-size: cover;
-  -webkit-box-flex: 1.9;
-      -ms-flex: 1.9;
-          flex: 1.9;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: start;
-}
-main .banner-container .banner {
-  margin-bottom: 10%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  gap: 25px;
-  margin-left: 7%;
-}
-main .banner-container .banner .title {
-  font-size: 25px;
-  line-height: inherit;
-}
-main .banner-container .banner .banner-text {
-  font-size: 18px;
-  line-height: inherit;
-}
-main .banner-container .banner .banner-btn button {
-  padding: 20px;
-  border: none;
+
+.discount {
   background-color: rgb(247, 68, 78);
-  color: white;
-  border-radius: 10px;
-}
-main .service-container {
-  -webkit-box-flex: 1.2;
-      -ms-flex: 1.2;
-          flex: 1.2;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-}
-main .service-container .service-title {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  padding: 40px;
-  font-size: 25px;
-}
-main .service-container .service-card-container {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
+  padding: 30px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -224,47 +141,17 @@ main .service-container .service-card-container {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  gap: 10px;
-  margin-left: 7%;
-  margin-right: 7%;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-}
-main .service-container .service-card-container .service-card {
-  padding: 40px;
-  margin: 5px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  gap: 20px;
-  background-color: rgb(0, 44, 62);
-  border-radius: 10px;
-}
-main .service-container .service-card-container .service-card h3 {
-  font-size: 25px;
-  font-weight: bold;
+  font-size: 18px;
   color: white;
 }
-main .service-container .service-card-container .service-card span {
-  text-align: center;
-  color: white;
-}
-main .service-container .service-card-container .service-card i {
-  color: white;
-  font-size: 45px;
-}
-main .product-container {
+
+.product-container {
   margin-left: 7%;
   margin-right: 7%;
   -webkit-box-flex: 1.5;
@@ -278,7 +165,7 @@ main .product-container {
       -ms-flex-direction: column;
           flex-direction: column;
 }
-main .product-container .product-title {
+.product-container .product-title {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -295,7 +182,7 @@ main .product-container .product-title {
   padding: 40px;
   font-size: 25px;
 }
-main .product-container .product-card-contaier {
+.product-container .product-card-contaier {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -306,19 +193,19 @@ main .product-container .product-card-contaier {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
 }
-main .product-container .product-card-contaier .product-card {
+.product-container .product-card-contaier .product-card {
   position: relative;
   margin: 12px;
   padding: 10px;
   background-color: rgb(234, 234, 234);
 }
-main .product-container .product-card-contaier .product-card .product-card-image {
+.product-container .product-card-contaier .product-card .product-card-image {
   padding: 18px;
 }
-main .product-container .product-card-contaier .product-card .product-card-image img {
+.product-container .product-card-contaier .product-card .product-card-image img {
   height: 40vh;
 }
-main .product-container .product-card-contaier .product-card .product-card-text {
+.product-container .product-card-contaier .product-card .product-card-text {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -333,14 +220,14 @@ main .product-container .product-card-contaier .product-card .product-card-text 
       -ms-flex-align: center;
           align-items: center;
 }
-main .product-container .product-card-contaier .product-card .product-card-text h2 {
+.product-container .product-card-contaier .product-card .product-card-text h2 {
   font-size: 20px;
 }
-main .product-container .product-card-contaier .product-card .product-card-text label {
+.product-container .product-card-contaier .product-card .product-card-text label {
   font-size: 18px;
   color: rgb(247, 68, 78);
 }
-main .product-container .product-card-contaier .product-card .btn-card-container {
+.product-container .product-card-contaier .product-card .btn-card-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -362,7 +249,7 @@ main .product-container .product-card-contaier .product-card .btn-card-container
   right: 30%;
   background-color: blue;
 }
-main .product-container .product-card-contaier .product-card .btn-card-container button {
+.product-container .product-card-contaier .product-card .btn-card-container button {
   padding: 20px;
   border: none;
   background-color: rgb(247, 68, 78);
@@ -370,13 +257,13 @@ main .product-container .product-card-contaier .product-card .btn-card-container
   border-radius: 10px;
   padding: 15px;
 }
-main .product-container .product-card-contaier .product-card .product-card-rating {
+.product-container .product-card-contaier .product-card .product-card-rating {
   margin-top: 5px;
 }
-main .product-container .product-card-contaier .product-card .product-card-rating .checked {
+.product-container .product-card-contaier .product-card .product-card-rating .checked {
   color: orange;
 }
-main .product-container .product-card-contaier .product-card:hover {
+.product-container .product-card-contaier .product-card:hover {
   background-color: rgb(247, 68, 78);
   cursor: pointer;
   color: white;
@@ -386,7 +273,7 @@ main .product-container .product-card-contaier .product-card:hover {
   transition: 0.5s;
   cursor: pointer;
 }
-main .product-container .more-product {
+.product-container .more-product {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -402,7 +289,7 @@ main .product-container .more-product {
           align-items: center;
   margin: 15px;
 }
-main .product-container .more-product button {
+.product-container .more-product button {
   padding: 20px;
   border: none;
   background-color: rgb(247, 68, 78);
@@ -583,4 +470,4 @@ footer .contact-media .fa-google {
 }
 footer .contact-media .fa-youtube {
   color: red;
-}/*# sourceMappingURL=home.css.map */
+}/*# sourceMappingURL=product.css.map */

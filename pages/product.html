@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- <link rel="icon" type="image/x-icon" href="../image/logo-no-background.png"> -->
-    <link rel="stylesheet" href="css/home.min.css">
+    <link rel="stylesheet" href="../css/product.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
@@ -22,8 +22,8 @@
         </div>
         <div class="nav-right">
             <ul>
-                <li ><a href="#" id="nav-home">Home</a></li>
-                <li><a href="pages/product.html">Product</a></li>
+                <li ><a href="../index.html" >Home</a></li>
+                <li><a href="#" id="nav-product">Product</a></li>
                 <li><a href="#">Seller</a></li>
                 <li><a href="#">About us</a></li>
                 <li><a href="#">Account</a></li>
@@ -31,44 +31,12 @@
         </div>
     </nav>
     <main>
-        <div class="banner-container">
-            <div class="banner">
-                <div class="title">
-                    <h1>Sale 20% Off <br> Everything</h1>
-                </div>
-                <div class="banner-text">
-                    <p>Explicabo esse amet tempora quibusdam laudantium, laborum <br> eaque magnam fugiat hic? Esse dicta aliquid error repudiandae <br> earum suscipit fugiat molestias, veniam, vel architecto veritatis <br> delectus repellat modi impedit sequi.</p>
-                </div>
-                <div class="banner-btn">
-                    <button>Shop Now</button>
-                </div>
-            </div>
-        </div>
-        <div class="service-container">
-            <div class="service-title">
-                <h2>Why Shop With Us</h2>
-            </div>
-            <div class="service-card-container">
-                <div class="service-card">
-                    <i class='fas fa-shipping-fast'></i>
-                    <h3>Fast Delivery</h3>
-                    <span>ariations of passages of Lorem <br> Ipsum available</span>
-                </div>
-                <div class="service-card">
-                    <i class='fas fa-shipping-fast'></i>
-                    <h3>Fast Delivery</h3>
-                    <span>ariations of passages of Lorem <br>Ipsum available</span>
-                </div>
-                <div class="service-card">
-                    <i class='fas fa-shipping-fast'></i>
-                    <h3>Fast Delivery</h3>
-                    <span>ariations of passages of Lorem <br>Ipsum available</span>
-                </div>
-            </div>
+        <div class="discount">
+            <h2>Sale 20% Off On Everything</h2>
         </div>
         <div class="product-container">
             <div class="product-title">
-                <h1>Our products</h1>
+                <h1>Our Products</h1>
             </div>
             <div class="product-card-contaier">
                 <div class="product-card">
@@ -85,6 +53,14 @@
                         <span class="fa fa-star checked"></span>
                         <span class="fa fa-star"></span>
                         <span class="fa fa-star"></span>
+                    </div>
+                    <div class="btn-card-container" style="display: none;">
+                        <div class="btn-card-buy">
+                            <button>Buy Now</button>
+                        </div>
+                        <div class="btn-card-detail">
+                            <button>Detail</button>
+                        </div>
                     </div>
                 </div>
                 <div class="product-card">
@@ -205,7 +181,7 @@
                     <button>View All Product</button>
                 </div>
             </div>
-        </div>  
+        </div> 
     </main>
     <div class="infomation">
         <div class="follow-us">
@@ -237,5 +213,6 @@
             <i><a href="#" class="fa fa-youtube"></a></i>
         </div>
     </footer>
+    <script src="../js/product.js"></script>
 </body>
 </html>

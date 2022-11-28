@@ -1,0 +1,13 @@
+@import 'variable';
+@import 'mixin';
+
+.discount{
+    background-color: $btn-main;
+    flex: 1;
+    padding: 30px;
+    @include flexProp(flex,row);
+    @include flex-item(center,center);
+    font-size: 18px;
+    color: white;
+
+}

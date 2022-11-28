@@ -73,4 +73,5 @@ $breakPoints: (
     background-color: $btn_main;
     color: white;
     border-radius:10px;
+    @content;
 }

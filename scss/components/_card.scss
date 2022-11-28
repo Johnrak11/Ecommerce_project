@@ -4,8 +4,8 @@
 .product-card-contaier{
     @include flexProp(flex,row);
     flex-wrap: wrap;
-    // background-color: red;
     .product-card{
+        position: relative;
         margin: 12px;
         padding: 10px;
         background-color:$font-color-w;
@@ -26,11 +26,31 @@
                 color: $btn_main;
             }
         }
+        .btn-card-container{
+            @include flexProp(flex,column);
+            @include flex-item (center,center);
+            gap: 20px;
+            @include spacing(10px,0);
+            position: absolute;
+            top: 30%;
+            right: 30%;
+            background-color: blue;
+            button{
+                @include btn {
+                    padding:15px;
+                }
+            }
+            
+        }
         .product-card-rating{
             margin-top: 5px;
             .checked{
                 color: orange;
             }
         }
+    }
+    .product-card:hover{
+        @include hover-color;
+        @include hover-zoom;
     }
 }
