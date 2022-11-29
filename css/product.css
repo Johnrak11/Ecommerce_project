@@ -228,26 +228,18 @@ main {
   color: rgb(247, 68, 78);
 }
 .product-container .product-card-contaier .product-card .btn-card-container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  gap: 20px;
   padding: 10px;
   margin: 0;
   position: absolute;
   top: 30%;
   right: 30%;
-  background-color: blue;
+}
+.product-container .product-card-contaier .product-card .btn-card-container .btn-card-buy {
+  margin-bottom: 20px;
+  text-align: center;
+}
+.product-container .product-card-contaier .product-card .btn-card-container .btn-card-detail {
+  text-align: center;
 }
 .product-container .product-card-contaier .product-card .btn-card-container button {
   padding: 20px;
@@ -255,7 +247,7 @@ main {
   background-color: rgb(247, 68, 78);
   color: white;
   border-radius: 10px;
-  padding: 15px;
+  padding: 12px;
 }
 .product-container .product-card-contaier .product-card .product-card-rating {
   margin-top: 5px;
@@ -263,13 +255,11 @@ main {
 .product-container .product-card-contaier .product-card .product-card-rating .checked {
   color: orange;
 }
-.product-container .product-card-contaier .product-card:hover {
-  background-color: rgb(247, 68, 78);
-  cursor: pointer;
-  color: white;
+.product-container .product-card-contaier .product-card-image:hover {
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
-  -webkit-transition: 0.5s;
   transition: 0.5s;
   cursor: pointer;
 }

@@ -27,17 +27,20 @@
             }
         }
         .btn-card-container{
-            @include flexProp(flex,column);
-            @include flex-item (center,center);
-            gap: 20px;
             @include spacing(10px,0);
             position: absolute;
             top: 30%;
             right: 30%;
-            background-color: blue;
+            .btn-card-buy{
+                margin-bottom: 20px;
+                text-align: center;
+            }
+            .btn-card-detail{
+                text-align: center;
+            }
             button{
                 @include btn {
-                    padding:15px;
+                    padding:12px;
                 }
             }
             
@@ -49,8 +52,8 @@
             }
         }
     }
-    .product-card:hover{
-        @include hover-color;
+    .product-card-image:hover{
+        transition: .5s;
         @include hover-zoom;
     }
 }

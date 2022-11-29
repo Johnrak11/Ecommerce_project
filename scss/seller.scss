@@ -1,0 +1,30 @@
+@import 'components/mixin';
+@import 'components/variable';
+
+* {
+    @include spacing(0, 0);
+}
+body {
+    @include body(auto);
+    // --------responsive-------
+    @include responsiveSize(big) {
+        height: 170vh;
+    }
+    @include responsiveSize(small) {
+        // height:100vh;
+    }
+}
+@import 'components/nav';
+#nav-seller{
+   
+    transform: rotate(45deg);
+    border-bottom: 2px solid $btn-main;
+}
+main {
+    margin-top: 6%;
+}
+@import 'components/discount';
+@import 'components/add-product';
+@import 'components/product';
+@import 'components/dialog';
+@import 'components/footer';

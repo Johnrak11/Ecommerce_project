@@ -10,9 +10,8 @@ let products = [{ 'title': 'jim', 'price': '$65', 'rating': rating_number[0] },
                 { 'title': 'jim', 'price': '$65', 'rating': rating_number[3] },
                 { 'title': 'jim', 'price': '$65', 'rating': rating_number[3] },
                 { 'title': 'jim', 'price': '$65', 'rating': rating_number[3] },]
-// let products =[]
+
 function rander_product() {
-    // document.querySelector('product-card').remove()
     let card_container = document.querySelector('.product-card-contaier')
     for (let item in products) {
         // create-card--
@@ -61,15 +60,15 @@ function rander_product() {
         let btn_card_buy = document.createElement('div');
         btn_card_buy.className = 'btn-card-buy';
         let btn_buy = document.createElement('button');
-        btn_buy.id = 'btn_buy'
-        btn_buy.textContent = 'Buy Now';
+        btn_buy.id = 'delete'
+        btn_buy.textContent = 'Delete';
         btn_card_buy.appendChild(btn_buy);
 
         let btn_card_detail = document.createElement('div');
         btn_card_detail.className = 'btn-card-detail';
         let btn_detail = document.createElement('button');
-        btn_detail.id = 'btn_detail'
-        btn_detail.textContent = 'detail';
+        btn_detail.id = 'edit'
+        btn_detail.textContent = 'Edit';
         btn_card_detail.appendChild(btn_detail);
 
         //append btn
@@ -100,17 +99,20 @@ function hide(element) {
 function show(element) {
     element.style.display = 'block'
 }
-// ====================save file=================
+//   -----------------save file------------
+
 function save_data() {
     localStorage.setItem("products", JSON.stringify(products));
   }
-  
+//   -----------------save file------------
 function load_data() {
     let productsStorage = JSON.parse(localStorage.getItem("products"));
     if (productsStorage !== null) {
         products = productsStorage;
     }
 }
-// save_data()
+ function add_product () {
+    console.log('add')
+ }
 load_data()
 rander_product()
