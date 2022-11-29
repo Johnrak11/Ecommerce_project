@@ -32,7 +32,13 @@ main {
             padding: 15px;
         }
     }
+    .undefind-container{
+        @include spacing(20px,0);
+        text-align: center;
+        color: rgb(68, 68, 68);
+    }
 }
 @import 'components/discount';
 @import 'components/product';
+@import 'components/detail';
 @import 'components/footer';

@@ -1,13 +1,13 @@
 let dom_dialog = document.querySelector('#product-dialog')
 
-let rating_number = [3, 4, 1, 2, 1, 4, 5]
+let rating_number = [3, 4, 1, 2, 1, 4, 0]
 let products = [{ 'title': 'jim', 'price': '$65', 'rating': rating_number[0], 'photo': 'https://technext.github.io/famms/images/p1.png', 'desciption': 'Black' },
 { 'title': 'jim', 'price': '$65', 'rating': rating_number[1], 'photo': 'https://technext.github.io/famms/images/p1.png', 'currency': '$', 'desciption': 'Black' },
-{ 'title': 'jim', 'price': '$65', 'rating': rating_number[2], 'photo': 'https://technext.github.io/famms/images/p1.png', 'currency': '$', 'desciption': 'Black' },
-{ 'title': 'jim', 'price': '$65', 'rating': rating_number[3], 'photo': 'https://technext.github.io/famms/images/p1.png', 'currency': '$', 'desciption': 'Black' },
-{ 'title': 'jim', 'price': '$65', 'rating': rating_number[4], 'photo': 'https://technext.github.io/famms/images/p1.png', 'currency': '$', 'desciption': 'Black' },
-{ 'title': 'jim', 'price': '$65', 'rating': rating_number[5], 'photo': 'https://technext.github.io/famms/images/p1.png', 'currency': '$', 'desciption': 'Black' },
-{ 'title': 'jim', 'price': '$65', 'rating': rating_number[6], 'photo': 'https://technext.github.io/famms/images/p1.png', 'currency': '$', 'desciption': 'Black' },
+{ 'title': 'T-shit', 'price': '$65', 'rating': rating_number[2], 'photo': 'https://technext.github.io/famms/images/p1.png', 'currency': '$', 'desciption': 'Black' },
+{ 'title': 'gan', 'price': '$65', 'rating': rating_number[3], 'photo': 'https://technext.github.io/famms/images/p1.png', 'currency': '$', 'desciption': 'Black' },
+{ 'title': 'nis', 'price': '$65', 'rating': rating_number[4], 'photo': 'https://technext.github.io/famms/images/p1.png', 'currency': '$', 'desciption': 'Black' },
+{ 'title': 'get', 'price': '$65', 'rating': rating_number[5], 'photo': 'https://technext.github.io/famms/images/p1.png', 'currency': '$', 'desciption': 'Black' },
+{ 'title': 'no', 'price': '$65', 'rating': rating_number[6], 'photo': 'https://technext.github.io/famms/images/p1.png', 'currency': '$', 'desciption': 'Black' },
 ]
 let index_editor = 0
 

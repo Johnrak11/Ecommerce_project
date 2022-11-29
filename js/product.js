@@ -58,19 +58,19 @@ function rander_product() {
         // button --buy--
         let btn_card_buy = document.createElement('div');
         btn_card_buy.className = 'btn-card-buy';
-        let btn_delete = document.createElement('button');
-        btn_delete.id = 'delete'
-        btn_delete.textContent = 'Delete';
-        btn_card_buy.appendChild(btn_delete);
-        // btn_delete.addEventListener('click', delete_product)
+        let btn_buy= document.createElement('button');
+        btn_buy.id = 'buy'
+        btn_buy.textContent = 'Buy';
+        btn_card_buy.appendChild(btn_buy);
+        // btn_detail.addEventListener('click', delete_product)
 
         let btn_card_detail = document.createElement('div');
         btn_card_detail.className = 'btn-card-detail';
-        let btn_edit = document.createElement('button');
-        btn_edit.id = 'edit'
-        btn_edit.textContent = 'Edit';
-        btn_card_detail.appendChild(btn_edit);
-        // btn_edit.addEventListener('click', edit_product)
+        let btn_detail = document.createElement('button');
+        btn_detail.id = 'detail'
+        btn_detail.textContent = 'Detail';
+        btn_card_detail.appendChild(btn_detail);
+        btn_detail.addEventListener('click',detail_process )
 
         //append btn
         btn_card_container.appendChild(btn_card_buy);
@@ -114,6 +114,71 @@ function load_data() {
         products = products_storage;
         rating_number = rating_storage
     }
+}
+// ---------search-------------
+function search_process() {
+    let num_found = 0;
+    let search_text = search_products.value
+    let product_name = document.querySelectorAll(".product-card")
+    product_name.forEach(item => {
+        let item_text = item.firstElementChild.nextElementSibling.firstElementChild.textContent
+        let is_found = true
+        if (item_text.length > search_text.length) {
+            for (let character in search_text) {
+                if (search_text[character].toLocaleLowerCase() !== item_text[character].toLocaleLowerCase()) {
+                    is_found = false
+                }
+            }
+            if (!is_found) {
+                item.style.display = 'none'
+            } else {
+                num_found++;
+                item.style.display = 'block'
+            }
+        }
+    });
+    console.log(num_found)
+    if (num_found === 0) {
+        document.querySelector('.undefind-container').style.display = 'block';
+    }else{
+        document.querySelector('.undefind-container').style.display = 'none';
+    }
+}
+
+let search_products = document.querySelector(".search-container").firstElementChild.nextElementSibling;
+search_products.addEventListener('keyup', search_process)
+console.log(search_products)
+
+let dom_cancel_detail = document.querySelector('.cancel').firstElementChild
+dom_cancel_detail.addEventListener('click', (e) => {
+    hide(dom_dialog)
+});
+function detail_process(event){
+    show(dom_dialog)
+    let index = event.target.parentElement.parentElement.parentElement.dataset.index;
+    let detail_image = document.querySelector('.big_image').firstElementChild
+    let detail_name = document.querySelector('.product_name').firstElementChild
+    let detail_ratting = document.querySelector('.product_ratting').querySelectorAll('span')
+    let detail_currency = document.querySelector('.product_currency').firstElementChild
+    let detail_desciption = document.querySelector('.product_desciption').firstElementChild
+    let detail_price = document.querySelector('.product_price').firstElementChild
+    //change photo
+    detail_image.src = products[index].photo
+    //change name
+    detail_name.textContent = products[index].title
+    //change rating
+    for (let item in detail_ratting){
+        detail_ratting[item].className= 'fa fa-star'
+        if (item < products[index].rating) {
+            detail_ratting[item].className= 'fa fa-star checked'
+        }
+    }
+    //change currency
+    detail_currency.textContent = 'Currency: '+ products[index].currency
+    //change description
+    detail_desciption.textContent = 'Desciption: '+ products[index].desciption
+    //change price
+    detail_price.textContent = 'Price: '+ products[index].price
 }
 load_data()
 rander_product()
