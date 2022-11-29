@@ -6,19 +6,12 @@
     @include flexSize (1.5);
     @include flexProp (flex,column);
     .product-title{
-        @include flexProp (flex,column);
-        @include flex-item (center,center);
-        padding: 40px;
-        font-size: 25px;
+        @include flexProp (flex,row);
+        @include flex-item (start,space-around);
+        padding: 40px 0 40px 0;
+        font-size: 20px;
+        gap: 10%;
+        @import 'input-search';
     }
     @import 'card';
-    .more-product{
-        @include flexProp (flex,column);
-        @include flex-item (center,center);
-        margin: 15px;
-        button{
-            @include btn;
-            padding: 15px;
-        }
-    }
 }

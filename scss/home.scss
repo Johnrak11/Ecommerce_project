@@ -16,8 +16,7 @@ body {
 }
 @import 'components/nav';
 #nav-home{
-    // -webkit-transform: rotate(45deg);
-    // -ms-transform: rotate(45deg);
+    
     transform: rotate(45deg);
     border-bottom: 2px solid $btn-main;
 }
@@ -26,9 +25,21 @@ main {
     @include flexSize(1);
     // background-color;
     margin-top: 6%  ;
+    .more-product{
+        @include flexProp (flex,column);
+        @include flex-item (center,center);
+        margin: 15px;
+        button{
+            @include btn;
+            padding: 15px;
+        }
+    }
     @import 'components/banner';
     @import 'components/service';
     @import 'components/product';
+    .product-container .product-title{
+        @include flex-item (center,center);
+    }
     
 }
 @import 'components/footer';

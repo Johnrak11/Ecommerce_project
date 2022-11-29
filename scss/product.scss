@@ -23,6 +23,15 @@ body {
 }
 main {
     margin-top: 6%;
+    .more-product{
+        @include flexProp (flex,column);
+        @include flex-item (center,center);
+        margin: 15px;
+        button{
+            @include btn;
+            padding: 15px;
+        }
+    }
 }
 @import 'components/discount';
 @import 'components/product';

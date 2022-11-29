@@ -53,6 +53,12 @@ $breakPoints: (
     transition: .5s;
     cursor: pointer;
 }
+@mixin hover-style{
+    box-shadow: inset 0 0 0 0 #54b3d6;
+    margin: 0 -.25rem;
+    padding: 20 .25rem;
+    transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
+}
 @mixin box-shadow{
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
@@ -75,3 +81,17 @@ $breakPoints: (
     border-radius:10px;
     @content;
 }
+@mixin button {
+    padding: 12px;
+    border: none;
+    cursor: pointer;
+    background: $btn_secondary;
+    border-radius: $border-radius;
+    color: $font-color-b;
+    @content;
+    a {
+        color: $font-color-w;
+        text-decoration: none;
+    }
+}
+

@@ -1,0 +1,42 @@
+@import 'variable';
+@import 'mixin';
+
+.search-container{
+    @include spacing(5px,0);
+    background-color: white;
+    @include flexProp(flex,row){
+        align-items: center;
+    }
+    
+    width: 38%;
+    border-radius: $border-radius;
+    @include responsiveSize(small) {
+        width: 90%;
+        margin: 15px;
+    }
+    input{
+        @include flexSize(1);
+        border: none;
+        @include spacing($search-size,0);
+        outline: none;
+        @include responsiveSize(small) {
+            // margin: 15px;
+        }
+    }
+    ::placeholder{
+        font-size:$font-size-meduim;
+    }
+    span{
+        font-size: $font-size-small;
+        @include button;
+        text-align: center;
+        justify-content: center;
+        background-color: $btn_main;
+        
+        a{
+            text-decoration: none;
+            color: $font-color-w;
+        }
+    }
+
+}

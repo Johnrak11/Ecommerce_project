@@ -5,6 +5,7 @@
     @include flexProp(flex,row);
     flex-wrap: wrap;
     .product-card{
+        width: 21%;
         position: relative;
         margin: 12px;
         padding: 10px;
