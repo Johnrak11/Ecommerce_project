@@ -1,28 +1,33 @@
+let dom_dialog = document.querySelector('#product-dialog')
+
 let rating_number = [3, 4, 1, 2]
-let products = [{ 'title': 'jim', 'price': '$65', 'rating': rating_number[0] },
-                { 'title': 'jim', 'price': '$65', 'rating': rating_number[1] },
-                { 'title': 'jim', 'price': '$65', 'rating': rating_number[2] },
-                { 'title': 'jim', 'price': '$65', 'rating': rating_number[3] },
-                { 'title': 'jim', 'price': '$65', 'rating': rating_number[3] },
-                { 'title': 'jim', 'price': '$65', 'rating': rating_number[3] },
-                { 'title': 'jim', 'price': '$65', 'rating': rating_number[3] },
-                { 'title': 'jim', 'price': '$65', 'rating': rating_number[3] },
-                { 'title': 'jim', 'price': '$65', 'rating': rating_number[3] },
-                { 'title': 'jim', 'price': '$65', 'rating': rating_number[3] },
-                { 'title': 'jim', 'price': '$65', 'rating': rating_number[3] },]
+let products = [{ 'title': 'jim', 'price': '$65', 'rating': rating_number[0], 'photo': 'https://technext.github.io/famms/images/p1.png', 'desciption': 'Black' },
+{ 'title': 'jim', 'price': '$65', 'rating': rating_number[1], 'photo': 'https://technext.github.io/famms/images/p1.png', 'currency': '$', 'desciption': 'Black' },
+{ 'title': 'jim', 'price': '$65', 'rating': rating_number[1], 'photo': 'https://technext.github.io/famms/images/p1.png', 'currency': '$', 'desciption': 'Black' },
+{ 'title': 'jim', 'price': '$65', 'rating': rating_number[1], 'photo': 'https://technext.github.io/famms/images/p1.png', 'currency': '$', 'desciption': 'Black' },
+{ 'title': 'jim', 'price': '$65', 'rating': rating_number[1], 'photo': 'https://technext.github.io/famms/images/p1.png', 'currency': '$', 'desciption': 'Black' },
+{ 'title': 'jim', 'price': '$65', 'rating': rating_number[1], 'photo': 'https://technext.github.io/famms/images/p1.png', 'currency': '$', 'desciption': 'Black' },
+{ 'title': 'jim', 'price': '$65', 'rating': rating_number[1], 'photo': 'https://technext.github.io/famms/images/p1.png', 'currency': '$', 'desciption': 'Black' },
+]
 
 function rander_product() {
-    let card_container = document.querySelector('.product-card-contaier')
+    ///remove product-card-contaier
+    document.querySelector('.product-card-contaier').remove();
+    //create product to display on screen
+    let parent_card_container = document.querySelector('.product-container')
+    let card_container = document.createElement('div')
+    card_container.className ='product-card-contaier'
     for (let item in products) {
         // create-card--
         let product_card = document.createElement('div')
         product_card.className = 'product-card'
+        product_card.dataset.index =item;
 
         // ===create-image--
         let product_card_image = document.createElement('div');
         product_card_image.className = 'product-card-image';
         let image = document.createElement('img');
-        image.src = '../image/p1.png'
+        image.src = products[item].photo
         product_card_image.appendChild(image);
         product_card.appendChild(product_card_image)
 
@@ -55,27 +60,28 @@ function rander_product() {
         // button--
         let btn_card_container = document.createElement('div');
         btn_card_container.className = 'btn-card-container';
-        btn_card_container.style.display='none';
+        btn_card_container.style.display = 'none';
         // button --buy--
         let btn_card_buy = document.createElement('div');
         btn_card_buy.className = 'btn-card-buy';
-        let btn_buy = document.createElement('button');
-        btn_buy.id = 'delete'
-        btn_buy.textContent = 'Delete';
-        btn_card_buy.appendChild(btn_buy);
+        let btn_delete = document.createElement('button');
+        btn_delete.id = 'delete'
+        btn_delete.textContent = 'Delete';
+        btn_card_buy.appendChild(btn_delete);
+        btn_delete.addEventListener('click', delete_product)
 
         let btn_card_detail = document.createElement('div');
         btn_card_detail.className = 'btn-card-detail';
-        let btn_detail = document.createElement('button');
-        btn_detail.id = 'edit'
-        btn_detail.textContent = 'Edit';
-        btn_card_detail.appendChild(btn_detail);
+        let btn_edit = document.createElement('button');
+        btn_edit.id = 'edit'
+        btn_edit.textContent = 'Edit';
+        btn_card_detail.appendChild(btn_edit);
 
         //append btn
         btn_card_container.appendChild(btn_card_buy);
         btn_card_container.appendChild(btn_card_detail);
         product_card.appendChild(btn_card_container);
-    
+
         // -----hover-------------
         let dom_product_card = product_card
         let dom_btn_card_container = btn_card_container
@@ -84,12 +90,12 @@ function rander_product() {
         });
         dom_product_card.addEventListener('mouseout', (e) => {
             hide(dom_btn_card_container)
-        
+
         });
         // append card to cantainer--
         card_container.appendChild(product_card)
     }
-    console.log(card_container)
+    parent_card_container.appendChild(card_container)
 }
 
 // ===================hover================
@@ -103,7 +109,7 @@ function show(element) {
 
 function save_data() {
     localStorage.setItem("products", JSON.stringify(products));
-  }
+}
 //   -----------------save file------------
 function load_data() {
     let productsStorage = JSON.parse(localStorage.getItem("products"));
@@ -111,8 +117,45 @@ function load_data() {
         products = productsStorage;
     }
 }
- function add_product () {
+function add_product() {
     console.log('add')
- }
+    show(dom_dialog)
+    let editButton = document.querySelector(".create_Btn")
+    editButton.textContent = 'Create'
+    editButton.id = 'create'
+    if (editButton.id === "create") {
+        editButton.addEventListener('click', create_product)
+    }
+}
+
+function onCancel() {
+    hide(dom_dialog)
+}
+function create_product() {
+    let new_product = {}
+    let num = 0
+    new_product['title'] = document.querySelector('#title').value
+    new_product['price'] = document.querySelector('#price').value
+    new_product['rating'] = num
+    new_product['photo'] = document.querySelector('#image').value
+    new_product['currency'] = document.querySelector('#currency').value
+    new_product['desciption'] = document.querySelector('#desciption').value
+    if (new_product['title'] !== '' && new_product['desciption'] !== '' && new_product['price'] !== '' && new_product['currency'] !== '' && new_product['photo'] !== '') {
+        products.push(new_product)
+        rating_number.push(num)
+        hide(dom_dialog)
+    } else {
+        window.alert('Pleace fill the text')
+    }
+    save_data()
+    rander_product()
+}
+function delete_product(event) {
+    let index = event.target.parentElement.parentElement.parentElement.dataset.index;
+    products.splice(index, 1);
+    save_data()
+    rander_product()
+}
+save_data()
 load_data()
 rander_product()

@@ -46,34 +46,34 @@
             <div class="product-card-contaier">
                 <!-- /////js/// -->
             </div>
-            <div class="more-product">
+            <!-- <div class="more-product">
                 <div class="btn-more">
                     <button>View All Product</button>
                 </div>
-            </div>
+            </div> -->
         </div>
-        <div id="product-dialog">
+        <form id="product-dialog" style="display: none;">
             <dialog open>
                 <header>Create New Product</header>
                 <section>
                     <label>Title product</label>
-                    <input id="title" type="text" placeholder="Product title" />
-                    <label>Answers</label>
-                    <input id="choiceA" type="text" placeholder="Answer A" />
-                    <input id="choiceB" type="text" placeholder="Answer B" />
-                    <input id="choiceC" type="text" placeholder="Answer C" />
-                    <input id="choiceD" type="text" placeholder="Answer D" />
+                    <input id="title" type="text" placeholder="Type your product name"  required/>
+                    <label>Price</label>
+                    <input id="price" type="number" placeholder="Pice of your product" required />
+                    <label>Currency</label>
+                    <input id="currency" type="text" placeholder="Real or US" required />
+                    <label>Desciption</label>
+                    <input id="desciption" type="text" placeholder="Bio" />
+                    <label>Image</label>
+                    <input id="image" type="text" placeholder="Fial the URL Image" required/>
                 </section>
 
                 <menu>
-                    <!-- When clicking on button,  call the right function  -->
                     <button onclick="onCancel()">Cancel</button>
-
-                    <!-- When clicking on button,  call the right function  -->
-                    <button class="edit_Btn">Create</button>
+                    <button class="create_Btn" type="button">Create</button>
                 </menu>
             </dialog>
-        </div>
+        </form>
     </main>
     <div class="infomation">
         <div class="follow-us">
