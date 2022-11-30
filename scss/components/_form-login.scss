@@ -1,0 +1,99 @@
+@import 'mixin';
+@import 'variable';
+@import url('https://fonts.googleapis.com/css2?family=Moulpali&display=swap');
+
+#form-login-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.75);
+    z-index: 10;
+
+    dialog {
+        position: fixed;
+        top: 10vh;
+        left: 35%;
+        width: 30%;
+        z-index: 100;
+        border-radius: 25px;
+        border: none;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+        overflow: hidden;
+        @include flexProp (flex, row);
+        form {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            padding: 10px;
+            width: 25%;
+            border-radius: 10px;
+            background: #f2f6fa50;
+
+            .picture,
+            .text,
+            .usename,
+            .Email,
+            .password,
+            .login {
+                display: flex;
+                flex: 1;
+                padding: 5px;
+            }
+            .picture {
+                justify-content: center;
+                align-items: center;
+            }
+            
+            .picture img {
+                width: 100px;
+                height: 100px;
+                border-radius: 50px;
+            
+            }
+            .text {
+                justify-content: center;
+                align-items: center;
+                padding: 10px;
+            }
+            
+            .text h2 {
+                font-size: 25px;
+                font-family: 'Moulpali', cursive;
+            }
+            
+            .all-input {
+                padding: 10px;
+                flex: 1;
+                border-radius: 14px;
+                background-color: rgba(255, 255, 255, 0.959);
+            }
+            
+            .login button {
+                background-color: $btn-main;
+                border: none;
+                border-radius: 14px;
+                padding: 10px;
+                flex: 1;
+                color: white;
+            }
+            
+            ::placeholder {
+                background: #528ac2;
+                background-image: linear-gradient(90deg, #000000, #1a1530, #163d4e, #1f6642, #53792f, #a07949, #d07e93, #d09cd9, #c1caf3, #d2eeef, #d2eeef);
+                background-clip: text;
+                -webkit-background-clip: text;
+                color: transparent;
+            
+            }
+        }
+    }
+}
+
+
+
+
+
+

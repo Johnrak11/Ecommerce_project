@@ -27,7 +27,7 @@
             font-size: 15px;
             padding: 0 10px 0 10px;
             margin-bottom: 10px;
-            color: $btn-main;
+            // color: $btn-main;
             #action{
                 margin-right: 3%;
             }
@@ -35,20 +35,22 @@
         }
         .scroll {
             display: flex;
-            background-color: coral;
             width: 100%;
             height: 70vh;
             overflow: auto;
+
             #item-container{
                 width: 100%;
                 .item_cart{
-                    background-color: rgb(148, 202, 228);
+                    // background-color:$card_main;
+                    background-color: rgb(211, 211, 211);
                     @include flexProp (flex,row);
                     padding: 5px;
                     border-radius: 12px;
+                    margin-top: 10px;
                     .item_cart_left{
                         @include flexProp (flex,row);
-                        @include flex-item (space-between,center);
+                        @include flex-item (flex-start,center);
                         @include flexSize(1);
                         
                         img {
@@ -56,7 +58,7 @@
                             margin-left: 15px;
                         }
                         h2{
-                            margin-right: 50px;
+                            margin-left: 30%;
                         }
                     }
                     .item_cart_center{
@@ -80,11 +82,18 @@
                         button{
                             @include button;
                             background-color: $btn-main;
-                            padding: 5px;
+                            padding: 8px;
                             font-size: 15px;
+                            color: white;
                             flex: 1;
                         }
                     }
+                }
+                .undefind-cart{
+                    @include flexProp(flex,row);
+                    @include flex-item (center,center);
+                    height: 70vh;
+                    color: rgb(126, 123, 123);
                 }
             }
         }

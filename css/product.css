@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Moulpali&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 * {
   padding: 0;
   margin: 0;
@@ -557,7 +559,6 @@ input:focus {
   font-size: 15px;
   padding: 0 10px 0 10px;
   margin-bottom: 10px;
-  color: rgb(247, 68, 78);
 }
 #stor-item-comtainer dialog header #action {
   margin-right: 3%;
@@ -566,7 +567,6 @@ input:focus {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  background-color: coral;
   width: 100%;
   height: 70vh;
   overflow: auto;
@@ -575,7 +575,7 @@ input:focus {
   width: 100%;
 }
 #stor-item-comtainer dialog .scroll #item-container .item_cart {
-  background-color: rgb(148, 202, 228);
+  background-color: rgb(211, 211, 211);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -585,6 +585,7 @@ input:focus {
           flex-direction: row;
   padding: 5px;
   border-radius: 12px;
+  margin-top: 10px;
 }
 #stor-item-comtainer dialog .scroll #item-container .item_cart .item_cart_left {
   display: -webkit-box;
@@ -594,9 +595,9 @@ input:focus {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -609,7 +610,7 @@ input:focus {
   margin-left: 15px;
 }
 #stor-item-comtainer dialog .scroll #item-container .item_cart .item_cart_left h2 {
-  margin-right: 50px;
+  margin-left: 30%;
 }
 #stor-item-comtainer dialog .scroll #item-container .item_cart .item_cart_center {
   display: -webkit-box;
@@ -674,8 +675,9 @@ input:focus {
   border-radius: 12px;
   color: rgb(24, 24, 24);
   background-color: rgb(247, 68, 78);
-  padding: 5px;
+  padding: 8px;
   font-size: 15px;
+  color: white;
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
@@ -683,6 +685,23 @@ input:focus {
 #stor-item-comtainer dialog .scroll #item-container .item_cart menu button a {
   color: rgb(234, 234, 234);
   text-decoration: none;
+}
+#stor-item-comtainer dialog .scroll #item-container .undefind-cart {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 70vh;
+  color: rgb(126, 123, 123);
 }
 #stor-item-comtainer dialog menu {
   margin-top: 5px;
@@ -708,6 +727,374 @@ input:focus {
 #stor-item-comtainer dialog menu button a {
   color: rgb(234, 234, 234);
   text-decoration: none;
+}
+
+#form-login-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.75);
+  z-index: 10;
+}
+#form-login-container dialog {
+  position: fixed;
+  top: 10vh;
+  left: 35%;
+  width: 30%;
+  z-index: 100;
+  border-radius: 25px;
+  border: none;
+  -webkit-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+#form-login-container dialog form {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 8px;
+  padding: 10px;
+  width: 25%;
+  border-radius: 10px;
+  background: rgba(242, 246, 250, 0.3137254902);
+}
+#form-login-container dialog form .picture,
+#form-login-container dialog form .text,
+#form-login-container dialog form .usename,
+#form-login-container dialog form .Email,
+#form-login-container dialog form .password,
+#form-login-container dialog form .login {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  padding: 5px;
+}
+#form-login-container dialog form .picture {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+#form-login-container dialog form .picture img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+}
+#form-login-container dialog form .text {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 10px;
+}
+#form-login-container dialog form .text h2 {
+  font-size: 25px;
+  font-family: "Moulpali", cursive;
+}
+#form-login-container dialog form .all-input {
+  padding: 10px;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  border-radius: 14px;
+  background-color: rgba(255, 255, 255, 0.959);
+}
+#form-login-container dialog form .login button {
+  background-color: rgb(247, 68, 78);
+  border: none;
+  border-radius: 14px;
+  padding: 10px;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  color: white;
+}
+#form-login-container dialog form ::-webkit-input-placeholder {
+  background: #528ac2;
+  background-image: -webkit-gradient(linear, left top, right top, from(#000000), color-stop(#1a1530), color-stop(#163d4e), color-stop(#1f6642), color-stop(#53792f), color-stop(#a07949), color-stop(#d07e93), color-stop(#d09cd9), color-stop(#c1caf3), color-stop(#d2eeef), to(#d2eeef));
+  background-image: linear-gradient(90deg, #000000, #1a1530, #163d4e, #1f6642, #53792f, #a07949, #d07e93, #d09cd9, #c1caf3, #d2eeef, #d2eeef);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+#form-login-container dialog form ::-moz-placeholder {
+  background: #528ac2;
+  background-image: linear-gradient(90deg, #000000, #1a1530, #163d4e, #1f6642, #53792f, #a07949, #d07e93, #d09cd9, #c1caf3, #d2eeef, #d2eeef);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+#form-login-container dialog form :-ms-input-placeholder {
+  background: #528ac2;
+  background-image: linear-gradient(90deg, #000000, #1a1530, #163d4e, #1f6642, #53792f, #a07949, #d07e93, #d09cd9, #c1caf3, #d2eeef, #d2eeef);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+#form-login-container dialog form ::-ms-input-placeholder {
+  background: #528ac2;
+  background-image: linear-gradient(90deg, #000000, #1a1530, #163d4e, #1f6642, #53792f, #a07949, #d07e93, #d09cd9, #c1caf3, #d2eeef, #d2eeef);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+#form-login-container dialog form ::placeholder {
+  background: #528ac2;
+  background-image: -webkit-gradient(linear, left top, right top, from(#000000), color-stop(#1a1530), color-stop(#163d4e), color-stop(#1f6642), color-stop(#53792f), color-stop(#a07949), color-stop(#d07e93), color-stop(#d09cd9), color-stop(#c1caf3), color-stop(#d2eeef), to(#d2eeef));
+  background-image: linear-gradient(90deg, #000000, #1a1530, #163d4e, #1f6642, #53792f, #a07949, #d07e93, #d09cd9, #c1caf3, #d2eeef, #d2eeef);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+#credit-card {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.75);
+  z-index: 10;
+}
+#credit-card dialog {
+  position: fixed;
+  top: 13vh;
+  left: 18%;
+  width: 65%;
+  z-index: 100;
+  border-radius: 25px;
+  border: none;
+  -webkit-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+#credit-card dialog main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  margin: 0px;
+}
+#credit-card dialog .sidebar-left {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+#credit-card dialog .content-left {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+#credit-card dialog .content-left-text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 12px;
+  padding: 20px;
+}
+#credit-card dialog .product-image,
+#credit-card dialog .credit-title,
+#credit-card dialog .quantity-container,
+#credit-card dialog .total-price-container,
+#credit-card dialog .ratting-title,
+#credit-card dialog .title-left,
+#credit-card dialog .ratting-stars {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  font-size: 18px;
+}
+#credit-card dialog .credit-title {
+  font-size: 15px;
+}
+#credit-card dialog img {
+  width: 38%;
+}
+#credit-card dialog #quantity {
+  padding: 4px;
+  margin: 0;
+  width: 20%;
+  border: none;
+  border-radius: 10px;
+  background-color: rgb(247, 68, 78);
+  color: white;
+}
+#credit-card dialog .ratting-title {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+#credit-card dialog .ratting-stars {
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  font-size: 22px;
+}
+#credit-card dialog .ratting-stars .checked {
+  color: orange;
+}
+#credit-card dialog .sidebar-right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+#credit-card dialog #credit-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 10px;
+  padding: 20px;
+}
+#credit-card dialog .name,
+#credit-card dialog .number-card-content,
+#credit-card dialog .exp {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 7px;
+  gap: 5px;
+}
+#credit-card dialog .title-right {
+  font-size: 18px;
+}
+#credit-card dialog .title-right h1 {
+  color: blue;
+}
+#credit-card dialog .name input,
+#credit-card dialog .number-card-content input,
+#credit-card dialog .exp input {
+  border: 3px solid rgb(19, 148, 208);
+  padding: 10px;
+  border-radius: 10px;
+}
+#credit-card dialog input:focus {
+  outline: none;
+  border: 3px solid green;
+}
+#credit-card dialog .name-content,
+#credit-card dialog .exp-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 15px;
+}
+#credit-card dialog .select-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 3px;
+  gap: 20px;
+}
+#credit-card dialog .select-content p {
+  color: blue;
+}
+#credit-card dialog .select-content b {
+  color: black;
+}
+#credit-card dialog .submit-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+#credit-card dialog .submit-content button {
+  padding: 13px 18px 13px 18px;
+  border: none;
+  border-radius: 12px;
+  background-color: rgb(247, 68, 78);
+  color: white;
+}
+#credit-card dialog .payment-image {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  font-size: 55px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .infomation {

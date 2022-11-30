@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+#credit-card {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.75);
+    z-index: 10;
+
+    dialog {
+        position: fixed;
+        top: 13vh;
+        left: 18%;
+        width: 65%;
+        z-index: 100;
+        border-radius: 25px;
+        border: none;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+        overflow: hidden;
+        @include flexProp (flex, row);
+        main {
+            display: flex;
+            flex: 1;
+            margin: 0px;
+        }
+        .sidebar-left {
+            display: flex;
+            flex: 1;
+        }
+        .content-left {
+            flex: 1;
+        }
+        .content-left-text {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            padding: 20px;
+        }
+        .product-image,
+        .credit-title,
+        .quantity-container,
+        .total-price-container,
+        .ratting-title,
+        .title-left,
+        .ratting-stars {
+            @include flexProp(flex,row);
+            @include flex-item (space-between,center);
+            flex: 1;
+            font-size: 18px;
+        }
+        .credit-title{
+            font-size: 15px;
+        }
+        img{
+            width: 38%;
+        }
+        #quantity{
+            @include spacing(4px,0);
+            width: 20%;
+            border: none;
+            border-radius: 10px;
+            background-color: $btn-main;
+            color: white;
+        }
+        .ratting-title{
+            justify-content: center;
+        }
+        .ratting-stars{
+            justify-content: space-around;
+            font-size: 22px;
+            .checked{
+                color:orange;
+            }
+        }
+        .sidebar-right {
+            display: flex;
+            flex: 1;
+        }
+        #credit-form {
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            gap: 10px;
+            padding: 20px;
+        }
+        .name,
+        .number-card-content,
+        .exp {
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            justify-content: center;
+            padding: 7px;
+            gap: 5px;
+        }
+        .title-right{
+            font-size: 18px;
+        }
+
+        .title-right h1 {
+            color: blue;
+        }
+
+        .name input,
+        .number-card-content input,
+        .exp input {
+            border: 3px solid rgb(19, 148, 208);
+            padding: 10px;
+            border-radius: 10px;
+        }
+        input:focus{
+            outline: none;
+            border: 3px solid green;
+        }
+
+        .name-content,
+        .exp-content {
+            display: flex;
+            gap: 15px;
+        }
+
+        .select-content {
+            display: flex;
+            padding: 3px;
+            gap: 20px;
+        }
+
+        .select-content p {
+            color: blue;
+        }
+
+        .select-content b {
+            color: black;
+        }
+        .submit-content{
+            display: flex;
+            justify-content: flex-end;
+        }
+        .submit-content button {
+            padding: 13px 18px 13px 18px;
+            border: none;
+            border-radius: 12px;
+            background-color: $btn-main;
+            color: white;
+
+        }
+        .payment-image{
+            @include flexProp(flex,row);
+            flex: 1;
+            font-size: 55px;
+            @include flex-item(space-between,center);
+        }
+    }
+}

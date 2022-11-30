@@ -206,6 +206,6 @@ function on_edit() {
         rander_product()
     }
 }
-save_data()
+// save_data()
 load_data()
 rander_product()

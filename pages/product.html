@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,6 +14,7 @@
     <link rel="stylesheet" href="../css/product.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
+
 <body>
     <nav>
         <div class="nav-left">
@@ -22,11 +24,12 @@
         </div>
         <div class="nav-right">
             <ul>
-                <li ><a href="../index.html" >Home</a></li>
+                <li><a href="../index.html">Home</a></li>
                 <li><a href="#" id="nav-product">Product</a></li>
-                <li><a href="seller.html">Seller</a></li>
+                <li><a href="seller.html" id="seller-login" style="display: none;">Seller</a></li>
                 <li><a href="#">About us</a></li>
-                <li><a href="#">Account</a></li>
+                <li><a href="#" id="nav-acc">Account</a></li>
+                <li><a href="#" id="profile" style="display: none;">Account</a></li>
             </ul>
         </div>
     </nav>
@@ -51,30 +54,7 @@
                 <h2>Result not found</h2>
             </div>
             <div class="product-card-contaier">
-                <!-- <div class="product-card">
-                    <div class="product-card-image">
-                        <img src="/image/p1.png" alt="">
-                    </div>
-                    <div class="product-card-text">
-                        <h2>jim</h2>
-                        <label >$65</label>
-                    </div>
-                    <div class="product-card-rating">
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star"></span>
-                        <span class="fa fa-star"></span>
-                    </div>
-                    <div class="btn-card-container" style="display: none;">
-                        <div class="btn-card-buy">
-                            <button>Buy Now</button>
-                        </div>
-                        <div class="btn-card-detail">
-                            <button>Detail</button>
-                        </div>
-                    </div>
-                </div> -->
+                <!-- /////card display from js--- -->
             </div>
         </div>
         <div id="product-dialog" style="display:none;">
@@ -112,7 +92,7 @@
                         <button class="create_Btn" type="button">Buy Now <i class="fa fa-shopping-cart"></i></button>
                     </menu>
                 </div>
-                
+
             </dialog>
         </div>
         <div id="stor-item-comtainer" style="display:none;">
@@ -122,28 +102,12 @@
                     <h2>Name</h2>
                     <h2>Price</h2>
                     <h2>Currency</h2>
-                    <h2 >Desciption</h2>
+                    <h2>Desciption</h2>
                     <h2 id="action">Action</h2>
                 </header>
                 <div class="scroll">
                     <div id="item-container">
-                        <div class="item_cart">
-                            <div class="item_cart_left">
-                                <img src="../image/p1.png" alt="" width="50px">
-                                <h2>name</h2>
-                            </div>
-                            <div class="item_cart_center">
-                                <span>60</span>
-                                <span>Reil</span>
-                            </div>
-                            <div class="item_cart_right">
-                                <span>black and white</span>
-                            </div>
-                            <menu>
-                                <button>Cacel</button>
-                                <button class="create_Btn" type="button"><i class="fa fa-shopping-cart"></i></button>
-                            </menu>
-                        </div>
+                        <!-- display item add to cart--- -->
                     </div>
                 </div>
                 <menu>
@@ -151,11 +115,129 @@
                 </menu>
             </dialog>
         </div>
+        <div id="form-login-container" style="display:none;">
+            <dialog open>
+                <form action="#">
+                    <div class="picture">
+                        <img src="../image/profile.png" alt="">
+                    </div>
+                    <div class="text">
+                        <h2>Login</h2>
+                    </div>
+                    <div class="usename">
+                        <input type="text" id="user-image" class="all-input" required placeholder="Url image">
+                    </div>
+                    <div class="Email">
+                        <input type="text" class="all-input" id="user-name" required placeholder="Username">
+                    </div>
+                    <div class="password">
+                        <input type="email" id="user-gmail" class="all-input" required placeholder="Email Address">
+                    </div>
+                    <div class="password">
+                        <input type="password" id="user-password" class="all-input" required placeholder="Password">
+                    </div>
+                    <div class="login">
+                        <button type="button" onclick="login_process()">Login</button>
+                    </div>
+                </form>
+            </dialog>
+        </div>
+        <div id="credit-card" style="display:none;">
+            <dialog open>
+                <main>
+                    <aside class="sidebar-left">
+                        <div class="content-left">
+                            <div class="content-left-text">
+                                <div class="title-left">
+                                    <h1>Product Informatin</h1>
+                                </div>
+                                <div class="credit-title">
+                                    <h1>T-shirt</h1>
+                                </div>
+                                <div class="product-image">
+                                    <img src="../image/p1.png" alt="" width="100px">
+                                </div>
+                                <div class="quantity-container">
+                                    <span>Quantity</span>
+                                    <select id="quantity">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="5">4</option>
+                                        <option value="6">5</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="total-price-container">
+                                    <span>Commission</span>
+                                    <span>16$</span>
+                                </div>
+                                <div class="total-price-container">
+                                    <span>Total</span>
+                                    <span>50$</span>
+                                </div>
+                                <div class="ratting-title">
+                                    <label>Ratting us</label>
+                                </div>
+                                <div class="ratting-stars">
+                                    <span class="fa fa-star"></span>
+                                    <span class="fa fa-star"></span>
+                                    <span class="fa fa-star"></span>
+                                    <span class="fa fa-star"></span>
+                                    <span class="fa fa-star"></span>
+                                </div>
+
+                            </div>
+                        </div>
+                    </aside>
+                    <aside class="sidebar-right">
+                        <form id="credit-form" action="#">
+                            <div class="title-right">
+                                <h1>Payment</h1>
+                            </div>
+                            <div class="payment-image">
+                                <i class="fa fa-cc-visa" style="color:navy;"></i>
+                                <i class="fa fa-cc-amex" style="color:blue;"></i>
+                                <i class="fa fa-cc-mastercard" style="color:red;"></i>
+                                <i class="fa fa-cc-discover" style="color:orange;"></i>
+                            </div>
+                            <div class="name-content">
+                                <div class="name">
+                                    <label>Name on Card</label>
+                                    <input type="text" required placeholder="John More Doe">
+                                </div>
+                                <div class="name">
+                                    <label>Exp Month</label>
+                                    <input type="text" required placeholder="September">
+                                </div>
+                            </div>
+                            <div class="number-card-content">
+                                <label>Credit card number</label>
+                                <input type="text" required placeholder="1111-2222-3333-4444">
+                            </div>
+                            <div class="exp-content">
+                                <div class="exp">
+                                    <label>Exp Year</label>
+                                    <input type="number" required>
+                                </div>
+                                <div class="exp">
+                                    <label>CVV</label>
+                                    <input type="password" required placeholder="352">
+                                </div>
+                            </div>
+                            <div class="submit-content">
+                                <button type="submit">Make payment</button>
+                            </div>
+                        </form>
+                    </aside>
+                </main>
+            </dialog>
+        </div>
         <div class="more-product">
             <div class="btn-more">
                 <button>View All Product</button>
             </div>
-        </div> 
+        </div>
     </main>
     <div class="infomation">
         <div class="follow-us">
@@ -189,4 +271,5 @@
     </footer>
     <script src="../js/product.js"></script>
 </body>
+
 </html>

@@ -1,10 +1,15 @@
+// ----------------------globle ------------
 let dom_dialog = document.querySelector('#product-dialog')
 let dom_dialog_cart = document.querySelector('#stor-item-comtainer')
-
 let rating_number = []
 let products = []
 let index_editor = 0
 let add_items = []
+let numbers_add = 0
+let accounts = [{'gamil':'virak.kep22@gmail.com','password':'12345678','roles':'admin','name':'vorak','image':''}]
+let user_login = 0
+
+// ------------------function------------------
 function rander_product() {
     ///remove product-card-contaier
     document.querySelector('.product-card-contaier').remove();
@@ -63,7 +68,7 @@ function rander_product() {
         btn_buy.id = 'buy'
         btn_buy.textContent = 'Buy';
         btn_card_buy.appendChild(btn_buy);
-        // btn_detail.addEventListener('click', delete_product)
+        btn_buy.addEventListener('click', check_login)
 
         let btn_card_detail = document.createElement('div');
         btn_card_detail.className = 'btn-card-detail';
@@ -93,7 +98,6 @@ function rander_product() {
     }
     parent_card_container.appendChild(card_container)
 }
-
 // hide and show---
 function hide(element) {
     element.style.display = 'none'
@@ -138,30 +142,12 @@ function search_process() {
             }
         }
     });
-    console.log(num_found)
     if (num_found === 0) {
         document.querySelector('.undefind-container').style.display = 'block';
     } else {
         document.querySelector('.undefind-container').style.display = 'none';
     }
 }
-
-let search_products = document.querySelector(".search-container").firstElementChild.nextElementSibling;
-search_products.addEventListener('keyup', search_process)
-console.log(search_products)
-
-let dom_cancel_detail = document.querySelector('.cancel').firstElementChild
-dom_cancel_detail.addEventListener('click', (e) => {
-    hide(dom_dialog)
-});
-let dom_stort_item = document.querySelector('.stort-item')
-dom_stort_item.addEventListener('click', (e) => {
-    show(dom_dialog_cart)
-});
-let dom_store_cacel = document.querySelector('#store-cacel')
-dom_store_cacel.addEventListener('click', (e) => {
-    hide(dom_dialog_cart)
-});
 function detail_process(event) {
     show(dom_dialog)
     let index = event.target.parentElement.parentElement.parentElement.dataset.index;
@@ -190,73 +176,150 @@ function detail_process(event) {
     //change price
     detail_price.textContent = 'Price: ' + products[index].price
 }
-// function render_item_cart() {
-//     let dom_scroll = document.querySelector('.scroll')
-//     // Remove the card container and create a new one
-//     document.querySelector("#item-container").remove();
-//     dom_item_container = document.createElement("div");
-//     dom_item_container.id = "item-container";
-   
-//     for (let i in add_items) {
-//         let item_cart = document.createElement("div");
-//         item_cart.className = "item_cart";
-//         item_cart.dataset.index = i;
-//         // create item left--
-//         let item_cart_left = document.createElement("div");
-//         item_cart_left.className = "item_cart_left";
-//         let dom_img = document.createElement("img");
-//         dom_img.src = add_items[i].photo;
-//         let dom_title = document.createElement("h2");
-//         dom_title.textContent = add_items[i].title;
-//         item_cart_left.appendChild(dom_img)
-//         item_cart_left.appendChild(dom_title)
-//         item_cart.appendChild(item_cart_left)
-//         // create item center--
-//         let item_cart_center = document.createElement("div");
-//         item_cart_center.className = "item_cart_center";
-//         let dom_price = document.createElement("span");
-//         dom_price.textContent = add_items[i].price;
-//         let dom_currency = document.createElement("span");
-//         dom_currency.textContent = add_items[i].currency;
-//         item_cart_center.appendChild(dom_price)
-//         item_cart_center.appendChild(dom_currency)
-//         item_cart.appendChild(item_cart_center)
-//         // create item right--
-//         let item_cart_right = document.createElement("div");
-//         item_cart_right.className = "item_cart_right";
-//         let dom_desciption = document.createElement("span");
-//         dom_desciption.textContent = add_items[i].desciption;
-//         item_cart_right.appendChild(dom_desciption)
-//         item_cart.appendChild(item_cart_right)
-//         // create item menu
-//         let item_menu = document.createElement("menu");
-//         let dom_button_cacel = document.createElement("button");
-//         dom_button_cacel.className = "remove-store";
-//         dom_button_cacel.textContent = Cacel;
-//         // dom_button_cacel.addEventListener('click',')
-//         item_menu.appendChild(dom_button_cacel);
-//         let dom_button_buy = document.createElement("button");
-//         dom_button_buy.className = "buy-store";
-        
-//         // dom_button.addEventListener('click',')
-//         item_menu.appendChild(dom_button);
-        
-//         item_cart.appendChild(item_menu)
+function render_item_cart() {
+    let dom_scroll = document.querySelector('.scroll')
+    // Remove the card container and create a new one
+    document.querySelector("#item-container").remove();
+    dom_item_container = document.createElement("div");
+    dom_item_container.id = "item-container";
+    if (numbers_add !== 0) {
+        for (let i in add_items) {
+            let item_cart = document.createElement("div");
+            item_cart.className = "item_cart";
+            item_cart.dataset.index = i;
+            // create item left--
+            let item_cart_left = document.createElement("div");
+            item_cart_left.className = "item_cart_left";
+            let dom_img = document.createElement("img");
+            dom_img.src = add_items[i].photo;
+            let dom_title = document.createElement("h2");
+            dom_title.textContent = add_items[i].title;
+            item_cart_left.appendChild(dom_img)
+            item_cart_left.appendChild(dom_title)
+            item_cart.appendChild(item_cart_left)
+            // create item center--
+            let item_cart_center = document.createElement("div");
+            item_cart_center.className = "item_cart_center";
+            let dom_price = document.createElement("span");
+            dom_price.textContent = add_items[i].price;
+            let dom_currency = document.createElement("span");
+            dom_currency.textContent = add_items[i].currency;
+            item_cart_center.appendChild(dom_price)
+            item_cart_center.appendChild(dom_currency)
+            item_cart.appendChild(item_cart_center)
+            // create item right--
+            let item_cart_right = document.createElement("div");
+            item_cart_right.className = "item_cart_right";
+            let dom_desciption = document.createElement("span");
+            dom_desciption.textContent = add_items[i].desciption;
+            item_cart_right.appendChild(dom_desciption)
+            item_cart.appendChild(item_cart_right)
+            // create item menu
+            let item_menu = document.createElement("menu");
+            let dom_button_cacel = document.createElement("button");
+            dom_button_cacel.className = "remove-store";
+            dom_button_cacel.textContent = 'Cacel';
+            // dom_button_cacel.addEventListener('click',')
+            item_menu.appendChild(dom_button_cacel);
+            let dom_button_buy = document.createElement("button");
+            dom_button_buy.className = "buy-store";
+            let dom_icon = document.createElement("i");
+            dom_icon.className = "fa fa-shopping-cart";
+            dom_button_buy.addEventListener('click', check_login);
+            dom_button_buy.appendChild(dom_icon)
+            item_menu.appendChild(dom_button_buy)
+            item_cart.appendChild(item_menu)
+            // dom_button.addEventListener('click',')
+            dom_item_container.appendChild(item_cart)
+        }
+        dom_scroll.appendChild(dom_item_container)
+    } else {
+        let item_cart = document.createElement("div");
+        item_cart.className = "undefind-cart";
+        //create h2
+        let dom_h2 = document.createElement("h2");
+        dom_h2.textContent = "Not Found";
+        item_cart.appendChild(dom_h2)
+        dom_item_container.appendChild(item_cart)
+        dom_scroll.appendChild(dom_item_container)
 
-        
-//     }
-// }
+    }
 
-function add_card (){
+}
+function add_card() {
+    numbers_add++
     let new_cart_add = {}
     new_cart_add.title = products[index_editor].title
     new_cart_add.price = products[index_editor].price
     new_cart_add.currency = products[index_editor].currency
     new_cart_add.desciption = products[index_editor].desciption
     new_cart_add.photo = products[index_editor].photo
-    add_items.push(new_cart_add)
+    if (numbers_add <= 1) {
+        add_items.push(new_cart_add)
+        alert('Add this product to your cart')
+    } else {
+        for (let i in add_items) {
+            if (add_items[i].title !== new_cart_add.title) {
+                add_items.push(new_cart_add)
+                alert('Add this product to your cart')
+            } else {
+                alert('You Already add this product to your cart')
+            }
+        }
+    }
 }
 
+function login_process(){
+    hide(document.querySelector('#form-login-container'))
+    let seller_page =document.querySelector('#seller-login')
+    let new_account = {}
+    new_account['gamil'] = document.querySelector('#user-gmail').value
+    new_account['password'] = document.querySelector('#user-password').value
+    new_account['roles'] = 'user'
+    new_account['name'] = document.querySelector('#user-name').value
+    new_account['image'] = document.querySelector('#user-image').value
+    for (let index in accounts){
+        if (accounts[index].gamil === new_account['gamil'] && accounts[index].password === new_account['password']) {
+            show(seller_page)
+            user_login++;
+            hide(nav_account)
+            show(document.querySelector('#profile'))
+        }else if (new_account['gamil'] !== '' && new_account.password !== '' && new_account.image !== '' && new_account.name !== ''){
+            accounts.push(new_account)
+            user_login++;
+            hide(nav_account)
+            show(document.querySelector('#profile'))
+        }
+    }
+
+}
+
+function check_login (){
+    if (user_login > 0) {
+        console.log(user_login)
+    }else{
+        show(document.querySelector('#form-login-container'))
+    }
+}
+// ------------------------click----------------------
+let search_products = document.querySelector(".search-container").firstElementChild.nextElementSibling;
+search_products.addEventListener('keyup', search_process)
+
+let dom_cancel_detail = document.querySelector('.cancel').firstElementChild
+dom_cancel_detail.addEventListener('click', (e) => {
+    hide(dom_dialog)
+});
+let dom_stort_item = document.querySelector('.stort-item')
+dom_stort_item.addEventListener('click', (e) => {
+    show(dom_dialog_cart)
+    render_item_cart()
+});
+let dom_store_cacel = document.querySelector('#store-cacel')
+dom_store_cacel.addEventListener('click', (e) => {
+    hide(dom_dialog_cart)
+});
+let nav_account = document.querySelector('#nav-acc')
+nav_account.addEventListener('click',check_login)
 
 load_data()
 rander_product()
