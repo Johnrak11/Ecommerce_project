@@ -310,15 +310,14 @@ main .product-container .product-title {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: start;
-  -webkit-box-align: space-around;
-      -ms-flex-align: space-around;
-          align-items: space-around;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   padding: 40px 0 40px 0;
-  font-size: 20px;
-  gap: 10%;
+  font-size: 18px;
 }
 main .product-container .product-title .search-container {
   padding: 5px;
@@ -388,6 +387,23 @@ main .product-container .product-title .search-container span a {
 main .product-container .product-title .search-container span a {
   text-decoration: none;
   color: rgb(234, 234, 234);
+}
+main .product-container .product-title .stort-item {
+  padding: 12px;
+  border: none;
+  cursor: pointer;
+  background: rgb(255, 255, 255);
+  border-radius: 12px;
+  color: rgb(24, 24, 24);
+  padding: 10px;
+  font-size: 17px;
+  font-weight: 600;
+  background-color: rgb(247, 68, 78);
+  color: white;
+}
+main .product-container .product-title .stort-item a {
+  color: rgb(234, 234, 234);
+  text-decoration: none;
 }
 main .product-container .product-card-contaier {
   display: -webkit-box;

@@ -1,0 +1,104 @@
+#stor-item-comtainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.75);
+    // background-color: red;
+    z-index: 10;
+
+    dialog {
+        position: fixed;
+        top: 5vh;
+        left: 20%;
+        width: 60%;
+        z-index: 100;
+        border-radius: 12px;
+        border: none;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+        overflow: hidden;
+        @include flexProp (flex,column);
+        padding: 15px;
+        header{
+            @include flexProp (flex,row);
+            justify-content: flex-start;
+            justify-content: space-between;
+            font-size: 15px;
+            padding: 0 10px 0 10px;
+            margin-bottom: 10px;
+            color: $btn-main;
+            #action{
+                margin-right: 3%;
+            }
+
+        }
+        .scroll {
+            display: flex;
+            background-color: coral;
+            width: 100%;
+            height: 70vh;
+            overflow: auto;
+            #item-container{
+                width: 100%;
+                .item_cart{
+                    background-color: rgb(148, 202, 228);
+                    @include flexProp (flex,row);
+                    padding: 5px;
+                    border-radius: 12px;
+                    .item_cart_left{
+                        @include flexProp (flex,row);
+                        @include flex-item (space-between,center);
+                        @include flexSize(1);
+                        
+                        img {
+                            width: 40px;
+                            margin-left: 15px;
+                        }
+                        h2{
+                            margin-right: 50px;
+                        }
+                    }
+                    .item_cart_center{
+                        @include flexProp (flex,row);
+                        @include flex-item (space-around,center);  
+                        @include flexSize(1);
+                        span{
+                            margin-right: 20%;
+                        }
+                    }
+                    .item_cart_right{
+                        @include flexProp (flex,row);
+                        @include flexSize(0.8);
+                        @include flex-item (space-around,center);  
+                    }
+                    menu{
+                        @include flexProp (flex,row);
+                        @include flex-item (space-around,center);  
+                        @include flexSize(0.5);
+                        gap: 10px;
+                        button{
+                            @include button;
+                            background-color: $btn-main;
+                            padding: 5px;
+                            font-size: 15px;
+                            flex: 1;
+                        }
+                    }
+                }
+            }
+        }
+        menu{
+            margin-top: 5px;
+            display: flex;
+            justify-content: flex-end;
+            button{
+                @include button;
+                background-color: $btn-main;
+                padding: 8px;
+                font-size: 15px;
+                color: white;
+            }
+        }
+    }
+}

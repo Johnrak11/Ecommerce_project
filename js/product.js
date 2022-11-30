@@ -1,9 +1,10 @@
 let dom_dialog = document.querySelector('#product-dialog')
+let dom_dialog_cart = document.querySelector('#stor-item-comtainer')
 
 let rating_number = []
 let products = []
 let index_editor = 0
-
+let add_items = []
 function rander_product() {
     ///remove product-card-contaier
     document.querySelector('.product-card-contaier').remove();
@@ -58,7 +59,7 @@ function rander_product() {
         // button --buy--
         let btn_card_buy = document.createElement('div');
         btn_card_buy.className = 'btn-card-buy';
-        let btn_buy= document.createElement('button');
+        let btn_buy = document.createElement('button');
         btn_buy.id = 'buy'
         btn_buy.textContent = 'Buy';
         btn_card_buy.appendChild(btn_buy);
@@ -70,7 +71,7 @@ function rander_product() {
         btn_detail.id = 'detail'
         btn_detail.textContent = 'Detail';
         btn_card_detail.appendChild(btn_detail);
-        btn_detail.addEventListener('click',detail_process )
+        btn_detail.addEventListener('click', detail_process)
 
         //append btn
         btn_card_container.appendChild(btn_card_buy);
@@ -140,7 +141,7 @@ function search_process() {
     console.log(num_found)
     if (num_found === 0) {
         document.querySelector('.undefind-container').style.display = 'block';
-    }else{
+    } else {
         document.querySelector('.undefind-container').style.display = 'none';
     }
 }
@@ -153,9 +154,18 @@ let dom_cancel_detail = document.querySelector('.cancel').firstElementChild
 dom_cancel_detail.addEventListener('click', (e) => {
     hide(dom_dialog)
 });
-function detail_process(event){
+let dom_stort_item = document.querySelector('.stort-item')
+dom_stort_item.addEventListener('click', (e) => {
+    show(dom_dialog_cart)
+});
+let dom_store_cacel = document.querySelector('#store-cacel')
+dom_store_cacel.addEventListener('click', (e) => {
+    hide(dom_dialog_cart)
+});
+function detail_process(event) {
     show(dom_dialog)
     let index = event.target.parentElement.parentElement.parentElement.dataset.index;
+    index_editor = index
     let detail_image = document.querySelector('.big_image').firstElementChild
     let detail_name = document.querySelector('.product_name').firstElementChild
     let detail_ratting = document.querySelector('.product_ratting').querySelectorAll('span')
@@ -167,18 +177,86 @@ function detail_process(event){
     //change name
     detail_name.textContent = products[index].title
     //change rating
-    for (let item in detail_ratting){
-        detail_ratting[item].className= 'fa fa-star'
+    for (let item in detail_ratting) {
+        detail_ratting[item].className = 'fa fa-star'
         if (item < products[index].rating) {
-            detail_ratting[item].className= 'fa fa-star checked'
+            detail_ratting[item].className = 'fa fa-star checked'
         }
     }
     //change currency
-    detail_currency.textContent = 'Currency: '+ products[index].currency
+    detail_currency.textContent = 'Currency: ' + products[index].currency
     //change description
-    detail_desciption.textContent = 'Desciption: '+ products[index].desciption
+    detail_desciption.textContent = 'Desciption: ' + products[index].desciption
     //change price
-    detail_price.textContent = 'Price: '+ products[index].price
+    detail_price.textContent = 'Price: ' + products[index].price
 }
+// function render_item_cart() {
+//     let dom_scroll = document.querySelector('.scroll')
+//     // Remove the card container and create a new one
+//     document.querySelector("#item-container").remove();
+//     dom_item_container = document.createElement("div");
+//     dom_item_container.id = "item-container";
+   
+//     for (let i in add_items) {
+//         let item_cart = document.createElement("div");
+//         item_cart.className = "item_cart";
+//         item_cart.dataset.index = i;
+//         // create item left--
+//         let item_cart_left = document.createElement("div");
+//         item_cart_left.className = "item_cart_left";
+//         let dom_img = document.createElement("img");
+//         dom_img.src = add_items[i].photo;
+//         let dom_title = document.createElement("h2");
+//         dom_title.textContent = add_items[i].title;
+//         item_cart_left.appendChild(dom_img)
+//         item_cart_left.appendChild(dom_title)
+//         item_cart.appendChild(item_cart_left)
+//         // create item center--
+//         let item_cart_center = document.createElement("div");
+//         item_cart_center.className = "item_cart_center";
+//         let dom_price = document.createElement("span");
+//         dom_price.textContent = add_items[i].price;
+//         let dom_currency = document.createElement("span");
+//         dom_currency.textContent = add_items[i].currency;
+//         item_cart_center.appendChild(dom_price)
+//         item_cart_center.appendChild(dom_currency)
+//         item_cart.appendChild(item_cart_center)
+//         // create item right--
+//         let item_cart_right = document.createElement("div");
+//         item_cart_right.className = "item_cart_right";
+//         let dom_desciption = document.createElement("span");
+//         dom_desciption.textContent = add_items[i].desciption;
+//         item_cart_right.appendChild(dom_desciption)
+//         item_cart.appendChild(item_cart_right)
+//         // create item menu
+//         let item_menu = document.createElement("menu");
+//         let dom_button_cacel = document.createElement("button");
+//         dom_button_cacel.className = "remove-store";
+//         dom_button_cacel.textContent = Cacel;
+//         // dom_button_cacel.addEventListener('click',')
+//         item_menu.appendChild(dom_button_cacel);
+//         let dom_button_buy = document.createElement("button");
+//         dom_button_buy.className = "buy-store";
+        
+//         // dom_button.addEventListener('click',')
+//         item_menu.appendChild(dom_button);
+        
+//         item_cart.appendChild(item_menu)
+
+        
+//     }
+// }
+
+function add_card (){
+    let new_cart_add = {}
+    new_cart_add.title = products[index_editor].title
+    new_cart_add.price = products[index_editor].price
+    new_cart_add.currency = products[index_editor].currency
+    new_cart_add.desciption = products[index_editor].desciption
+    new_cart_add.photo = products[index_editor].photo
+    add_items.push(new_cart_add)
+}
+
+
 load_data()
 rander_product()

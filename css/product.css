@@ -203,15 +203,14 @@ main .undefind-container {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: start;
-  -webkit-box-align: space-around;
-      -ms-flex-align: space-around;
-          align-items: space-around;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   padding: 40px 0 40px 0;
-  font-size: 20px;
-  gap: 10%;
+  font-size: 18px;
 }
 .product-container .product-title .search-container {
   padding: 5px;
@@ -281,6 +280,23 @@ main .undefind-container {
 .product-container .product-title .search-container span a {
   text-decoration: none;
   color: rgb(234, 234, 234);
+}
+.product-container .product-title .stort-item {
+  padding: 12px;
+  border: none;
+  cursor: pointer;
+  background: rgb(255, 255, 255);
+  border-radius: 12px;
+  color: rgb(24, 24, 24);
+  padding: 10px;
+  font-size: 17px;
+  font-weight: 600;
+  background-color: rgb(247, 68, 78);
+  color: white;
+}
+.product-container .product-title .stort-item a {
+  color: rgb(234, 234, 234);
+  text-decoration: none;
 }
 .product-container .product-card-contaier {
   display: -webkit-box;
@@ -493,6 +509,205 @@ input:focus {
   background-color: #f0e6fd;
   outline: none;
   border-color: var(--main-color-light);
+}
+
+#stor-item-comtainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.75);
+  z-index: 10;
+}
+#stor-item-comtainer dialog {
+  position: fixed;
+  top: 5vh;
+  left: 20%;
+  width: 60%;
+  z-index: 100;
+  border-radius: 12px;
+  border: none;
+  -webkit-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 15px;
+}
+#stor-item-comtainer dialog header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  font-size: 15px;
+  padding: 0 10px 0 10px;
+  margin-bottom: 10px;
+  color: rgb(247, 68, 78);
+}
+#stor-item-comtainer dialog header #action {
+  margin-right: 3%;
+}
+#stor-item-comtainer dialog .scroll {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: coral;
+  width: 100%;
+  height: 70vh;
+  overflow: auto;
+}
+#stor-item-comtainer dialog .scroll #item-container {
+  width: 100%;
+}
+#stor-item-comtainer dialog .scroll #item-container .item_cart {
+  background-color: rgb(148, 202, 228);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  padding: 5px;
+  border-radius: 12px;
+}
+#stor-item-comtainer dialog .scroll #item-container .item_cart .item_cart_left {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+#stor-item-comtainer dialog .scroll #item-container .item_cart .item_cart_left img {
+  width: 40px;
+  margin-left: 15px;
+}
+#stor-item-comtainer dialog .scroll #item-container .item_cart .item_cart_left h2 {
+  margin-right: 50px;
+}
+#stor-item-comtainer dialog .scroll #item-container .item_cart .item_cart_center {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+#stor-item-comtainer dialog .scroll #item-container .item_cart .item_cart_center span {
+  margin-right: 20%;
+}
+#stor-item-comtainer dialog .scroll #item-container .item_cart .item_cart_right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-flex: 0.8;
+      -ms-flex: 0.8;
+          flex: 0.8;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+#stor-item-comtainer dialog .scroll #item-container .item_cart menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-flex: 0.5;
+      -ms-flex: 0.5;
+          flex: 0.5;
+  gap: 10px;
+}
+#stor-item-comtainer dialog .scroll #item-container .item_cart menu button {
+  padding: 12px;
+  border: none;
+  cursor: pointer;
+  background: rgb(255, 255, 255);
+  border-radius: 12px;
+  color: rgb(24, 24, 24);
+  background-color: rgb(247, 68, 78);
+  padding: 5px;
+  font-size: 15px;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+#stor-item-comtainer dialog .scroll #item-container .item_cart menu button a {
+  color: rgb(234, 234, 234);
+  text-decoration: none;
+}
+#stor-item-comtainer dialog menu {
+  margin-top: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+#stor-item-comtainer dialog menu button {
+  padding: 12px;
+  border: none;
+  cursor: pointer;
+  background: rgb(255, 255, 255);
+  border-radius: 12px;
+  color: rgb(24, 24, 24);
+  background-color: rgb(247, 68, 78);
+  padding: 8px;
+  font-size: 15px;
+  color: white;
+}
+#stor-item-comtainer dialog menu button a {
+  color: rgb(234, 234, 234);
+  text-decoration: none;
 }
 
 .infomation {

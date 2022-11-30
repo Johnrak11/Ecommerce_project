@@ -40,7 +40,11 @@
                 <div class="search-container">
                     <i class="material-icons">search</i>
                     <input type="search" placeholder="Enter the position ">
-                    <span><a href="page/find.html">Search</a></span>
+                    <span><a href="#">Search</a></span>
+                </div>
+                <div class="stort-item" onclick="">
+                    <span>Your Store</span>
+                    <i class='fas fa-cart-plus'></i>
                 </div>
             </div>
             <div class="undefind-container" style="display:none ;">
@@ -104,11 +108,47 @@
                         <label>Price: $26</label>
                     </div>
                     <menu>
-                        <button onclick="">Add to Cart <i class='fas fa-cart-plus'></i></button>
+                        <button onclick="add_card()">Add to Cart <i class='fas fa-cart-plus'></i></button>
                         <button class="create_Btn" type="button">Buy Now <i class="fa fa-shopping-cart"></i></button>
                     </menu>
                 </div>
                 
+            </dialog>
+        </div>
+        <div id="stor-item-comtainer" style="display:none;">
+            <dialog open>
+                <header>
+                    <h2>Image</h2>
+                    <h2>Name</h2>
+                    <h2>Price</h2>
+                    <h2>Currency</h2>
+                    <h2 >Desciption</h2>
+                    <h2 id="action">Action</h2>
+                </header>
+                <div class="scroll">
+                    <div id="item-container">
+                        <div class="item_cart">
+                            <div class="item_cart_left">
+                                <img src="../image/p1.png" alt="" width="50px">
+                                <h2>name</h2>
+                            </div>
+                            <div class="item_cart_center">
+                                <span>60</span>
+                                <span>Reil</span>
+                            </div>
+                            <div class="item_cart_right">
+                                <span>black and white</span>
+                            </div>
+                            <menu>
+                                <button>Cacel</button>
+                                <button class="create_Btn" type="button"><i class="fa fa-shopping-cart"></i></button>
+                            </menu>
+                        </div>
+                    </div>
+                </div>
+                <menu>
+                    <button id="store-cacel">Cacel</button>
+                </menu>
             </dialog>
         </div>
         <div class="more-product">

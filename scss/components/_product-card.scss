@@ -7,11 +7,18 @@
     @include flexProp (flex,column);
     .product-title{
         @include flexProp (flex,row);
-        @include flex-item (start,space-around);
+        @include flex-item (space-between,center);
         padding: 40px 0 40px 0;
-        font-size: 20px;
-        gap: 10%;
+        font-size: 18px;
         @import 'input-search';
+        .stort-item {
+            @include button;
+            padding: 10px;
+            font-size: 17px;
+            font-weight: 600;
+            background-color:$btn-main;
+            color:white;
+        }
     }
     @import 'card';
 }

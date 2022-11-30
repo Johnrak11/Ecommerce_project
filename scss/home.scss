@@ -36,7 +36,7 @@ main {
     }
     @import 'components/banner';
     @import 'components/service';
-    @import 'components/product';
+    @import 'components/product-card';
     .product-container .product-title{
         @include flex-item (center,center);
     }
