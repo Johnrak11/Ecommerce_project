@@ -2,13 +2,12 @@
 let dom_dialog = document.querySelector('#product-dialog')
 let dom_dialog_cart = document.querySelector('#stor-item-comtainer')
 let rating_number = []
-let products = []
+let products = load_data('products')
 let index_editor = 0
 let add_items = []
 let numbers_add = 0
 let accounts = [{'gamil':'virak.kep22@gmail.com','password':'12345678','roles':'admin','name':'vorak','image':''}]
 let user_login = 0
-
 // ------------------function------------------
 function rander_product() {
     ///remove product-card-contaier
@@ -40,7 +39,11 @@ function rander_product() {
         product_card_text.appendChild(product_title);
         // price--
         let product_price = document.createElement('label');
-        product_price.textContent = products[item].price;
+        if (products[item].currency === 'us') {
+            product_price.textContent = '$' + products[item].price;
+        }else{
+            product_price.textContent = '€' + products[item].price;
+        }
         product_card_text.appendChild(product_price);
         product_card.appendChild(product_card_text)
 
@@ -68,7 +71,10 @@ function rander_product() {
         btn_buy.id = 'buy'
         btn_buy.textContent = 'Buy';
         btn_card_buy.appendChild(btn_buy);
-        btn_buy.addEventListener('click', check_login)
+        btn_buy.addEventListener('click', (e) => {
+            let index = e.target.parentElement.parentElement.parentElement.dataset.index;
+            buy_items(index)
+        });
 
         let btn_card_detail = document.createElement('div');
         btn_card_detail.className = 'btn-card-detail';
@@ -107,42 +113,34 @@ function show(element) {
 }
 //   -----------------save file------------
 
-function save_data() {
-    localStorage.setItem("products", JSON.stringify(products));
-    localStorage.setItem("rating_number", JSON.stringify(rating_number));
+function save_data(element,key) {
+    localStorage.setItem(key, JSON.stringify(element));
 }
 //   -----------------save file------------
-function load_data() {
-    let products_storage = JSON.parse(localStorage.getItem("products"));
-    let rating_storage = JSON.parse(localStorage.getItem("products"));
-    if (products_storage !== null) {
-        products = products_storage;
-        rating_number = rating_storage
+function load_data(key) {
+    let storage = JSON.parse(localStorage.getItem(key));
+    if (storage !== null) {
+        return storage;
     }
 }
 // ---------search-------------
 function search_process() {
     let num_found = 0;
+    let num_unfound = 0;
     let search_text = search_products.value
     let product_name = document.querySelectorAll(".product-card")
     product_name.forEach(item => {
+        num_found++
         let item_text = item.firstElementChild.nextElementSibling.firstElementChild.textContent
-        let is_found = true
-        if (item_text.length > search_text.length) {
-            for (let character in search_text) {
-                if (search_text[character].toLocaleLowerCase() !== item_text[character].toLocaleLowerCase()) {
-                    is_found = false
-                }
-            }
-            if (!is_found) {
-                item.style.display = 'none'
-            } else {
-                num_found++;
-                item.style.display = 'block'
-            }
+        if (item_text.indexOf(search_text) > -1) {
+            item.style.display = 'block'
+
+        }else{
+            item.style.display = 'none'
+            num_unfound++;
         }
     });
-    if (num_found === 0) {
+    if (num_found === num_unfound) {
         document.querySelector('.undefind-container').style.display = 'block';
     } else {
         document.querySelector('.undefind-container').style.display = 'none';
@@ -219,17 +217,19 @@ function render_item_cart() {
             let dom_button_cacel = document.createElement("button");
             dom_button_cacel.className = "remove-store";
             dom_button_cacel.textContent = 'Cacel';
-            // dom_button_cacel.addEventListener('click',')
+            dom_button_cacel.addEventListener('click',delete_items)
             item_menu.appendChild(dom_button_cacel);
             let dom_button_buy = document.createElement("button");
             dom_button_buy.className = "buy-store";
-            let dom_icon = document.createElement("i");
-            dom_icon.className = "fa fa-shopping-cart";
-            dom_button_buy.addEventListener('click', check_login);
+            let dom_icon = document.createElement("input");
+            dom_icon.type = 'number'
+            dom_icon.placeholder = '1'
+            dom_icon.id = 'store-item-value'
+            dom_icon.value = 1;
+            dom_icon.min = '1';
             dom_button_buy.appendChild(dom_icon)
             item_menu.appendChild(dom_button_buy)
-            item_cart.appendChild(item_menu)
-            // dom_button.addEventListener('click',')
+            item_cart.appendChild(item_menu);
             dom_item_container.appendChild(item_cart)
         }
         dom_scroll.appendChild(dom_item_container)
@@ -247,59 +247,116 @@ function render_item_cart() {
 
 }
 function add_card() {
-    numbers_add++
     let new_cart_add = {}
     new_cart_add.title = products[index_editor].title
     new_cart_add.price = products[index_editor].price
     new_cart_add.currency = products[index_editor].currency
     new_cart_add.desciption = products[index_editor].desciption
     new_cart_add.photo = products[index_editor].photo
-    if (numbers_add <= 1) {
+    new_cart_add.index = index_editor
+    if (numbers_add === 0) {
         add_items.push(new_cart_add)
-        alert('Add this product to your cart')
+        save_data(add_items,'add_items')
+        numbers_add++
+        save_data(numbers_add,'numbers_add')
+        alert('Add this products to your cart')
     } else {
+        let check = true
         for (let i in add_items) {
-            if (add_items[i].title !== new_cart_add.title) {
-                add_items.push(new_cart_add)
-                alert('Add this product to your cart')
-            } else {
-                alert('You Already add this product to your cart')
+            if (add_items[i].title === new_cart_add.title) {
+                check = false
             }
         }
-    }
-}
-
-function login_process(){
-    hide(document.querySelector('#form-login-container'))
-    let seller_page =document.querySelector('#seller-login')
-    let new_account = {}
-    new_account['gamil'] = document.querySelector('#user-gmail').value
-    new_account['password'] = document.querySelector('#user-password').value
-    new_account['roles'] = 'user'
-    new_account['name'] = document.querySelector('#user-name').value
-    new_account['image'] = document.querySelector('#user-image').value
-    for (let index in accounts){
-        if (accounts[index].gamil === new_account['gamil'] && accounts[index].password === new_account['password']) {
-            show(seller_page)
-            user_login++;
-            hide(nav_account)
-            show(document.querySelector('#profile'))
-        }else if (new_account['gamil'] !== '' && new_account.password !== '' && new_account.image !== '' && new_account.name !== ''){
-            accounts.push(new_account)
-            user_login++;
-            hide(nav_account)
-            show(document.querySelector('#profile'))
+        if (check){
+            add_items.push(new_cart_add)
+            save_data(add_items,'add_items')
+            numbers_add++
+            save_data(numbers_add,'numbers_add')
+            alert('Add this product to your cart')
+        }else {
+            alert('You Already add this product to your cart')
         }
     }
-
 }
 
-function check_login (){
-    if (user_login > 0) {
-        console.log(user_login)
-    }else{
-        show(document.querySelector('#form-login-container'))
-    }
+// function login_process(){
+//     hide(document.querySelector('#form-login-container'))
+//     let seller_page =document.querySelector('#seller-login')
+//     let new_account = {}
+//     new_account['gamil'] = document.querySelector('#user-gmail').value
+//     new_account['password'] = document.querySelector('#user-password').value
+//     new_account['roles'] = 'user'
+//     new_account['name'] = document.querySelector('#user-name').value
+//     new_account['image'] = document.querySelector('#user-image').value
+//     for (let index in accounts){
+//         if (accounts[index].gamil === new_account['gamil'] && accounts[index].password === new_account['password']) {
+//             user_login++;
+//         }else if (new_account['gamil'] !== '' && new_account.password !== '' && new_account.image !== '' && new_account.name !== ''){
+//             accounts.push(new_account)
+//             user_login++;
+//         }
+//         hide(nav_account)
+//         show(seller_page)
+//         // show(document.querySelector('#seller-login'))
+
+//     }
+
+// }
+
+// function check_login (){
+//     if (user_login > 0) {
+//         console.log(user_login)
+//     }else{
+//         show(document.querySelector('#form-login-container'))
+//     }
+// }
+function buy_items (index) {
+    show(dom_credit_card)
+    let credit_title = document.querySelector('.credit-title').firstElementChild
+    credit_title.textContent = products[index].title
+    let product_image = document.querySelector('.product-image').firstElementChild
+    product_image.src = products[index].photo
+    document.querySelector('.quantity-container').style.display = 'flex';
+    let dom_total = document.querySelector('#total').lastElementChild
+    dom_total.textContent = '$'+ products[index].price
+    let dom_select = document.querySelector('select')
+    dom_select.addEventListener('click', (e) => {
+        calculator_quantity(dom_select.value,products[index].price)
+    });
+    let commission=document.querySelector('.total-price-container').lastElementChild
+    commission.textContent = '$' + products[index].price
+}
+
+function buy_all_items () {
+    let credit_title = document.querySelector('.credit-title').firstElementChild
+    credit_title.textContent = 'Package';
+    let product_image = document.querySelector('.product-image').firstElementChild
+    product_image.src = 'https://cdn.pixabay.com/photo/2014/04/02/10/53/shopping-cart-304843__480.png'
+    document.querySelector('.quantity-container').style.display = 'none';
+    let commission=document.querySelector('.total-price-container').lastElementChild
+    commission.textContent = 'none'
+    let dom_value_store =document.querySelectorAll('#store-item-value')
+    let total_price = 0
+    let num = 0
+    dom_value_store.forEach(item => {
+        total_price += item.value * add_items[num].price
+        num++
+    })
+    let dom_total = document.querySelector('#total').lastElementChild
+    dom_total.textContent = '$'+ total_price
+}
+function calculator_quantity (quantity,price){
+    let calculator = quantity * price 
+    let dom_total = document.querySelector('#total').lastElementChild
+    dom_total.textContent = '$'+ calculator
+}
+function delete_items(event) {
+    let index = event.target.parentElement.parentElement.dataset.index;
+    add_items.splice(index, 1);
+    numbers_add -= 1;
+    save_data(add_items,'add_items')
+    save_data(numbers_add,'numbers_add')
+    render_item_cart()
 }
 // ------------------------click----------------------
 let search_products = document.querySelector(".search-container").firstElementChild.nextElementSibling;
@@ -318,8 +375,28 @@ let dom_store_cacel = document.querySelector('#store-cacel')
 dom_store_cacel.addEventListener('click', (e) => {
     hide(dom_dialog_cart)
 });
-let nav_account = document.querySelector('#nav-acc')
-nav_account.addEventListener('click',check_login)
+// let nav_account = document.querySelector('#nav-acc')
+// nav_account.addEventListener('click',check_login)
 
-load_data()
+let btn_buy = document.querySelector('#buy-on-detail')
+btn_buy.addEventListener('click', (e) => {
+    buy_items(index_editor)
+});
+let dom_credit_card = document.querySelector('#credit-card')
+let dom_btn_buy_all = document.querySelector('#store-buy');
+dom_btn_buy_all.addEventListener('click', (e) => {
+    hide(dom_dialog_cart)
+    show(dom_credit_card)
+    buy_all_items()
+});
+let dom_payment_cacel = document.querySelector('#payment-cacel');
+dom_payment_cacel.addEventListener('click', (e) => {
+    hide(dom_credit_card)
+});
+
+
+// save_data(add_items,'add_items')
+// save_data(numbers_add,'numbers_add')
+add_items = load_data('add_items')
+numbers_add = load_data('numbers_add')
 rander_product()

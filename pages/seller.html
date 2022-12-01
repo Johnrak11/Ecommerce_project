@@ -59,13 +59,18 @@
                     <label>Title product</label>
                     <input id="title" type="text" placeholder="Type your product name"  required/>
                     <label>Price</label>
-                    <input id="price" type="text" placeholder="Pice of your product" required />
+                    <input id="price" type="number" placeholder="Pice of your product" required min="1"/>
                     <label>Currency</label>
-                    <input id="currency" type="text" placeholder="Real or US" required />
+                    <div class="choose-currency"> 
+                        <span>US</span>
+                        <input id="currency" type="radio" value="us" name="type" />
+                        <span>Euro</span>
+                        <input id="currency" type="radio" value="euro" name="type"/>
+                    </div>
                     <label>Desciption</label>
                     <input id="desciption" type="text" placeholder="Bio" />
                     <label>Image</label>
-                    <input id="image" type="text" placeholder="Fial the URL Image" required/>
+                    <input id="image" type="url" placeholder="Fial the URL Image" required/>
                 </section>
 
                 <menu>

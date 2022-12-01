@@ -355,10 +355,17 @@ main {
   padding: 10px;
   margin: 0;
   position: absolute;
-  top: 30%;
-  right: 30%;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  transition: transform 0.5s, -webkit-transform 0.5s;
 }
 .product-container .product-card-contaier .product-card .btn-card-container .btn-card-buy {
+  margin-top: 80%;
   margin-bottom: 20px;
   text-align: center;
 }
@@ -372,20 +379,17 @@ main {
   color: white;
   border-radius: 10px;
   padding: 12px;
+  width: 50%;
+}
+.product-container .product-card-contaier .product-card .btn-card-container:hover {
+  -webkit-transform: translateY(-30%);
+          transform: translateY(-30%);
 }
 .product-container .product-card-contaier .product-card .product-card-rating {
   margin-top: 5px;
 }
 .product-container .product-card-contaier .product-card .product-card-rating .checked {
   color: orange;
-}
-.product-container .product-card-contaier .product-card-image:hover {
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
-  -webkit-transform: scale(1.1);
-          transform: scale(1.1);
-  transition: 0.5s;
-  cursor: pointer;
 }
 
 #product-dialog {
@@ -419,7 +423,7 @@ main {
 #product-dialog dialog section {
   padding: 1rem;
 }
-#product-dialog dialog section label {
+#product-dialog dialog section label, #product-dialog dialog section .choose-currency {
   font-weight: bold;
   display: block;
   margin-bottom: 0.5rem;
@@ -434,6 +438,27 @@ main {
   padding: 12px;
   border-radius: 15px;
   outline: none;
+}
+#product-dialog dialog section .choose-currency {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 5px;
+}
+#product-dialog dialog section .choose-currency #currency {
+  width: 40px;
+  padding: 20px;
+  height: 3vh;
+}
+#product-dialog dialog section .choose-currency span {
+  margin-left: 20px;
+  color: rgb(101, 101, 101);
 }
 #product-dialog dialog menu {
   padding: 10px;

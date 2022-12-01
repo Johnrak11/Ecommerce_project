@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 * {
   padding: 0;
   margin: 0;
@@ -119,8 +120,6 @@ nav .nav-right ul a {
 }
 
 #nav-home {
-  -webkit-transform: rotate(45deg);
-          transform: rotate(45deg);
   border-bottom: 2px solid rgb(247, 68, 78);
 }
 
@@ -161,7 +160,16 @@ main .more-product button {
   border-radius: 10px;
   padding: 15px;
 }
-main .banner-container {
+main .product-container .product-title {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.banner-container {
   background: url(../../image/slider-bg.jpg) center no-repeat;
   background-size: cover;
   -webkit-box-flex: 1.9;
@@ -181,7 +189,7 @@ main .banner-container {
       -ms-flex-align: start;
           align-items: start;
 }
-main .banner-container .banner {
+.banner-container .banner {
   margin-bottom: 10%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -193,22 +201,23 @@ main .banner-container .banner {
   gap: 25px;
   margin-left: 7%;
 }
-main .banner-container .banner .title {
+.banner-container .banner .title {
   font-size: 25px;
   line-height: inherit;
 }
-main .banner-container .banner .banner-text {
+.banner-container .banner .banner-text {
   font-size: 18px;
   line-height: inherit;
 }
-main .banner-container .banner .banner-btn button {
+.banner-container .banner .banner-btn button {
   padding: 20px;
   border: none;
   background-color: rgb(247, 68, 78);
   color: white;
   border-radius: 10px;
 }
-main .service-container {
+
+.service-container {
   -webkit-box-flex: 1.2;
       -ms-flex: 1.2;
           flex: 1.2;
@@ -220,7 +229,7 @@ main .service-container {
       -ms-flex-direction: column;
           flex-direction: column;
 }
-main .service-container .service-title {
+.service-container .service-title {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -237,7 +246,7 @@ main .service-container .service-title {
   padding: 40px;
   font-size: 25px;
 }
-main .service-container .service-card-container {
+.service-container .service-card-container {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
@@ -255,7 +264,7 @@ main .service-container .service-card-container {
       -ms-flex-pack: justify;
           justify-content: space-between;
 }
-main .service-container .service-card-container .service-card {
+.service-container .service-card-container .service-card {
   padding: 40px;
   margin: 5px;
   display: -webkit-box;
@@ -275,20 +284,21 @@ main .service-container .service-card-container .service-card {
   background-color: rgb(0, 44, 62);
   border-radius: 10px;
 }
-main .service-container .service-card-container .service-card h3 {
+.service-container .service-card-container .service-card h3 {
   font-size: 25px;
   font-weight: bold;
   color: white;
 }
-main .service-container .service-card-container .service-card span {
+.service-container .service-card-container .service-card span {
   text-align: center;
   color: white;
 }
-main .service-container .service-card-container .service-card i {
+.service-container .service-card-container .service-card i {
   color: white;
   font-size: 45px;
 }
-main .product-container {
+
+.product-container {
   margin-left: 7%;
   margin-right: 7%;
   -webkit-box-flex: 1.5;
@@ -302,7 +312,7 @@ main .product-container {
       -ms-flex-direction: column;
           flex-direction: column;
 }
-main .product-container .product-title {
+.product-container .product-title {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -319,7 +329,7 @@ main .product-container .product-title {
   padding: 40px 0 40px 0;
   font-size: 18px;
 }
-main .product-container .product-title .search-container {
+.product-container .product-title .search-container {
   padding: 5px;
   margin: 0;
   background-color: white;
@@ -337,12 +347,12 @@ main .product-container .product-title .search-container {
   border-radius: 12px;
 }
 @media (max-width: 670px) {
-  main .product-container .product-title .search-container {
+  .product-container .product-title .search-container {
     width: 90%;
     margin: 15px;
   }
 }
-main .product-container .product-title .search-container input {
+.product-container .product-title .search-container input {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
@@ -351,22 +361,22 @@ main .product-container .product-title .search-container input {
   margin: 0;
   outline: none;
 }
-main .product-container .product-title .search-container ::-webkit-input-placeholder {
+.product-container .product-title .search-container ::-webkit-input-placeholder {
   font-size: 15px;
 }
-main .product-container .product-title .search-container ::-moz-placeholder {
+.product-container .product-title .search-container ::-moz-placeholder {
   font-size: 15px;
 }
-main .product-container .product-title .search-container :-ms-input-placeholder {
+.product-container .product-title .search-container :-ms-input-placeholder {
   font-size: 15px;
 }
-main .product-container .product-title .search-container ::-ms-input-placeholder {
+.product-container .product-title .search-container ::-ms-input-placeholder {
   font-size: 15px;
 }
-main .product-container .product-title .search-container ::placeholder {
+.product-container .product-title .search-container ::placeholder {
   font-size: 15px;
 }
-main .product-container .product-title .search-container span {
+.product-container .product-title .search-container span {
   font-size: 13px;
   padding: 12px;
   border: none;
@@ -380,15 +390,15 @@ main .product-container .product-title .search-container span {
           justify-content: center;
   background-color: rgb(247, 68, 78);
 }
-main .product-container .product-title .search-container span a {
+.product-container .product-title .search-container span a {
   color: rgb(234, 234, 234);
   text-decoration: none;
 }
-main .product-container .product-title .search-container span a {
+.product-container .product-title .search-container span a {
   text-decoration: none;
   color: rgb(234, 234, 234);
 }
-main .product-container .product-title .stort-item {
+.product-container .product-title .stort-item {
   padding: 12px;
   border: none;
   cursor: pointer;
@@ -401,11 +411,11 @@ main .product-container .product-title .stort-item {
   background-color: rgb(247, 68, 78);
   color: white;
 }
-main .product-container .product-title .stort-item a {
+.product-container .product-title .stort-item a {
   color: rgb(234, 234, 234);
   text-decoration: none;
 }
-main .product-container .product-card-contaier {
+.product-container .product-card-contaier {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -416,20 +426,20 @@ main .product-container .product-card-contaier {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
 }
-main .product-container .product-card-contaier .product-card {
+.product-container .product-card-contaier .product-card {
   width: 21%;
   position: relative;
   margin: 12px;
   padding: 10px;
   background-color: rgb(234, 234, 234);
 }
-main .product-container .product-card-contaier .product-card .product-card-image {
+.product-container .product-card-contaier .product-card .product-card-image {
   padding: 18px;
 }
-main .product-container .product-card-contaier .product-card .product-card-image img {
+.product-container .product-card-contaier .product-card .product-card-image img {
   height: 40vh;
 }
-main .product-container .product-card-contaier .product-card .product-card-text {
+.product-container .product-card-contaier .product-card .product-card-text {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -444,53 +454,426 @@ main .product-container .product-card-contaier .product-card .product-card-text 
       -ms-flex-align: center;
           align-items: center;
 }
-main .product-container .product-card-contaier .product-card .product-card-text h2 {
+.product-container .product-card-contaier .product-card .product-card-text h2 {
   font-size: 20px;
 }
-main .product-container .product-card-contaier .product-card .product-card-text label {
+.product-container .product-card-contaier .product-card .product-card-text label {
   font-size: 18px;
   color: rgb(247, 68, 78);
 }
-main .product-container .product-card-contaier .product-card .btn-card-container {
+.product-container .product-card-contaier .product-card .btn-card-container {
   padding: 10px;
   margin: 0;
   position: absolute;
-  top: 30%;
-  right: 30%;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  transition: transform 0.5s, -webkit-transform 0.5s;
 }
-main .product-container .product-card-contaier .product-card .btn-card-container .btn-card-buy {
+.product-container .product-card-contaier .product-card .btn-card-container .btn-card-buy {
+  margin-top: 80%;
   margin-bottom: 20px;
   text-align: center;
 }
-main .product-container .product-card-contaier .product-card .btn-card-container .btn-card-detail {
+.product-container .product-card-contaier .product-card .btn-card-container .btn-card-detail {
   text-align: center;
 }
-main .product-container .product-card-contaier .product-card .btn-card-container button {
+.product-container .product-card-contaier .product-card .btn-card-container button {
   padding: 20px;
   border: none;
   background-color: rgb(247, 68, 78);
   color: white;
   border-radius: 10px;
   padding: 12px;
+  width: 50%;
 }
-main .product-container .product-card-contaier .product-card .product-card-rating {
+.product-container .product-card-contaier .product-card .btn-card-container:hover {
+  -webkit-transform: translateY(-30%);
+          transform: translateY(-30%);
+}
+.product-container .product-card-contaier .product-card .product-card-rating {
   margin-top: 5px;
 }
-main .product-container .product-card-contaier .product-card .product-card-rating .checked {
+.product-container .product-card-contaier .product-card .product-card-rating .checked {
   color: orange;
 }
-main .product-container .product-card-contaier .product-card-image:hover {
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
-  -webkit-transform: scale(1.1);
-          transform: scale(1.1);
-  transition: 0.5s;
-  cursor: pointer;
+
+#product-dialog {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.75);
+  z-index: 10;
 }
-main .product-container .product-title {
+#product-dialog dialog {
+  position: fixed;
+  top: 15vh;
+  left: 20%;
+  width: 60%;
+  z-index: 100;
+  border-radius: 12px;
+  border: none;
+  -webkit-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+#product-dialog dialog #image_container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 10px;
+}
+#product-dialog dialog #image_container img {
+  width: 100%;
+}
+#product-dialog dialog #detail_comtainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  padding: 15px;
+}
+#product-dialog dialog #detail_comtainer .cancel {
+  -webkit-box-flex: 0.1;
+      -ms-flex: 0.1;
+          flex: 0.1;
+  font-size: 25px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+#product-dialog dialog #detail_comtainer .product_name {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  font-size: 25px;
+  margin-bottom: 10px;
+}
+#product-dialog dialog #detail_comtainer .product_ratting {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+#product-dialog dialog #detail_comtainer .product_ratting .checked {
+  color: orange;
+}
+#product-dialog dialog #detail_comtainer .product_currency, #product-dialog dialog #detail_comtainer .product_price, #product-dialog dialog #detail_comtainer .product_desciption {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  font-size: 18px;
+}
+#product-dialog dialog #detail_comtainer .product_price {
+  color: rgb(247, 68, 78);
+}
+#product-dialog dialog #detail_comtainer menu {
+  padding: 20px;
+  margin: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 20px;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  margin-right: 1%;
+}
+#product-dialog dialog #detail_comtainer menu button {
+  padding: 20px;
+  border: none;
+  background-color: rgb(247, 68, 78);
+  color: white;
+  border-radius: 10px;
+  padding: 12px;
+  font-size: 13px;
+}
+
+input:focus {
+  background-color: #f0e6fd;
+  outline: none;
+  border-color: var(--main-color-light);
+}
+
+#credit-card {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.75);
+  z-index: 10;
+}
+#credit-card dialog {
+  position: fixed;
+  top: 13vh;
+  left: 18%;
+  width: 65%;
+  z-index: 100;
+  border-radius: 25px;
+  border: none;
+  -webkit-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+#credit-card dialog main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  margin: 0px;
+}
+#credit-card dialog .sidebar-left {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+#credit-card dialog .content-left {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+#credit-card dialog .content-left-text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 12px;
+  padding: 20px;
+}
+#credit-card dialog .product-image,
+#credit-card dialog .credit-title,
+#credit-card dialog .quantity-container,
+#credit-card dialog .total-price-container,
+#credit-card dialog .ratting-title,
+#credit-card dialog .title-left,
+#credit-card dialog .ratting-stars {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  font-size: 18px;
+}
+#credit-card dialog .credit-title {
+  font-size: 15px;
+}
+#credit-card dialog img {
+  width: 38%;
+}
+#credit-card dialog #quantity {
+  padding: 4px;
+  margin: 0;
+  width: 20%;
+  border: none;
+  border-radius: 10px;
+  background-color: rgb(247, 68, 78);
+  color: white;
+}
+#credit-card dialog .ratting-title {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+#credit-card dialog .ratting-stars {
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  font-size: 22px;
+}
+#credit-card dialog .ratting-stars .checked {
+  color: orange;
+}
+#credit-card dialog .sidebar-right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+#credit-card dialog #credit-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 10px;
+  padding: 20px;
+}
+#credit-card dialog .name,
+#credit-card dialog .number-card-content,
+#credit-card dialog .exp {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 7px;
+  gap: 5px;
+}
+#credit-card dialog .title-right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 18px;
+}
+#credit-card dialog .title-right i {
+  font-size: 25px;
+}
+#credit-card dialog .title-right h1 {
+  color: blue;
+}
+#credit-card dialog .name input,
+#credit-card dialog .number-card-content input,
+#credit-card dialog .exp input {
+  border: 3px solid rgb(19, 148, 208);
+  padding: 10px;
+  border-radius: 10px;
+}
+#credit-card dialog input:focus {
+  outline: none;
+  border: 3px solid green;
+}
+#credit-card dialog .name-content,
+#credit-card dialog .exp-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 15px;
+}
+#credit-card dialog .select-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 3px;
+  gap: 20px;
+}
+#credit-card dialog .select-content p {
+  color: blue;
+}
+#credit-card dialog .select-content b {
+  color: black;
+}
+#credit-card dialog .submit-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+#credit-card dialog .submit-content button {
+  padding: 13px 18px 13px 18px;
+  border: none;
+  border-radius: 12px;
+  background-color: rgb(247, 68, 78);
+  color: white;
+}
+#credit-card dialog .payment-image {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  font-size: 55px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;

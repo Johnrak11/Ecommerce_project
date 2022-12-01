@@ -8,7 +8,6 @@
     width: 100%;
     background-color: rgba(0, 0, 0, 0.75);
     z-index: 10;
-
     dialog {
         position: fixed;
         top: 13vh;
@@ -22,6 +21,7 @@
         @include flexProp (flex, row);
         main {
             display: flex;
+            flex-direction: row;
             flex: 1;
             margin: 0px;
         }
@@ -96,7 +96,12 @@
             gap: 5px;
         }
         .title-right{
+            @include flexProp(flex,row);
+            @include flex-item(space-between,center);
             font-size: 18px;
+            i{
+                font-size: 25px;
+            }
         }
 
         .title-right h1 {

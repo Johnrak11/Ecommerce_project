@@ -16,14 +16,11 @@ body {
 }
 @import 'components/nav';
 #nav-home{
-    
-    transform: rotate(45deg);
     border-bottom: 2px solid $btn-main;
 }
 main {
     @include flexProp(flex,column);
     @include flexSize(1);
-    // background-color;
     margin-top: 6%  ;
     .more-product{
         @include flexProp (flex,column);
@@ -34,12 +31,15 @@ main {
             padding: 15px;
         }
     }
-    @import 'components/banner';
-    @import 'components/service';
-    @import 'components/product-card';
+   
     .product-container .product-title{
         @include flex-item (center,center);
     }
     
 }
+@import 'components/banner';
+@import 'components/service';
+@import 'components/product-card';
+@import 'components/detail';
+@import 'components/credit_card';
 @import 'components/footer';

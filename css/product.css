@@ -350,10 +350,17 @@ main .undefind-container {
   padding: 10px;
   margin: 0;
   position: absolute;
-  top: 30%;
-  right: 30%;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  transition: transform 0.5s, -webkit-transform 0.5s;
 }
 .product-container .product-card-contaier .product-card .btn-card-container .btn-card-buy {
+  margin-top: 80%;
   margin-bottom: 20px;
   text-align: center;
 }
@@ -367,20 +374,17 @@ main .undefind-container {
   color: white;
   border-radius: 10px;
   padding: 12px;
+  width: 50%;
+}
+.product-container .product-card-contaier .product-card .btn-card-container:hover {
+  -webkit-transform: translateY(-30%);
+          transform: translateY(-30%);
 }
 .product-container .product-card-contaier .product-card .product-card-rating {
   margin-top: 5px;
 }
 .product-container .product-card-contaier .product-card .product-card-rating .checked {
   color: orange;
-}
-.product-container .product-card-contaier .product-card-image:hover {
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
-  -webkit-transform: scale(1.1);
-          transform: scale(1.1);
-  transition: 0.5s;
-  cursor: pointer;
 }
 
 #product-dialog {
@@ -686,6 +690,12 @@ input:focus {
   color: rgb(234, 234, 234);
   text-decoration: none;
 }
+#stor-item-comtainer dialog .scroll #item-container .item_cart menu button input {
+  width: 30px;
+  border: none;
+  border-radius: 10px;
+  padding: 2px;
+}
 #stor-item-comtainer dialog .scroll #item-container .undefind-cart {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -708,6 +718,7 @@ input:focus {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  gap: 10px;
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
@@ -721,6 +732,7 @@ input:focus {
   color: rgb(24, 24, 24);
   background-color: rgb(247, 68, 78);
   padding: 8px;
+  width: 10%;
   font-size: 15px;
   color: white;
 }
@@ -902,6 +914,10 @@ input:focus {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
@@ -1026,7 +1042,23 @@ input:focus {
   gap: 5px;
 }
 #credit-card dialog .title-right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   font-size: 18px;
+}
+#credit-card dialog .title-right i {
+  font-size: 25px;
 }
 #credit-card dialog .title-right h1 {
   color: blue;

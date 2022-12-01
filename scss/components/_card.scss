@@ -30,9 +30,13 @@
         .btn-card-container{
             @include spacing(10px,0);
             position: absolute;
-            top: 30%;
-            right: 30%;
+            top:0;
+            bottom:0;
+            right: 0;
+            left: 0;
+            transition: transform 0.5s;
             .btn-card-buy{
+                margin-top: 80%;
                 margin-bottom: 20px;
                 text-align: center;
             }
@@ -43,8 +47,12 @@
                 @include btn {
                     padding:12px;
                 }
+                width: 50%;
             }
             
+        }
+        .btn-card-container:hover{
+            transform: translateY(-30%)
         }
         .product-card-rating{
             margin-top: 5px;
@@ -52,9 +60,5 @@
                 color: orange;
             }
         }
-    }
-    .product-card-image:hover{
-        transition: .5s;
-        @include hover-zoom;
     }
 }

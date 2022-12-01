@@ -86,7 +86,14 @@
                             font-size: 15px;
                             color: white;
                             flex: 1;
+                            input{
+                                width: 30px;
+                                border: none;
+                                border-radius: 10px;
+                                padding: 2px;
+                            }
                         }
+                        
                     }
                 }
                 .undefind-cart{
@@ -100,11 +107,13 @@
         menu{
             margin-top: 5px;
             display: flex;
+            gap: 10px;
             justify-content: flex-end;
             button{
                 @include button;
                 background-color: $btn-main;
                 padding: 8px;
+                width: 10%;
                 font-size: 15px;
                 color: white;
             }

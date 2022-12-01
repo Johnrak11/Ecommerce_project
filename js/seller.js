@@ -1,13 +1,13 @@
 let dom_dialog = document.querySelector('#product-dialog')
 
 let rating_number = [3, 4, 1, 2, 1, 4, 0]
-let products = [{ 'title': 'jim', 'price': '$65', 'rating': rating_number[0], 'photo': 'https://technext.github.io/famms/images/p1.png', 'desciption': 'Black' },
-{ 'title': 'jim', 'price': '$65', 'rating': rating_number[1], 'photo': 'https://technext.github.io/famms/images/p1.png', 'currency': '$', 'desciption': 'Black' },
-{ 'title': 'T-shirt', 'price': '$65', 'rating': rating_number[2], 'photo': 'https://technext.github.io/famms/images/p1.png', 'currency': '$', 'desciption': 'Black' },
-{ 'title': 'gan', 'price': '$65', 'rating': rating_number[3], 'photo': 'https://technext.github.io/famms/images/p1.png', 'currency': '$', 'desciption': 'Black' },
-{ 'title': 'nis', 'price': '$65', 'rating': rating_number[4], 'photo': 'https://technext.github.io/famms/images/p1.png', 'currency': '$', 'desciption': 'Black' },
-{ 'title': 'get', 'price': '$65', 'rating': rating_number[5], 'photo': 'https://technext.github.io/famms/images/p1.png', 'currency': '$', 'desciption': 'Black' },
-{ 'title': 'no', 'price': '$65', 'rating': rating_number[6], 'photo': 'https://technext.github.io/famms/images/p1.png', 'currency': '$', 'desciption': 'Black' },
+let products = [{ 'title': 'jim', 'price': '65', 'rating': rating_number[0], 'photo': 'https://technext.github.io/famms/images/p1.png', 'currency': 'us','desciption': 'Black' },
+{ 'title': 'jim', 'price': '65', 'rating': rating_number[1], 'photo': 'https://technext.github.io/famms/images/p1.png', 'currency': 'us', 'desciption': 'Black' },
+{ 'title': 'T-shirt', 'price': '65', 'rating': rating_number[2], 'photo': 'https://technext.github.io/famms/images/p1.png', 'currency': 'us', 'desciption': 'Black' },
+{ 'title': 'gan', 'price': '65', 'rating': rating_number[3], 'photo': 'https://technext.github.io/famms/images/p1.png', 'currency': 'us', 'desciption': 'Black' },
+{ 'title': 'nis', 'price': '65', 'rating': rating_number[4], 'photo': 'https://technext.github.io/famms/images/p1.png', 'currency': 'euro', 'desciption': 'Black' },
+{ 'title': 'get', 'price': '65', 'rating': rating_number[5], 'photo': 'https://technext.github.io/famms/images/p1.png', 'currency': 'us', 'desciption': 'Black' },
+{ 'title': 'no', 'price': '65', 'rating': rating_number[6], 'photo': 'https://technext.github.io/famms/images/p1.png', 'currency': 'us', 'desciption': 'Black' },
 ]
 let index_editor = 0
 
@@ -41,10 +41,13 @@ function rander_product() {
         product_card_text.appendChild(product_title);
         // price--
         let product_price = document.createElement('label');
-        product_price.textContent = products[item].price;
+        if (products[item].currency === 'us') {
+            product_price.textContent = '$' + products[item].price;
+        }else{
+            product_price.textContent = '€' + products[item].price;
+        }
         product_card_text.appendChild(product_price);
         product_card.appendChild(product_card_text)
-
         //product-card-rating
         let product_card_rating = document.createElement('div');
         product_card_rating.className = 'product-card-rating';
@@ -136,27 +139,48 @@ function onCancel() {
 function create_product() {
     let create_button = document.querySelector(".create_Btn")
     if (create_button.id === "create") {
-        console.log('add ' + create_button.id)
         let new_product = {}
         let num = 0
         new_product['title'] = document.querySelector('#title').value
         new_product['price'] = document.querySelector('#price').value
         new_product['rating'] = num
         new_product['photo'] = document.querySelector('#image').value
-        new_product['currency'] = document.querySelector('#currency').value
+        // new_product['currency'] = document.querySelector('#currency').value
+        let dom_currency =document.querySelectorAll('#currency')
+        let checked_value = ''
+        dom_currency.forEach(item => {
+            if (item.checked){
+                checked_value = item.value
+            }
+        });
+
+        new_product['currency'] = checked_value
         new_product['desciption'] = document.querySelector('#desciption').value
-        if (new_product['title'] !== '' && new_product['desciption'] !== '' && new_product['price'] !== '' && new_product['currency'] !== '' && new_product['photo'] !== '') {
+        if (validate_not_input(new_product) && validate_already_input(new_product)) {
             products.push(new_product)
             rating_number.push(num)
             hide(dom_dialog)
         } else {
-            window.alert('Pleace fill the text')
+            window.alert('Pleace check your input')
         }
         save_data()
         rander_product()
     }
 
 }
+function validate_not_input(element) {
+    return (element['title'] !== '' && element['desciption'] !== '' && element['price'] !== '' && element['currency'] !== '' && element['photo'] !== '' )
+}
+function validate_already_input (element) {
+    let is_found = true
+    for (let character of products) {
+        if (character.title === element.title) {
+            is_found = false
+        }
+    }
+    return is_found
+}
+
 function delete_product(event) {
     let index = event.target.parentElement.parentElement.parentElement.dataset.index;
     products.splice(index, 1);
@@ -185,10 +209,7 @@ function edit_product(event) {
     currency_value.value = products[index].currency
     desciption_value.value = products[index].desciption
     image_value.value = products[index].photo
-    if (edit_button.id === 'edit') {
-        console.log(edit_button.id)
-        edit_button.addEventListener('click', on_edit)
-    }
+    edit_button.addEventListener('click', on_edit)
 }
 function on_edit() {
     let create_button = document.querySelector(".create_Btn")
@@ -197,15 +218,24 @@ function on_edit() {
         let update_product = {}
         update_product.title = document.querySelector('#title').value
         update_product.price = document.querySelector('#price').value
-        update_product.currency = document.querySelector('#currency').value
+        // price--
+        let dom_currency =document.querySelectorAll('#currency')
+        let checked_value = ''
+        dom_currency.forEach(item => {
+            if (item.checked){
+                checked_value = item.value
+            }
+        });
+        update_product.currency = checked_value
         update_product.desciption = document.querySelector('#desciption').value
         update_product.photo = document.querySelector('#image').value
         update_product.rating = rating_number[index_editor]
         products.splice(index_editor, 1, update_product)
+        console.log(update_product)
         save_data()
         rander_product()
     }
 }
-// save_data()
+save_data()
 load_data()
 rander_product()

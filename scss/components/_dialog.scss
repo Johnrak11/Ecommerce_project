@@ -26,7 +26,7 @@
         }
         section {
             padding: 1rem;
-            label {
+            label , .choose-currency{
                 font-weight: bold;
                 display: block;
                 margin-bottom: 0.5rem;
@@ -41,6 +41,23 @@
                 padding: 12px;
                 border-radius: 15px;
                 outline: none;
+            }
+            .choose-currency{
+                display: flex;
+                justify-content:flex-start;
+                align-items: center;
+                padding: 5px;
+                // gap: 10px;
+                #currency{
+                    width: 40px;
+                    padding: 20px;
+                    height: 3vh;
+                    // margin-left: 10px;
+                }
+                span{
+                    margin-left: 20px;
+                    color: rgb(101, 101, 101);
+                }
             }
         }
         menu {
