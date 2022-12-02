@@ -224,7 +224,7 @@ function render_item_cart() {
             let dom_icon = document.createElement("input");
             dom_icon.type = 'number'
             dom_icon.placeholder = '1'
-            dom_icon.id = 'store-item-value'
+            dom_icon.id = 'store-item-vaue'
             dom_icon.value = 1;
             dom_icon.min = '1';
             dom_button_buy.appendChild(dom_icon)
@@ -397,6 +397,22 @@ function buy_all_items () {
     })
     let dom_total = document.querySelector('#total').lastElementChild
     dom_total.textContent = '$'+ total_price
+    let ratting_us = document.querySelector('.ratting-stars').querySelectorAll('span');
+    ratting_us.forEach(span => {
+        span.addEventListener('click', (e) => {
+            package_rattings(span.dataset.index)
+        });
+    })
+}
+function package_rattings (num_star) {
+    for (let i in add_items) {
+        for (let char in products){
+            if (add_items[i].title === products[char].title){
+                ratting_process(num_star,char)
+
+            }
+        }
+    }
 }
 function calculator_quantity (quantity,price,price_type){
     let calculator = quantity * price 

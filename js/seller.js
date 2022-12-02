@@ -13,7 +13,11 @@ let products = [{ 'title': 'jim', 'price': '65', 'rating': 0,'totail_star':0, 'p
 { 'title': 'no', 'price': '65', 'rating': 0,'totail_star':0, 'photo': 'https://technext.github.io/famms/images/p1.png', 'currency': 'us', 'desciption': 'Black' },
 ]
 let index_editor = 0
-
+let dom_click_add_product = document.querySelector('#click-add');
+dom_click_add_product.addEventListener('click', (e) => {
+    clear_value()
+    add_product()
+});
 function rander_product() {
     ///remove product-card-contaier
     document.querySelector('.product-card-contaier').remove();
@@ -75,7 +79,7 @@ function rander_product() {
         btn_delete.id = 'delete'
         btn_delete.textContent = 'Delete';
         btn_card_buy.appendChild(btn_delete);
-        btn_delete.addEventListener('click', delete_product)
+        btn_delete.addEventListener('click', delete_alert)
 
         let btn_card_detail = document.createElement('div');
         btn_card_detail.className = 'btn-card-detail';
@@ -126,7 +130,6 @@ function load_data(key) {
     }
 }
 function add_product() {
-    clear_value()
     show(dom_dialog)
     // update text on dialog---
     let header = document.querySelector('#product-dialog').firstElementChild.firstElementChild
@@ -139,6 +142,7 @@ function add_product() {
 
 function onCancel() {
     hide(dom_dialog)
+    clear_value
 }
 function create_product() {
     let create_button = document.querySelector(".create_Btn")
@@ -148,6 +152,7 @@ function create_product() {
         new_product['title'] = document.querySelector('#title').value
         new_product['price'] = document.querySelector('#price').value
         new_product['rating'] = num
+        new_product['totail_star'] = num
         new_product['photo'] = document.querySelector('#image').value
         let dom_currency =document.querySelectorAll('#currency')
         let checked_value = ''
@@ -163,12 +168,15 @@ function create_product() {
             products.push(new_product)
             rating_number.push(num)
             hide(dom_dialog)
+            alert_message('success','Create new product')
         } else {
             alert_message('warning','Your input is uncorrect')
         }
         save_data(products,'products')
         save_data(rating_number,'rating_number')
         rander_product()
+        console.log(new_product)
+
     }
 
 }
@@ -182,7 +190,16 @@ function alert_message(incon,message) {
       })
 }
 function clear_value () {
-
+    document.querySelector('#title').value = ''
+    document.querySelector('#price').value = ''
+    document.querySelector('#desciption').value = ''
+    document.querySelector('#image').value = ''
+    // tite_value.value = products[index].title
+    // price_value.value = products[index].price
+    // currency_value.value = products[index].currency
+    // desciption_value.value = products[index].desciption
+    // image_value.value = products[index].photo
+    // edit_button.addEventListener('click', on_edit)
 }
 //copy from website
 function isValidUrl(string) {
@@ -214,7 +231,26 @@ function delete_product(event) {
     save_data(rating_number,'rating_number')
     rander_product()
 }
-
+function delete_alert(e){
+    Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire(
+            'Deleted!',
+            'Your file has been deleted.',
+            'success'
+          )
+          delete_product(e)
+        }
+      })
+}
 function edit_product(event) {
     let index = event.target.parentElement.parentElement.parentElement.dataset.index;
     index_editor = index
@@ -255,7 +291,8 @@ function on_edit() {
         update_product.currency = checked_value
         update_product.desciption = document.querySelector('#desciption').value
         update_product.photo = document.querySelector('#image').value
-        update_product.rating = rating_number[index_editor]
+        update_product.rating = 0
+        update_product.totail_star = 0
         if (validate_not_input(update_product) && isValidUrl(update_product.photo)) {
             products.splice(index_editor, 1, update_product)
             hide(dom_dialog)
@@ -267,8 +304,8 @@ function on_edit() {
         rander_product()
     }
 }
-// save_data(products,'products')
-// save_data(rating_number,'rating_number')
+save_data(products,'products')
+save_data(rating_number,'rating_number')
 products = load_data('products')
 rating_number = load_data('rating_number')
 rander_product()
