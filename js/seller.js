@@ -1,13 +1,16 @@
+
+
 let dom_dialog = document.querySelector('#product-dialog')
 
-let rating_number = [3, 4, 1, 2, 1, 4, 0]
-let products = [{ 'title': 'jim', 'price': '65', 'rating': rating_number[0], 'photo': 'https://technext.github.io/famms/images/p1.png', 'currency': 'us','desciption': 'Black' },
-{ 'title': 'jim', 'price': '65', 'rating': rating_number[1], 'photo': 'https://technext.github.io/famms/images/p1.png', 'currency': 'us', 'desciption': 'Black' },
-{ 'title': 'T-shirt', 'price': '65', 'rating': rating_number[2], 'photo': 'https://technext.github.io/famms/images/p1.png', 'currency': 'us', 'desciption': 'Black' },
-{ 'title': 'gan', 'price': '65', 'rating': rating_number[3], 'photo': 'https://technext.github.io/famms/images/p1.png', 'currency': 'us', 'desciption': 'Black' },
-{ 'title': 'nis', 'price': '65', 'rating': rating_number[4], 'photo': 'https://technext.github.io/famms/images/p1.png', 'currency': 'euro', 'desciption': 'Black' },
-{ 'title': 'get', 'price': '65', 'rating': rating_number[5], 'photo': 'https://technext.github.io/famms/images/p1.png', 'currency': 'us', 'desciption': 'Black' },
-{ 'title': 'no', 'price': '65', 'rating': rating_number[6], 'photo': 'https://technext.github.io/famms/images/p1.png', 'currency': 'us', 'desciption': 'Black' },
+let rating_number = [0, 0, 0, 0, 0, 0, 0,0]
+let products = [{ 'title': 'jim', 'price': '65', 'rating': 0,'totail_star':0, 'photo': 'https://technext.github.io/famms/images/p1.png', 'currency': 'us','desciption': 'Black' },
+{ 'title': 'jim', 'price': '65', 'rating': 0, 'totail_star':0,'photo': 'https://technext.github.io/famms/images/p1.png', 'currency': 'us', 'desciption': 'Black' },
+{ 'title': 'T-shirt', 'price': '65', 'rating': 0,'totail_star':0, 'photo': 'https://technext.github.io/famms/images/p1.png', 'currency': 'us', 'desciption': 'Black' },
+{ 'title': 'gan', 'price': '65', 'rating': 0,'totail_star':0, 'photo': 'https://technext.github.io/famms/images/p1.png', 'currency': 'us', 'desciption': 'Black' },
+{ 'title': 'nis', 'price': '65', 'rating': 0,'totail_star':0, 'photo': 'https://technext.github.io/famms/images/p1.png', 'currency': 'euro', 'desciption': 'Black' },
+{ 'title': 'get', 'price': '65', 'rating': 0,'totail_star':0, 'photo': 'https://technext.github.io/famms/images/p1.png', 'currency': 'us', 'desciption': 'Black' },
+{ 'title': 'no', 'price': '65', 'rating': 0,'totail_star':0, 'photo': 'https://technext.github.io/famms/images/p1.png', 'currency': 'us', 'desciption': 'Black' },
+{ 'title': 'no', 'price': '65', 'rating': 0,'totail_star':0, 'photo': 'https://technext.github.io/famms/images/p1.png', 'currency': 'us', 'desciption': 'Black' },
 ]
 let index_editor = 0
 
@@ -112,17 +115,18 @@ function show(element) {
 }
 //   -----------------save file------------
 
-function save_data() {
-    localStorage.setItem("products", JSON.stringify(products));
+function save_data(element,key) {
+    localStorage.setItem(key, JSON.stringify(element));
 }
 //   -----------------save file------------
-function load_data() {
-    let productsStorage = JSON.parse(localStorage.getItem("products"));
-    if (productsStorage !== null) {
-        products = productsStorage;
+function load_data(key) {
+    let storage = JSON.parse(localStorage.getItem(key));
+    if (storage !== null) {
+        return storage;
     }
 }
 function add_product() {
+    clear_value()
     show(dom_dialog)
     // update text on dialog---
     let header = document.querySelector('#product-dialog').firstElementChild.firstElementChild
@@ -145,7 +149,6 @@ function create_product() {
         new_product['price'] = document.querySelector('#price').value
         new_product['rating'] = num
         new_product['photo'] = document.querySelector('#image').value
-        // new_product['currency'] = document.querySelector('#currency').value
         let dom_currency =document.querySelectorAll('#currency')
         let checked_value = ''
         dom_currency.forEach(item => {
@@ -156,20 +159,42 @@ function create_product() {
 
         new_product['currency'] = checked_value
         new_product['desciption'] = document.querySelector('#desciption').value
-        if (validate_not_input(new_product) && validate_already_input(new_product)) {
+        if (validate_not_input(new_product) && validate_already_input(new_product) && isValidUrl(new_product.photo)) {
             products.push(new_product)
             rating_number.push(num)
             hide(dom_dialog)
         } else {
-            window.alert('Pleace check your input')
+            alert_message('warning','Your input is uncorrect')
         }
-        save_data()
+        save_data(products,'products')
+        save_data(rating_number,'rating_number')
         rander_product()
     }
 
 }
+function alert_message(incon,message) {
+    Swal.fire({
+        position: 'center',
+        icon: incon,
+        title: message,
+        showConfirmButton: false,
+        timer: 1000
+      })
+}
+function clear_value () {
+
+}
+//copy from website
+function isValidUrl(string) {
+    try {
+      new URL(string);
+      return true;
+    } catch (err) {
+      return false;
+    }
+}
 function validate_not_input(element) {
-    return (element['title'] !== '' && element['desciption'] !== '' && element['price'] !== '' && element['currency'] !== '' && element['photo'] !== '' )
+    return (element['title'] !== '' && element['desciption'] !== '' && element['price'] !== '' && element['currency'] !== '' && element['photo'] !== '')
 }
 function validate_already_input (element) {
     let is_found = true
@@ -184,7 +209,9 @@ function validate_already_input (element) {
 function delete_product(event) {
     let index = event.target.parentElement.parentElement.parentElement.dataset.index;
     products.splice(index, 1);
-    save_data()
+    rating_number.splice(index, 1);
+    save_data(products,'products')
+    save_data(rating_number,'rating_number')
     rander_product()
 }
 
@@ -214,7 +241,6 @@ function edit_product(event) {
 function on_edit() {
     let create_button = document.querySelector(".create_Btn")
     if (create_button.id === "edit") {
-        hide(dom_dialog)
         let update_product = {}
         update_product.title = document.querySelector('#title').value
         update_product.price = document.querySelector('#price').value
@@ -230,12 +256,19 @@ function on_edit() {
         update_product.desciption = document.querySelector('#desciption').value
         update_product.photo = document.querySelector('#image').value
         update_product.rating = rating_number[index_editor]
-        products.splice(index_editor, 1, update_product)
-        console.log(update_product)
-        save_data()
+        if (validate_not_input(update_product) && isValidUrl(update_product.photo)) {
+            products.splice(index_editor, 1, update_product)
+            hide(dom_dialog)
+            alert_message('success','Already updated')
+        } else {
+            alert_message('warning','Your input is uncorrect')
+        }
+        save_data(products,'products')
         rander_product()
     }
 }
-save_data()
-load_data()
+// save_data(products,'products')
+// save_data(rating_number,'rating_number')
+products = load_data('products')
+rating_number = load_data('rating_number')
 rander_product()

@@ -643,9 +643,9 @@ input:focus {
 }
 #credit-card dialog {
   position: fixed;
-  top: 13vh;
-  left: 18%;
-  width: 65%;
+  top: 6vh;
+  left: 16%;
+  width: 70%;
   z-index: 100;
   border-radius: 25px;
   border: none;
@@ -769,11 +769,11 @@ input:focus {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  gap: 10px;
   padding: 20px;
 }
 #credit-card dialog .name,
 #credit-card dialog .number-card-content,
+#credit-card dialog .check-out-user,
 #credit-card dialog .exp {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -815,6 +815,7 @@ input:focus {
 }
 #credit-card dialog .name input,
 #credit-card dialog .number-card-content input,
+#credit-card dialog .check-out-user input,
 #credit-card dialog .exp input {
   border: 3px solid rgb(19, 148, 208);
   padding: 10px;
@@ -853,6 +854,7 @@ input:focus {
           justify-content: flex-end;
 }
 #credit-card dialog .submit-content button {
+  margin-top: 5px;
   padding: 13px 18px 13px 18px;
   border: none;
   border-radius: 12px;

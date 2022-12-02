@@ -242,7 +242,6 @@ function render_item_cart() {
         item_cart.appendChild(dom_h2)
         dom_item_container.appendChild(item_cart)
         dom_scroll.appendChild(dom_item_container)
-
     }
 
 }
@@ -259,7 +258,7 @@ function add_card() {
         save_data(add_items,'add_items')
         numbers_add++
         save_data(numbers_add,'numbers_add')
-        alert('Add this products to your cart')
+        alert_message('success','Add product successfully')
     } else {
         let check = true
         for (let i in add_items) {
@@ -272,13 +271,28 @@ function add_card() {
             save_data(add_items,'add_items')
             numbers_add++
             save_data(numbers_add,'numbers_add')
-            alert('Add this product to your cart')
+            alert_message('success','Add product successfully')
         }else {
-            alert('You Already add this product to your cart')
+            alert_message('warning','You Already add this product to your cart')
         }
     }
 }
-
+function alert_message(incon,message) {
+    Swal.fire({
+        position: 'center',
+        icon: incon,
+        title: message,
+        showConfirmButton: false,
+        timer: 1000
+      })
+}
+function alert_message_button(message) {
+    Swal.fire(
+        message,
+        'You clicked the button!',
+        'success'
+      )
+}
 // function login_process(){
 //     hide(document.querySelector('#form-login-container'))
 //     let seller_page =document.querySelector('#seller-login')
@@ -317,14 +331,44 @@ function buy_items (index) {
     let product_image = document.querySelector('.product-image').firstElementChild
     product_image.src = products[index].photo
     document.querySelector('.quantity-container').style.display = 'flex';
+    ///price
+    let price_type = '$'
+    if (products[index].currency === 'euro') {
+        price_type = '€'
+    }
     let dom_total = document.querySelector('#total').lastElementChild
-    dom_total.textContent = '$'+ products[index].price
+    dom_total.textContent = price_type + products[index].price
     let dom_select = document.querySelector('select')
     dom_select.addEventListener('click', (e) => {
-        calculator_quantity(dom_select.value,products[index].price)
+        calculator_quantity(dom_select.value,products[index].price,price_type)
     });
     let commission=document.querySelector('.total-price-container').lastElementChild
-    commission.textContent = '$' + products[index].price
+    commission.textContent = price_type + products[index].price
+    let ratting_us = document.querySelector('.ratting-stars').querySelectorAll('span');
+    ratting_us.forEach(span => {
+        span.addEventListener('click', (e) => {
+            ratting_process(span.dataset.index,index)
+        });
+    })
+
+}
+function ratting_process(num_ratting,index){
+    let ratting_us = document.querySelector('.ratting-stars').querySelectorAll('span');
+    ratting_us.forEach(span => {
+        if (span.dataset.index <= num_ratting) {
+            span.style.color = 'orange';
+        }else{
+            span.style.color = 'black';
+        }
+    })
+    rating_number[index]++;
+    let all_star = products[index].totail_star
+    let new_totail_star =   Number(all_star) + Number(num_ratting)
+    let new_ratting =  new_totail_star / rating_number[index]
+    products[index].rating = Math.round(new_ratting) ;
+    products[index].totail_star =  new_totail_star;
+    save_data(products,'products')
+    save_data(rating_number,'rating_number')
 }
 
 function buy_all_items () {
@@ -339,16 +383,25 @@ function buy_all_items () {
     let total_price = 0
     let num = 0
     dom_value_store.forEach(item => {
-        total_price += item.value * add_items[num].price
-        num++
+        ///euro to us 
+        if (item.parentElement.parentElement.previousElementSibling.previousElementSibling.lastElementChild.textContent === 'euro') {
+            let euro = 1.05
+            let total_euro = add_items[num].price * euro
+            total_price += total_euro * item.value
+            num++
+            console.log('log')
+        }else {
+            total_price += item.value * add_items[num].price
+            num++
+        }
     })
     let dom_total = document.querySelector('#total').lastElementChild
     dom_total.textContent = '$'+ total_price
 }
-function calculator_quantity (quantity,price){
+function calculator_quantity (quantity,price,price_type){
     let calculator = quantity * price 
     let dom_total = document.querySelector('#total').lastElementChild
-    dom_total.textContent = '$'+ calculator
+    dom_total.textContent = price_type + calculator
 }
 function delete_items(event) {
     let index = event.target.parentElement.parentElement.dataset.index;
@@ -399,4 +452,5 @@ dom_payment_cacel.addEventListener('click', (e) => {
 // save_data(numbers_add,'numbers_add')
 add_items = load_data('add_items')
 numbers_add = load_data('numbers_add')
+rating_number = load_data('rating_number')
 rander_product()

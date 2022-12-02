@@ -10,9 +10,9 @@
     z-index: 10;
     dialog {
         position: fixed;
-        top: 13vh;
-        left: 18%;
-        width: 65%;
+        top: 6vh;
+        left: 16%;
+        width: 70%;
         z-index: 100;
         border-radius: 25px;
         border: none;
@@ -82,11 +82,12 @@
             display: flex;
             flex: 1;
             flex-direction: column;
-            gap: 10px;
+            // gap: 5px;
             padding: 20px;
         }
         .name,
         .number-card-content,
+        .check-out-user,
         .exp {
             display: flex;
             flex: 1;
@@ -110,6 +111,7 @@
 
         .name input,
         .number-card-content input,
+        .check-out-user input,
         .exp input {
             border: 3px solid rgb(19, 148, 208);
             padding: 10px;
@@ -144,6 +146,7 @@
             justify-content: flex-end;
         }
         .submit-content button {
+            margin-top: 5px;
             padding: 13px 18px 13px 18px;
             border: none;
             border-radius: 12px;
