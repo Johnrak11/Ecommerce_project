@@ -28,14 +28,32 @@ main {
         @include flex-item (center,center);
         margin: 15px;
         button{
-            @include btn;
+            @include button;
             padding: 15px;
+            color: white;
+        }
+        button:hover{
+            @include hover-color;
         }
     }
     .undefind-container{
         @include spacing(20px,0);
         text-align: center;
         color: rgb(68, 68, 68);
+    }
+    .short-container{
+        margin-bottom: 20px;
+        #short-product{
+            @include button;
+            color: black;
+            padding: 10px;
+            background-color: white;
+            font-size: 15px;
+            border:none;
+        }
+        #short-product:hover{
+            @include hover-color;
+        }
     }
 }
 @import 'components/discount';

@@ -3,14 +3,14 @@
 let dom_dialog = document.querySelector('#product-dialog')
 
 let rating_number = [0, 0, 0, 0, 0, 0, 0,0]
-let products = [{ 'title': 'jim', 'price': '65', 'rating': 0,'totail_star':0, 'photo': 'https://technext.github.io/famms/images/p1.png', 'currency': 'us','desciption': 'Black' },
-{ 'title': 'jim', 'price': '65', 'rating': 0, 'totail_star':0,'photo': 'https://technext.github.io/famms/images/p1.png', 'currency': 'us', 'desciption': 'Black' },
-{ 'title': 'T-shirt', 'price': '65', 'rating': 0,'totail_star':0, 'photo': 'https://technext.github.io/famms/images/p1.png', 'currency': 'us', 'desciption': 'Black' },
-{ 'title': 'gan', 'price': '65', 'rating': 0,'totail_star':0, 'photo': 'https://technext.github.io/famms/images/p1.png', 'currency': 'us', 'desciption': 'Black' },
-{ 'title': 'nis', 'price': '65', 'rating': 0,'totail_star':0, 'photo': 'https://technext.github.io/famms/images/p1.png', 'currency': 'euro', 'desciption': 'Black' },
-{ 'title': 'get', 'price': '65', 'rating': 0,'totail_star':0, 'photo': 'https://technext.github.io/famms/images/p1.png', 'currency': 'us', 'desciption': 'Black' },
-{ 'title': 'no', 'price': '65', 'rating': 0,'totail_star':0, 'photo': 'https://technext.github.io/famms/images/p1.png', 'currency': 'us', 'desciption': 'Black' },
-{ 'title': 'no', 'price': '65', 'rating': 0,'totail_star':0, 'photo': 'https://technext.github.io/famms/images/p1.png', 'currency': 'us', 'desciption': 'Black' },
+let products = [{ 'title': 'Men Shirt', 'price': '100', 'rating': 5,'totail_star':5, 'photo': '../image/p1.png', 'currency': 'us','desciption': 'size: m,l,xl,xxl' },
+{ 'title': 'Casual Work Shirt', 'price': '80', 'rating': 5, 'totail_star':5,'photo': '../image/p2.png', 'currency': 'us', 'desciption': 'size: m,l,xl,xxl' },
+{ 'title': 'Ninedaily Women', 'price': '500', 'rating': 5,'totail_star':5, 'photo': '../image/p3.png', 'currency': 'us', 'desciption': 'size: m,l,xl,xxl' },
+{ 'title': 'Women Dress', 'price': '150', 'rating': 5,'totail_star':5, 'photo': '../image/p4.png', 'currency': 'us', 'desciption': 'size: m,l,xl,xxl' },
+{ 'title': 'Contrast Hoodie', 'price': '200', 'rating': 4,'totail_star':4, 'photo': '../image/p5.png', 'currency': 'euro', 'desciption': 'size: m,l,xl,xxl' },
+{ 'title': ' Men Corduroy Shirt', 'price': '65', 'rating': 5,'totail_star':5, 'photo': '../image/p9.png', 'currency': 'us', 'desciption': 'size: m,l,xl,xxl' },
+{ 'title': 'Shirttail Hem Tops', 'price': '100', 'rating': 4,'totail_star':5, 'photo': '../image/p7.png', 'currency': 'us', 'desciption': 'size: m,l,xl,xxl' },
+{ 'title': 'Shirttail Hem Tops', 'price': '500  ', 'rating': 3,'totail_star':3, 'photo': '../image/p8.png', 'currency': 'us', 'desciption': 'size: m,l,xl,xxl' },
 ]
 let index_editor = 0
 let dom_click_add_product = document.querySelector('#click-add');
@@ -175,8 +175,6 @@ function create_product() {
         save_data(products,'products')
         save_data(rating_number,'rating_number')
         rander_product()
-        console.log(new_product)
-
     }
 
 }
@@ -194,12 +192,6 @@ function clear_value () {
     document.querySelector('#price').value = ''
     document.querySelector('#desciption').value = ''
     document.querySelector('#image').value = ''
-    // tite_value.value = products[index].title
-    // price_value.value = products[index].price
-    // currency_value.value = products[index].currency
-    // desciption_value.value = products[index].desciption
-    // image_value.value = products[index].photo
-    // edit_button.addEventListener('click', on_edit)
 }
 //copy from website
 function isValidUrl(string) {

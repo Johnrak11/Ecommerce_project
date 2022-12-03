@@ -67,8 +67,11 @@
             justify-content: flex-end;
             margin-right: 1%;
             button{
-                @include btn;
+                @include button;
                 padding: 12px;
+            }
+            button:hover{
+                @include hover-color;
             }
         }
 

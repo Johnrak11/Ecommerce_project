@@ -57,8 +57,12 @@
                             width: 40px;
                             margin-left: 15px;
                         }
+                        img:hover{
+                            @include hover-zoom;
+                        }
                         h2{
                             margin-left: 30%;
+                            font-size: 14px;
                         }
                     }
                     .item_cart_center{
@@ -78,11 +82,12 @@
                         @include flexProp (flex,row);
                         @include flex-item (space-around,center);  
                         @include flexSize(0.5);
-                        gap: 10px;
+                        gap: 15px;
+                        padding: 5px;
                         button{
                             @include button;
                             background-color: $btn-main;
-                            padding: 8px;
+                            padding: 6px;
                             font-size: 15px;
                             color: white;
                             flex: 1;
@@ -93,7 +98,9 @@
                                 padding: 2px;
                             }
                         }
-                        
+                        button:hover{
+                            @include hover-color;
+                        }
                     }
                 }
                 .undefind-cart{
@@ -107,7 +114,7 @@
         menu{
             margin-top: 5px;
             display: flex;
-            gap: 10px;
+            gap: 20px;
             justify-content: flex-end;
             button{
                 @include button;
@@ -116,6 +123,9 @@
                 width: 10%;
                 font-size: 15px;
                 color: white;
+            }
+            button:hover{
+                @include hover-color;
             }
         }
     }

@@ -146,18 +146,72 @@ main .more-product {
   margin: 15px;
 }
 main .more-product button {
-  padding: 20px;
+  -webkit-box-shadow: inset 0 0 0 0 #54b3d6;
+          box-shadow: inset 0 0 0 0 #54b3d6;
+  margin: 0 -0.25rem;
+  padding: 0 0.25rem;
+  -webkit-transition: color 0.3s ease-in-out, -webkit-box-shadow 0.3s ease-in-out;
+  transition: color 0.3s ease-in-out, -webkit-box-shadow 0.3s ease-in-out;
+  transition: color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  transition: color 0.3s ease-in-out, box-shadow 0.3s ease-in-out, -webkit-box-shadow 0.3s ease-in-out;
+  padding: 12px;
   border: none;
-  background-color: rgb(247, 68, 78);
+  cursor: pointer;
+  background: rgb(247, 68, 78);
+  border-radius: 12px;
   color: white;
-  border-radius: 10px;
   padding: 15px;
+  color: white;
+}
+main .more-product button a {
+  color: rgb(234, 234, 234);
+  text-decoration: none;
+}
+main .more-product button:hover {
+  -webkit-box-shadow: inset 150px 0 0 0 #086d48;
+          box-shadow: inset 150px 0 0 0 #086d48;
+  cursor: pointer;
+  background: none;
 }
 main .undefind-container {
   padding: 20px;
   margin: 0;
   text-align: center;
   color: rgb(68, 68, 68);
+}
+main .short-container {
+  margin-bottom: 20px;
+}
+main .short-container #short-product {
+  -webkit-box-shadow: inset 0 0 0 0 #54b3d6;
+          box-shadow: inset 0 0 0 0 #54b3d6;
+  margin: 0 -0.25rem;
+  padding: 0 0.25rem;
+  -webkit-transition: color 0.3s ease-in-out, -webkit-box-shadow 0.3s ease-in-out;
+  transition: color 0.3s ease-in-out, -webkit-box-shadow 0.3s ease-in-out;
+  transition: color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  transition: color 0.3s ease-in-out, box-shadow 0.3s ease-in-out, -webkit-box-shadow 0.3s ease-in-out;
+  padding: 12px;
+  border: none;
+  cursor: pointer;
+  background: rgb(247, 68, 78);
+  border-radius: 12px;
+  color: white;
+  color: black;
+  padding: 10px;
+  background-color: white;
+  font-size: 15px;
+  border: none;
+}
+main .short-container #short-product a {
+  color: rgb(234, 234, 234);
+  text-decoration: none;
+}
+main .short-container #short-product:hover {
+  -webkit-box-shadow: inset 150px 0 0 0 #086d48;
+          box-shadow: inset 150px 0 0 0 #086d48;
+  cursor: pointer;
+  background: none;
 }
 
 .discount {
@@ -228,7 +282,7 @@ main .undefind-container {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 38%;
+  width: 45%;
   border-radius: 12px;
 }
 @media (max-width: 670px) {
@@ -263,12 +317,20 @@ main .undefind-container {
 }
 .product-container .product-title .search-container span {
   font-size: 13px;
+  -webkit-box-shadow: inset 0 0 0 0 #54b3d6;
+          box-shadow: inset 0 0 0 0 #54b3d6;
+  margin: 0 -0.25rem;
+  padding: 0 0.25rem;
+  -webkit-transition: color 0.3s ease-in-out, -webkit-box-shadow 0.3s ease-in-out;
+  transition: color 0.3s ease-in-out, -webkit-box-shadow 0.3s ease-in-out;
+  transition: color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  transition: color 0.3s ease-in-out, box-shadow 0.3s ease-in-out, -webkit-box-shadow 0.3s ease-in-out;
   padding: 12px;
   border: none;
   cursor: pointer;
-  background: rgb(255, 255, 255);
+  background: rgb(247, 68, 78);
   border-radius: 12px;
-  color: rgb(24, 24, 24);
+  color: white;
   text-align: center;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
@@ -284,12 +346,20 @@ main .undefind-container {
   color: rgb(234, 234, 234);
 }
 .product-container .product-title .stort-item {
+  -webkit-box-shadow: inset 0 0 0 0 #54b3d6;
+          box-shadow: inset 0 0 0 0 #54b3d6;
+  margin: 0 -0.25rem;
+  padding: 0 0.25rem;
+  -webkit-transition: color 0.3s ease-in-out, -webkit-box-shadow 0.3s ease-in-out;
+  transition: color 0.3s ease-in-out, -webkit-box-shadow 0.3s ease-in-out;
+  transition: color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  transition: color 0.3s ease-in-out, box-shadow 0.3s ease-in-out, -webkit-box-shadow 0.3s ease-in-out;
   padding: 12px;
   border: none;
   cursor: pointer;
-  background: rgb(255, 255, 255);
+  background: rgb(247, 68, 78);
   border-radius: 12px;
-  color: rgb(24, 24, 24);
+  color: white;
   padding: 10px;
   font-size: 17px;
   font-weight: 600;
@@ -299,6 +369,17 @@ main .undefind-container {
 .product-container .product-title .stort-item a {
   color: rgb(234, 234, 234);
   text-decoration: none;
+}
+.product-container .product-title .stort-item:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  cursor: pointer;
+  -webkit-box-shadow: inset 150px 0 0 0 #086d48;
+          box-shadow: inset 150px 0 0 0 #086d48;
+  cursor: pointer;
+  background: none;
 }
 .product-container .product-card-contaier {
   display: -webkit-box;
@@ -317,6 +398,9 @@ main .undefind-container {
   margin: 12px;
   padding: 10px;
   background-color: rgb(234, 234, 234);
+  border-radius: 10px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+          box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 .product-container .product-card-contaier .product-card .product-card-image {
   padding: 18px;
@@ -360,7 +444,7 @@ main .undefind-container {
   transition: transform 0.5s, -webkit-transform 0.5s;
 }
 .product-container .product-card-contaier .product-card .btn-card-container .btn-card-buy {
-  margin-top: 80%;
+  margin-top: 70%;
   margin-bottom: 20px;
   text-align: center;
 }
@@ -368,17 +452,37 @@ main .undefind-container {
   text-align: center;
 }
 .product-container .product-card-contaier .product-card .btn-card-container button {
-  padding: 20px;
-  border: none;
-  background-color: rgb(247, 68, 78);
-  color: white;
-  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 0 0 #54b3d6;
+          box-shadow: inset 0 0 0 0 #54b3d6;
+  margin: 0 -0.25rem;
+  padding: 0 0.25rem;
+  -webkit-transition: color 0.3s ease-in-out, -webkit-box-shadow 0.3s ease-in-out;
+  transition: color 0.3s ease-in-out, -webkit-box-shadow 0.3s ease-in-out;
+  transition: color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  transition: color 0.3s ease-in-out, box-shadow 0.3s ease-in-out, -webkit-box-shadow 0.3s ease-in-out;
   padding: 12px;
+  border: none;
+  cursor: pointer;
+  background: rgb(247, 68, 78);
+  border-radius: 12px;
+  color: white;
+  padding: 12px;
+  color: white;
   width: 50%;
 }
+.product-container .product-card-contaier .product-card .btn-card-container button a {
+  color: rgb(234, 234, 234);
+  text-decoration: none;
+}
+.product-container .product-card-contaier .product-card .btn-card-container button:hover {
+  -webkit-box-shadow: inset 150px 0 0 0 #086d48;
+          box-shadow: inset 150px 0 0 0 #086d48;
+  cursor: pointer;
+  background: none;
+}
 .product-container .product-card-contaier .product-card .btn-card-container:hover {
-  -webkit-transform: translateY(-30%);
-          transform: translateY(-30%);
+  -webkit-transform: translateY(-20%);
+          transform: translateY(-20%);
 }
 .product-container .product-card-contaier .product-card .product-card-rating {
   margin-top: 5px;
@@ -432,6 +536,13 @@ main .undefind-container {
 }
 #product-dialog dialog #image_container img {
   width: 100%;
+}
+#product-dialog dialog #image_container img:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  cursor: pointer;
 }
 #product-dialog dialog #detail_comtainer {
   display: -webkit-box;
@@ -502,13 +613,32 @@ main .undefind-container {
   margin-right: 1%;
 }
 #product-dialog dialog #detail_comtainer menu button {
-  padding: 20px;
+  -webkit-box-shadow: inset 0 0 0 0 #54b3d6;
+          box-shadow: inset 0 0 0 0 #54b3d6;
+  margin: 0 -0.25rem;
+  padding: 0 0.25rem;
+  -webkit-transition: color 0.3s ease-in-out, -webkit-box-shadow 0.3s ease-in-out;
+  transition: color 0.3s ease-in-out, -webkit-box-shadow 0.3s ease-in-out;
+  transition: color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  transition: color 0.3s ease-in-out, box-shadow 0.3s ease-in-out, -webkit-box-shadow 0.3s ease-in-out;
+  padding: 12px;
   border: none;
-  background-color: rgb(247, 68, 78);
+  cursor: pointer;
+  background: rgb(247, 68, 78);
+  border-radius: 12px;
   color: white;
-  border-radius: 10px;
   padding: 12px;
   font-size: 13px;
+}
+#product-dialog dialog #detail_comtainer menu button a {
+  color: rgb(234, 234, 234);
+  text-decoration: none;
+}
+#product-dialog dialog #detail_comtainer menu button:hover {
+  -webkit-box-shadow: inset 150px 0 0 0 #086d48;
+          box-shadow: inset 150px 0 0 0 #086d48;
+  cursor: pointer;
+  background: none;
 }
 
 input:focus {
@@ -613,8 +743,16 @@ input:focus {
   width: 40px;
   margin-left: 15px;
 }
+#stor-item-comtainer dialog .scroll #item-container .item_cart .item_cart_left img:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  cursor: pointer;
+}
 #stor-item-comtainer dialog .scroll #item-container .item_cart .item_cart_left h2 {
   margin-left: 30%;
+  font-size: 14px;
 }
 #stor-item-comtainer dialog .scroll #item-container .item_cart .item_cart_center {
   display: -webkit-box;
@@ -669,17 +807,26 @@ input:focus {
   -webkit-box-flex: 0.5;
       -ms-flex: 0.5;
           flex: 0.5;
-  gap: 10px;
+  gap: 15px;
+  padding: 5px;
 }
 #stor-item-comtainer dialog .scroll #item-container .item_cart menu button {
+  -webkit-box-shadow: inset 0 0 0 0 #54b3d6;
+          box-shadow: inset 0 0 0 0 #54b3d6;
+  margin: 0 -0.25rem;
+  padding: 0 0.25rem;
+  -webkit-transition: color 0.3s ease-in-out, -webkit-box-shadow 0.3s ease-in-out;
+  transition: color 0.3s ease-in-out, -webkit-box-shadow 0.3s ease-in-out;
+  transition: color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  transition: color 0.3s ease-in-out, box-shadow 0.3s ease-in-out, -webkit-box-shadow 0.3s ease-in-out;
   padding: 12px;
   border: none;
   cursor: pointer;
-  background: rgb(255, 255, 255);
+  background: rgb(247, 68, 78);
   border-radius: 12px;
-  color: rgb(24, 24, 24);
+  color: white;
   background-color: rgb(247, 68, 78);
-  padding: 8px;
+  padding: 6px;
   font-size: 15px;
   color: white;
   -webkit-box-flex: 1;
@@ -695,6 +842,12 @@ input:focus {
   border: none;
   border-radius: 10px;
   padding: 2px;
+}
+#stor-item-comtainer dialog .scroll #item-container .item_cart menu button:hover {
+  -webkit-box-shadow: inset 150px 0 0 0 #086d48;
+          box-shadow: inset 150px 0 0 0 #086d48;
+  cursor: pointer;
+  background: none;
 }
 #stor-item-comtainer dialog .scroll #item-container .undefind-cart {
   display: -webkit-box;
@@ -718,18 +871,26 @@ input:focus {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  gap: 10px;
+  gap: 20px;
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
 }
 #stor-item-comtainer dialog menu button {
+  -webkit-box-shadow: inset 0 0 0 0 #54b3d6;
+          box-shadow: inset 0 0 0 0 #54b3d6;
+  margin: 0 -0.25rem;
+  padding: 0 0.25rem;
+  -webkit-transition: color 0.3s ease-in-out, -webkit-box-shadow 0.3s ease-in-out;
+  transition: color 0.3s ease-in-out, -webkit-box-shadow 0.3s ease-in-out;
+  transition: color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  transition: color 0.3s ease-in-out, box-shadow 0.3s ease-in-out, -webkit-box-shadow 0.3s ease-in-out;
   padding: 12px;
   border: none;
   cursor: pointer;
-  background: rgb(255, 255, 255);
+  background: rgb(247, 68, 78);
   border-radius: 12px;
-  color: rgb(24, 24, 24);
+  color: white;
   background-color: rgb(247, 68, 78);
   padding: 8px;
   width: 10%;
@@ -739,6 +900,12 @@ input:focus {
 #stor-item-comtainer dialog menu button a {
   color: rgb(234, 234, 234);
   text-decoration: none;
+}
+#stor-item-comtainer dialog menu button:hover {
+  -webkit-box-shadow: inset 150px 0 0 0 #086d48;
+          box-shadow: inset 150px 0 0 0 #086d48;
+  cursor: pointer;
+  background: none;
 }
 
 #form-login-container {
@@ -1132,6 +1299,7 @@ input:focus {
 }
 
 .infomation {
+  margin-top: 30px;
   padding: 10px;
   display: -webkit-box;
   display: -ms-flexbox;

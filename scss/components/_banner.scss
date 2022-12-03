@@ -22,7 +22,12 @@
         }
         .banner-btn{
             button{
-                @include btn;
+                @include button;
+                color: white;
+                padding: 20px;
+            }
+            button:hover{
+                @include hover-color;
             }
         }
 

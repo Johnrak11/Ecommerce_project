@@ -5,7 +5,7 @@
     @include spacing(0, 0);
 }
 body {
-    @include body(370vh);
+    @include body(125vh);
     // --------responsive-------
     @include responsiveSize(big) {
         height: 170vh;
@@ -15,25 +15,22 @@ body {
     }
 }
 @import 'components/nav';
-#nav-home{
-    border-bottom: 2px solid $btn-main;
-}
+// #nav-home{
+//     border-bottom: 2px solid $btn-main;
+// }
 main {
     @include flexProp(flex,column);
     @include flexSize(1);
     margin-top: 6%  ;
-    .more-product{
-        @include flexProp (flex,column);
-        @include flex-item (center,center);
-        margin: 15px;
-        button{
-            @include button;
-            padding: 15px;
-            color: white;
-        }
-        button:hover{
-            @include hover-color;
-        }
+    .discount{
+        background-color: $btn-main;
+        flex: 1;
+        padding: 30px;
+        @include flexProp(flex,row);
+        @include flex-item(center,center);
+        font-size: 18px;
+        color: white;
+    
     }
    
     .product-container .product-title{
@@ -41,9 +38,8 @@ main {
     }
     
 }
-@import 'components/banner';
+#nav-about{
+    border-bottom: 2px solid $btn-main;
+}
 @import 'components/service';
-@import 'components/product-card';
-@import 'components/detail';
-@import 'components/credit_card';
 @import 'components/footer';

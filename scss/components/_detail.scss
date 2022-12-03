@@ -26,6 +26,9 @@
             img{
                 width: 100%;
             }
+            img:hover{
+                @include hover-zoom;
+            }
         }
         #detail_comtainer{
             @include flexProp(flex,column);
@@ -66,10 +69,14 @@
                 justify-content: flex-end;
                 margin-right: 1%;
                 button{
-                    @include btn;
+                    @include button;
                     padding: 12px;
                     font-size: 13px;
                 }
+                button:hover{
+                    @include hover-color;
+                }
+                
             }
         }
 

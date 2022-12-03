@@ -6,9 +6,7 @@ let products = load_data('products')
 let index_editor = 0
 let add_items = []
 let numbers_add = 0
-let accounts = [{'gamil':'virak.kep22@gmail.com','password':'12345678','roles':'admin','name':'vorak','image':''}]
-let user_login = 0
-// ------------------function------------------
+// ------------------function---------------------------------------------------
 function rander_product() {
     ///remove product-card-contaier
     document.querySelector('.product-card-contaier').remove();
@@ -37,11 +35,12 @@ function rander_product() {
         let product_title = document.createElement('h2');
         product_title.textContent = products[item].title;
         product_card_text.appendChild(product_title);
+
         // price--
         let product_price = document.createElement('label');
         if (products[item].currency === 'us') {
             product_price.textContent = '$' + products[item].price;
-        }else{
+        } else {
             product_price.textContent = '€' + products[item].price;
         }
         product_card_text.appendChild(product_price);
@@ -60,10 +59,12 @@ function rander_product() {
             product_card_rating.appendChild(product_card_rating_item)
         }
         product_card.appendChild(product_card_rating)
-        // button--
+
+        // button--container
         let btn_card_container = document.createElement('div');
         btn_card_container.className = 'btn-card-container';
         btn_card_container.style.display = 'none';
+
         // button --buy--
         let btn_card_buy = document.createElement('div');
         btn_card_buy.className = 'btn-card-buy';
@@ -76,6 +77,7 @@ function rander_product() {
             buy_items(index)
         });
 
+        //btn_card_detail
         let btn_card_detail = document.createElement('div');
         btn_card_detail.className = 'btn-card-detail';
         let btn_detail = document.createElement('button');
@@ -104,19 +106,22 @@ function rander_product() {
     }
     parent_card_container.appendChild(card_container)
 }
-// hide and show---
+// hide element and show---
 function hide(element) {
     element.style.display = 'none'
 }
+
+// show- element --
 function show(element) {
     element.style.display = 'block'
 }
-//   -----------------save file------------
 
-function save_data(element,key) {
+//   -----------------save file------------
+function save_data(element, key) {
     localStorage.setItem(key, JSON.stringify(element));
 }
-//   -----------------save file------------
+
+//   -----------------load_file------------
 function load_data(key) {
     let storage = JSON.parse(localStorage.getItem(key));
     if (storage !== null) {
@@ -132,10 +137,10 @@ function search_process() {
     product_name.forEach(item => {
         num_found++
         let item_text = item.firstElementChild.nextElementSibling.firstElementChild.textContent
-        if (item_text.indexOf(search_text) > -1) {
+        let item_text_lower = item_text.toLocaleLowerCase()
+        if (item_text_lower.indexOf(search_text.toLocaleLowerCase()) > -1) {
             item.style.display = 'block'
-
-        }else{
+        } else {
             item.style.display = 'none'
             num_unfound++;
         }
@@ -146,6 +151,8 @@ function search_process() {
         document.querySelector('.undefind-container').style.display = 'none';
     }
 }
+
+//detail
 function detail_process(event) {
     show(dom_dialog)
     let index = event.target.parentElement.parentElement.parentElement.dataset.index;
@@ -174,6 +181,8 @@ function detail_process(event) {
     //change price
     detail_price.textContent = 'Price: ' + products[index].price
 }
+
+// render_item_cart
 function render_item_cart() {
     let dom_scroll = document.querySelector('.scroll')
     // Remove the card container and create a new one
@@ -185,6 +194,7 @@ function render_item_cart() {
             let item_cart = document.createElement("div");
             item_cart.className = "item_cart";
             item_cart.dataset.index = i;
+
             // create item left--
             let item_cart_left = document.createElement("div");
             item_cart_left.className = "item_cart_left";
@@ -195,6 +205,7 @@ function render_item_cart() {
             item_cart_left.appendChild(dom_img)
             item_cart_left.appendChild(dom_title)
             item_cart.appendChild(item_cart_left)
+
             // create item center--
             let item_cart_center = document.createElement("div");
             item_cart_center.className = "item_cart_center";
@@ -205,6 +216,7 @@ function render_item_cart() {
             item_cart_center.appendChild(dom_price)
             item_cart_center.appendChild(dom_currency)
             item_cart.appendChild(item_cart_center)
+
             // create item right--
             let item_cart_right = document.createElement("div");
             item_cart_right.className = "item_cart_right";
@@ -212,19 +224,20 @@ function render_item_cart() {
             dom_desciption.textContent = add_items[i].desciption;
             item_cart_right.appendChild(dom_desciption)
             item_cart.appendChild(item_cart_right)
+
             // create item menu
             let item_menu = document.createElement("menu");
             let dom_button_cacel = document.createElement("button");
             dom_button_cacel.className = "remove-store";
             dom_button_cacel.textContent = 'Cacel';
-            dom_button_cacel.addEventListener('click',delete_items)
+            dom_button_cacel.addEventListener('click', delete_items)
             item_menu.appendChild(dom_button_cacel);
             let dom_button_buy = document.createElement("button");
             dom_button_buy.className = "buy-store";
             let dom_icon = document.createElement("input");
             dom_icon.type = 'number'
             dom_icon.placeholder = '1'
-            dom_icon.id = 'store-item-vaue'
+            dom_icon.id = 'store-item-value'
             dom_icon.value = 1;
             dom_icon.min = '1';
             dom_button_buy.appendChild(dom_icon)
@@ -236,6 +249,7 @@ function render_item_cart() {
     } else {
         let item_cart = document.createElement("div");
         item_cart.className = "undefind-cart";
+
         //create h2
         let dom_h2 = document.createElement("h2");
         dom_h2.textContent = "Not Found";
@@ -245,6 +259,8 @@ function render_item_cart() {
     }
 
 }
+
+//add_card
 function add_card() {
     let new_cart_add = {}
     new_cart_add.title = products[index_editor].title
@@ -255,10 +271,10 @@ function add_card() {
     new_cart_add.index = index_editor
     if (numbers_add === 0) {
         add_items.push(new_cart_add)
-        save_data(add_items,'add_items')
+        save_data(add_items, 'add_items')
         numbers_add++
-        save_data(numbers_add,'numbers_add')
-        alert_message('success','Add product successfully')
+        save_data(numbers_add, 'numbers_add')
+        alert_message('success', 'Add product successfully')
     } else {
         let check = true
         for (let i in add_items) {
@@ -266,65 +282,32 @@ function add_card() {
                 check = false
             }
         }
-        if (check){
+        if (check) {
             add_items.push(new_cart_add)
-            save_data(add_items,'add_items')
+            save_data(add_items, 'add_items')
             numbers_add++
-            save_data(numbers_add,'numbers_add')
-            alert_message('success','Add product successfully')
-        }else {
-            alert_message('warning','You Already add this product to your cart')
+            save_data(numbers_add, 'numbers_add')
+            alert_message('success', 'Add product successfully')
+        } else {
+            alert_message('warning', 'You Already add this product to your cart')
         }
     }
 }
-function alert_message(incon,message) {
+
+//alert_message
+function alert_message(incon, message) {
     Swal.fire({
         position: 'center',
         icon: incon,
         title: message,
         showConfirmButton: false,
-        timer: 1000
-      })
+        timer: 1500,
+    })
 }
-function alert_message_button(message) {
-    Swal.fire(
-        message,
-        'You clicked the button!',
-        'success'
-      )
-}
-// function login_process(){
-//     hide(document.querySelector('#form-login-container'))
-//     let seller_page =document.querySelector('#seller-login')
-//     let new_account = {}
-//     new_account['gamil'] = document.querySelector('#user-gmail').value
-//     new_account['password'] = document.querySelector('#user-password').value
-//     new_account['roles'] = 'user'
-//     new_account['name'] = document.querySelector('#user-name').value
-//     new_account['image'] = document.querySelector('#user-image').value
-//     for (let index in accounts){
-//         if (accounts[index].gamil === new_account['gamil'] && accounts[index].password === new_account['password']) {
-//             user_login++;
-//         }else if (new_account['gamil'] !== '' && new_account.password !== '' && new_account.image !== '' && new_account.name !== ''){
-//             accounts.push(new_account)
-//             user_login++;
-//         }
-//         hide(nav_account)
-//         show(seller_page)
-//         // show(document.querySelector('#seller-login'))
 
-//     }
-
-// }
-
-// function check_login (){
-//     if (user_login > 0) {
-//         console.log(user_login)
-//     }else{
-//         show(document.querySelector('#form-login-container'))
-//     }
-// }
-function buy_items (index) {
+//buy_only_one item
+function buy_items(index) {
+    clear_payment()
     show(dom_credit_card)
     let credit_title = document.querySelector('.credit-title').firstElementChild
     credit_title.textContent = products[index].title
@@ -338,48 +321,38 @@ function buy_items (index) {
     }
     let dom_total = document.querySelector('#total').lastElementChild
     dom_total.textContent = price_type + products[index].price
-    let dom_select = document.querySelector('select')
+    let dom_select = document.querySelector('#quantity')
     dom_select.addEventListener('click', (e) => {
-        calculator_quantity(dom_select.value,products[index].price,price_type)
+        calculator_quantity(dom_select.value, products[index].price, price_type)
     });
-    let commission=document.querySelector('.total-price-container').lastElementChild
+    let commission = document.querySelector('.total-price-container').lastElementChild
     commission.textContent = price_type + products[index].price
     let ratting_us = document.querySelector('.ratting-stars').querySelectorAll('span');
     ratting_us.forEach(span => {
         span.addEventListener('click', (e) => {
-            ratting_process(span.dataset.index,index)
+            ratting_process(span.dataset.index, index)
         });
     })
-
-}
-function ratting_process(num_ratting,index){
-    let ratting_us = document.querySelector('.ratting-stars').querySelectorAll('span');
-    ratting_us.forEach(span => {
-        if (span.dataset.index <= num_ratting) {
-            span.style.color = 'orange';
-        }else{
-            span.style.color = 'black';
+    let dom_check_out_submit = document.querySelector('#make-payment')
+    dom_check_out_submit.addEventListener('click', (e) => {
+        if (validate_credit_card()) {
+            hide(dom_credit_card)
+            rander_product()
         }
-    })
-    rating_number[index]++;
-    let all_star = products[index].totail_star
-    let new_totail_star =   Number(all_star) + Number(num_ratting)
-    let new_ratting =  new_totail_star / rating_number[index]
-    products[index].rating = Math.round(new_ratting) ;
-    products[index].totail_star =  new_totail_star;
-    save_data(products,'products')
-    save_data(rating_number,'rating_number')
+    });
 }
 
-function buy_all_items () {
+//buy_package_one item
+function buy_all_items() {
+    clear_payment()
     let credit_title = document.querySelector('.credit-title').firstElementChild
     credit_title.textContent = 'Package';
     let product_image = document.querySelector('.product-image').firstElementChild
-    product_image.src = 'https://cdn.pixabay.com/photo/2014/04/02/10/53/shopping-cart-304843__480.png'
+    product_image.src = '../image/package_buy.jpg'
     document.querySelector('.quantity-container').style.display = 'none';
-    let commission=document.querySelector('.total-price-container').lastElementChild
+    let commission = document.querySelector('.total-price-container').lastElementChild
     commission.textContent = 'none'
-    let dom_value_store =document.querySelectorAll('#store-item-value')
+    let dom_value_store = document.querySelectorAll('#store-item-value')
     let total_price = 0
     let num = 0
     dom_value_store.forEach(item => {
@@ -389,47 +362,204 @@ function buy_all_items () {
             let total_euro = add_items[num].price * euro
             total_price += total_euro * item.value
             num++
-            console.log('log')
-        }else {
+        } else {
             total_price += item.value * add_items[num].price
             num++
         }
     })
     let dom_total = document.querySelector('#total').lastElementChild
-    dom_total.textContent = '$'+ total_price
+    dom_total.textContent = '$' + total_price
     let ratting_us = document.querySelector('.ratting-stars').querySelectorAll('span');
     ratting_us.forEach(span => {
         span.addEventListener('click', (e) => {
             package_rattings(span.dataset.index)
         });
     })
+    let dom_check_out_submit = document.querySelector('#make-payment')
+    dom_check_out_submit.addEventListener('click', (e) => {
+        if (validate_credit_card()) {
+            add_items = []
+            numbers_add = 0
+            save_data(add_items, 'add_items')
+            save_data(numbers_add, 'numbers_add')
+            add_items = load_data('add_items')
+            numbers_add = load_data('numbers_add')
+            hide(dom_credit_card)
+            rander_product()
+        }
+    });
 }
-function package_rattings (num_star) {
-    for (let i in add_items) {
-        for (let char in products){
-            if (add_items[i].title === products[char].title){
-                ratting_process(num_star,char)
 
+//ratting stars
+function ratting_process(num_ratting, index) {
+    let ratting_us = document.querySelector('.ratting-stars').querySelectorAll('span');
+    ratting_us.forEach(span => {
+        if (span.dataset.index <= num_ratting) {
+            span.style.color = 'orange';
+        } else {
+            span.style.color = 'black';
+        }
+    })
+    rating_number[index]++;
+    let all_star = products[index].totail_star
+    let new_totail_star = Number(all_star) + Number(num_ratting)
+    let new_ratting = new_totail_star / rating_number[index]
+    products[index].rating = Math.round(new_ratting);
+    products[index].totail_star = new_totail_star;
+    save_data(products, 'products')
+    save_data(rating_number, 'rating_number')
+}
+
+//package_rattings stars
+function package_rattings(num_star) {
+    for (let i in add_items) {
+        for (let char in products) {
+            if (add_items[i].title === products[char].title) {
+                ratting_process(num_star, char)
             }
         }
     }
 }
-function calculator_quantity (quantity,price,price_type){
-    let calculator = quantity * price 
+
+//calculator_quantity
+function calculator_quantity(quantity, price, price_type) {
+    let calculator = quantity * price
     let dom_total = document.querySelector('#total').lastElementChild
     dom_total.textContent = price_type + calculator
 }
+
+////delete item in store
 function delete_items(event) {
     let index = event.target.parentElement.parentElement.dataset.index;
     add_items.splice(index, 1);
     numbers_add -= 1;
-    save_data(add_items,'add_items')
-    save_data(numbers_add,'numbers_add')
+    save_data(add_items, 'add_items')
+    save_data(numbers_add, 'numbers_add')
     render_item_cart()
+}
+//validate_credit_card container
+function validate_credit_card() {
+    let is_found = true
+    let dom_contect = document.querySelector('#gmail-check-out')
+    let dom_location = document.querySelector('#location-check-out')
+    let dom_name = document.querySelector('#name-check-out')
+    let dom_number = document.querySelector('#number-check-out')
+    let dom_month_year = document.querySelector('#year-check-out')
+    let dom_cvv = document.querySelector('#cvv-check-out')
+    if (!validate_Email(dom_contect.value)) {
+        is_found = false
+        alert_message('warning', 'The email address is not valid')
+    } else if (!validate_name(dom_name.value)) {
+        is_found = false
+        alert_message('warning', 'name on card is not correct')
+    } else if (!validate_number(dom_number.value)) {
+        is_found = false
+        alert_message('warning', 'Number on card must be more than 16')
+    } else if (!validate_exp(dom_month_year.value)) {
+        is_found = false
+        alert_message('warning', 'Card is exspire')
+    } else if (dom_contect.value === '' &&
+        dom_location.value === '' &&
+        dom_name.value === '' &&
+        dom_number.value === '' &&
+        dom_month_year.value === '' &&
+        dom_cvv.value === '') {
+        is_found = false;
+        alert_message('warning', 'invalid input')
+    } else {
+        alert_message('success', 'payment success')
+    }
+    return is_found
+}
+
+//gmail validation from www.programiz.com
+function validate_Email(email_id) {
+    let is_found = false
+    const regex_pattern = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    if (regex_pattern.test(email_id)) {
+        is_found = true;
+    }
+    return is_found;
+}
+function validate_name(name_id) {
+    if (name_id !== '') {
+        return (name_id[0] === name_id[0].toUpperCase())
+    }
+}
+function validate_number(number_id) {
+    let is_equal = false
+    if (number_id.length === 16) {
+        is_equal = true
+    }
+    return is_equal
+}
+function validate_exp(exp_id) {
+    let date_now = new Date()
+    let is_found = true
+    let is_equal = true
+    let input_year = ''
+    let input_month = ''
+    for (let index in exp_id) {
+        if (exp_id[index] === '-') {
+            is_equal = false
+        } else if (is_equal) {
+            input_year += exp_id[index]
+        } else {
+            input_month += exp_id[index]
+        }
+    }
+    if (date_now.getFullYear() === Number(input_year)) {
+        if (date_now.getMonth() >= Number(input_month)) {
+            is_found = false
+        }
+    } else if (date_now.getFullYear() > Number(input_year)) {
+        is_found = false
+    }
+    return is_found
+}
+
+// clear_payment
+function clear_payment() {
+    document.querySelector('#gmail-check-out').value = ''
+    document.querySelector('#location-check-out').value = ''
+    document.querySelector('#name-check-out').value = ''
+    document.querySelector('#number-check-out').value = ''
+    document.querySelector('#year-check-out').value = ''
+    document.querySelector('#cvv-check-out').value = ''
+    let ratting_us = document.querySelector('.ratting-stars').querySelectorAll('span');
+    ratting_us.forEach(span => {
+        span.style.color = 'black';
+    })
+}
+
+//short product
+function short_product_process () {
+    let num_found = 0;
+    let num_unfound = 0;
+    let search_price = short_product.value
+    let product_name = document.querySelectorAll(".product-card")
+    product_name.forEach(item => {
+        num_found++
+        let item_price = item.firstElementChild.nextElementSibling.lastElementChild.textContent
+        let price = item_price.slice(1)
+        if (Number(price) <= Number(search_price)) {
+            item.style.display = 'block'
+        } else {
+            item.style.display = 'none'
+            num_unfound++;
+        }
+    });
+    if (num_found === num_unfound) {
+        document.querySelector('.undefind-container').style.display = 'block';
+    } else {
+        document.querySelector('.undefind-container').style.display = 'none';
+    }
 }
 // ------------------------click----------------------
 let search_products = document.querySelector(".search-container").firstElementChild.nextElementSibling;
 search_products.addEventListener('keyup', search_process)
+let short_product = document.querySelector("#short-product")
+short_product.addEventListener('click', short_product_process)
 
 let dom_cancel_detail = document.querySelector('.cancel').firstElementChild
 dom_cancel_detail.addEventListener('click', (e) => {
@@ -444,19 +574,21 @@ let dom_store_cacel = document.querySelector('#store-cacel')
 dom_store_cacel.addEventListener('click', (e) => {
     hide(dom_dialog_cart)
 });
-// let nav_account = document.querySelector('#nav-acc')
-// nav_account.addEventListener('click',check_login)
-
 let btn_buy = document.querySelector('#buy-on-detail')
 btn_buy.addEventListener('click', (e) => {
+    hide(dom_dialog)
     buy_items(index_editor)
 });
 let dom_credit_card = document.querySelector('#credit-card')
 let dom_btn_buy_all = document.querySelector('#store-buy');
 dom_btn_buy_all.addEventListener('click', (e) => {
-    hide(dom_dialog_cart)
-    show(dom_credit_card)
-    buy_all_items()
+    if (numbers_add !== 0) {
+        hide(dom_dialog_cart)
+        show(dom_credit_card)
+        buy_all_items()
+    } else {
+        alert_message('warning', 'Please add cart first!')
+    }
 });
 let dom_payment_cacel = document.querySelector('#payment-cacel');
 dom_payment_cacel.addEventListener('click', (e) => {

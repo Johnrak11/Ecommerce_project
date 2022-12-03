@@ -233,7 +233,7 @@ main {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 38%;
+  width: 45%;
   border-radius: 12px;
 }
 @media (max-width: 670px) {
@@ -268,12 +268,20 @@ main {
 }
 .product-container .product-title .search-container span {
   font-size: 13px;
+  -webkit-box-shadow: inset 0 0 0 0 #54b3d6;
+          box-shadow: inset 0 0 0 0 #54b3d6;
+  margin: 0 -0.25rem;
+  padding: 0 0.25rem;
+  -webkit-transition: color 0.3s ease-in-out, -webkit-box-shadow 0.3s ease-in-out;
+  transition: color 0.3s ease-in-out, -webkit-box-shadow 0.3s ease-in-out;
+  transition: color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  transition: color 0.3s ease-in-out, box-shadow 0.3s ease-in-out, -webkit-box-shadow 0.3s ease-in-out;
   padding: 12px;
   border: none;
   cursor: pointer;
-  background: rgb(255, 255, 255);
+  background: rgb(247, 68, 78);
   border-radius: 12px;
-  color: rgb(24, 24, 24);
+  color: white;
   text-align: center;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
@@ -289,12 +297,20 @@ main {
   color: rgb(234, 234, 234);
 }
 .product-container .product-title .stort-item {
+  -webkit-box-shadow: inset 0 0 0 0 #54b3d6;
+          box-shadow: inset 0 0 0 0 #54b3d6;
+  margin: 0 -0.25rem;
+  padding: 0 0.25rem;
+  -webkit-transition: color 0.3s ease-in-out, -webkit-box-shadow 0.3s ease-in-out;
+  transition: color 0.3s ease-in-out, -webkit-box-shadow 0.3s ease-in-out;
+  transition: color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  transition: color 0.3s ease-in-out, box-shadow 0.3s ease-in-out, -webkit-box-shadow 0.3s ease-in-out;
   padding: 12px;
   border: none;
   cursor: pointer;
-  background: rgb(255, 255, 255);
+  background: rgb(247, 68, 78);
   border-radius: 12px;
-  color: rgb(24, 24, 24);
+  color: white;
   padding: 10px;
   font-size: 17px;
   font-weight: 600;
@@ -304,6 +320,17 @@ main {
 .product-container .product-title .stort-item a {
   color: rgb(234, 234, 234);
   text-decoration: none;
+}
+.product-container .product-title .stort-item:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  cursor: pointer;
+  -webkit-box-shadow: inset 150px 0 0 0 #086d48;
+          box-shadow: inset 150px 0 0 0 #086d48;
+  cursor: pointer;
+  background: none;
 }
 .product-container .product-card-contaier {
   display: -webkit-box;
@@ -322,6 +349,9 @@ main {
   margin: 12px;
   padding: 10px;
   background-color: rgb(234, 234, 234);
+  border-radius: 10px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+          box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 .product-container .product-card-contaier .product-card .product-card-image {
   padding: 18px;
@@ -365,7 +395,7 @@ main {
   transition: transform 0.5s, -webkit-transform 0.5s;
 }
 .product-container .product-card-contaier .product-card .btn-card-container .btn-card-buy {
-  margin-top: 80%;
+  margin-top: 70%;
   margin-bottom: 20px;
   text-align: center;
 }
@@ -373,17 +403,37 @@ main {
   text-align: center;
 }
 .product-container .product-card-contaier .product-card .btn-card-container button {
-  padding: 20px;
-  border: none;
-  background-color: rgb(247, 68, 78);
-  color: white;
-  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 0 0 #54b3d6;
+          box-shadow: inset 0 0 0 0 #54b3d6;
+  margin: 0 -0.25rem;
+  padding: 0 0.25rem;
+  -webkit-transition: color 0.3s ease-in-out, -webkit-box-shadow 0.3s ease-in-out;
+  transition: color 0.3s ease-in-out, -webkit-box-shadow 0.3s ease-in-out;
+  transition: color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  transition: color 0.3s ease-in-out, box-shadow 0.3s ease-in-out, -webkit-box-shadow 0.3s ease-in-out;
   padding: 12px;
+  border: none;
+  cursor: pointer;
+  background: rgb(247, 68, 78);
+  border-radius: 12px;
+  color: white;
+  padding: 12px;
+  color: white;
   width: 50%;
 }
+.product-container .product-card-contaier .product-card .btn-card-container button a {
+  color: rgb(234, 234, 234);
+  text-decoration: none;
+}
+.product-container .product-card-contaier .product-card .btn-card-container button:hover {
+  -webkit-box-shadow: inset 150px 0 0 0 #086d48;
+          box-shadow: inset 150px 0 0 0 #086d48;
+  cursor: pointer;
+  background: none;
+}
 .product-container .product-card-contaier .product-card .btn-card-container:hover {
-  -webkit-transform: translateY(-30%);
-          transform: translateY(-30%);
+  -webkit-transform: translateY(-20%);
+          transform: translateY(-20%);
 }
 .product-container .product-card-contaier .product-card .product-card-rating {
   margin-top: 5px;
@@ -472,12 +522,31 @@ main {
   margin-right: 1%;
 }
 #product-dialog dialog menu button {
-  padding: 20px;
-  border: none;
-  background-color: rgb(247, 68, 78);
-  color: white;
-  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 0 0 #54b3d6;
+          box-shadow: inset 0 0 0 0 #54b3d6;
+  margin: 0 -0.25rem;
+  padding: 0 0.25rem;
+  -webkit-transition: color 0.3s ease-in-out, -webkit-box-shadow 0.3s ease-in-out;
+  transition: color 0.3s ease-in-out, -webkit-box-shadow 0.3s ease-in-out;
+  transition: color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  transition: color 0.3s ease-in-out, box-shadow 0.3s ease-in-out, -webkit-box-shadow 0.3s ease-in-out;
   padding: 12px;
+  border: none;
+  cursor: pointer;
+  background: rgb(247, 68, 78);
+  border-radius: 12px;
+  color: white;
+  padding: 12px;
+}
+#product-dialog dialog menu button a {
+  color: rgb(234, 234, 234);
+  text-decoration: none;
+}
+#product-dialog dialog menu button:hover {
+  -webkit-box-shadow: inset 150px 0 0 0 #086d48;
+          box-shadow: inset 150px 0 0 0 #086d48;
+  cursor: pointer;
+  background: none;
 }
 
 input:focus {
@@ -487,6 +556,7 @@ input:focus {
 }
 
 .infomation {
+  margin-top: 30px;
   padding: 10px;
   display: -webkit-box;
   display: -ms-flexbox;

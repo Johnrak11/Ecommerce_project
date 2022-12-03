@@ -19,6 +19,10 @@
             background-color:$btn-main;
             color:white;
         }
+        .stort-item:hover{
+            @include hover-zoom;
+            @include hover-color;
+        }
     }
     @import 'card';
 }
