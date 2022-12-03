@@ -179,7 +179,11 @@ function detail_process(event) {
     //change description
     detail_desciption.textContent = 'Desciption: ' + products[index].desciption
     //change price
-    detail_price.textContent = 'Price: ' + products[index].price
+    let currency_detail = '€'
+    if (products[index].currency === 'us'){
+        currency_detail = '$'
+    }
+    detail_price.textContent = 'Price: ' + products[index].price + currency_detail
 }
 
 // render_item_cart
@@ -404,6 +408,7 @@ function ratting_process(num_ratting, index) {
     let all_star = products[index].totail_star
     let new_totail_star = Number(all_star) + Number(num_ratting)
     let new_ratting = new_totail_star / rating_number[index]
+    console.log(rating_number[index])
     products[index].rating = Math.round(new_ratting);
     products[index].totail_star = new_totail_star;
     save_data(products, 'products')

@@ -502,7 +502,7 @@ main .short-container #short-product:hover {
 }
 #product-dialog dialog {
   position: fixed;
-  top: 15vh;
+  top: 12vh;
   left: 20%;
   width: 60%;
   z-index: 100;
@@ -675,6 +675,7 @@ input:focus {
       -ms-flex-direction: column;
           flex-direction: column;
   padding: 15px;
+  background-color: #cbd6ec;
 }
 #stor-item-comtainer dialog header {
   display: -webkit-box;
@@ -704,12 +705,15 @@ input:focus {
   width: 100%;
   height: 70vh;
   overflow: auto;
+  padding: 5px;
 }
 #stor-item-comtainer dialog .scroll #item-container {
   width: 100%;
 }
 #stor-item-comtainer dialog .scroll #item-container .item_cart {
-  background-color: rgb(211, 211, 211);
+  background-color: rgb(234, 234, 234);
+  -webkit-box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+          box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

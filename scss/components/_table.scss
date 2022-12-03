@@ -5,7 +5,6 @@
     height: 100vh;
     width: 100%;
     background-color: rgba(0, 0, 0, 0.75);
-    // background-color: red;
     z-index: 10;
 
     dialog {
@@ -20,6 +19,7 @@
         overflow: hidden;
         @include flexProp (flex,column);
         padding: 15px;
+        background-color: $body_background;
         header{
             @include flexProp (flex,row);
             justify-content: flex-start;
@@ -38,12 +38,12 @@
             width: 100%;
             height: 70vh;
             overflow: auto;
-
+            padding: 5px;
             #item-container{
                 width: 100%;
                 .item_cart{
-                    // background-color:$card_main;
-                    background-color: rgb(211, 211, 211);
+                    background-color:$font-color-w;
+                    @include box-shadow;
                     @include flexProp (flex,row);
                     padding: 5px;
                     border-radius: 12px;

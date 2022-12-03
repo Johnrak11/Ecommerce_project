@@ -2,15 +2,23 @@
 
 let dom_dialog = document.querySelector('#product-dialog')
 
-let rating_number = [0, 0, 0, 0, 0, 0, 0,0]
-let products = [{ 'title': 'Men Shirt', 'price': '100', 'rating': 5,'totail_star':5, 'photo': '../image/p1.png', 'currency': 'us','desciption': 'size: m,l,xl,xxl' },
-{ 'title': 'Casual Work Shirt', 'price': '80', 'rating': 5, 'totail_star':5,'photo': '../image/p2.png', 'currency': 'us', 'desciption': 'size: m,l,xl,xxl' },
-{ 'title': 'Ninedaily Women', 'price': '500', 'rating': 5,'totail_star':5, 'photo': '../image/p3.png', 'currency': 'us', 'desciption': 'size: m,l,xl,xxl' },
-{ 'title': 'Women Dress', 'price': '150', 'rating': 5,'totail_star':5, 'photo': '../image/p4.png', 'currency': 'us', 'desciption': 'size: m,l,xl,xxl' },
-{ 'title': 'Contrast Hoodie', 'price': '200', 'rating': 4,'totail_star':4, 'photo': '../image/p5.png', 'currency': 'euro', 'desciption': 'size: m,l,xl,xxl' },
-{ 'title': ' Men Corduroy Shirt', 'price': '65', 'rating': 5,'totail_star':5, 'photo': '../image/p9.png', 'currency': 'us', 'desciption': 'size: m,l,xl,xxl' },
-{ 'title': 'Shirttail Hem Tops', 'price': '100', 'rating': 4,'totail_star':5, 'photo': '../image/p7.png', 'currency': 'us', 'desciption': 'size: m,l,xl,xxl' },
-{ 'title': 'Shirttail Hem Tops', 'price': '500  ', 'rating': 3,'totail_star':3, 'photo': '../image/p8.png', 'currency': 'us', 'desciption': 'size: m,l,xl,xxl' },
+let rating_number = [1, 1, 1, 1, 1, 1, 1,1,1,1,0,0,0,0,0,0]
+let products = [{ 'title': 'Men Shirt', 'price': '100', 'rating': 5,'totail_star':5, 'photo': 'https://technext.github.io/famms/images/p1.png', 'currency': 'us','desciption': 'color white and size xl' },
+{ 'title': 'Casual Work Shirt', 'price': '80', 'rating': 5, 'totail_star':5,'photo': 'https://technext.github.io/famms/images/p2.png', 'currency': 'euro', 'desciption': 'color black and size m' },
+{ 'title': 'Ninedaily Women', 'price': '200', 'rating': 5,'totail_star':5, 'photo': 'https://technext.github.io/famms/images/p3.png', 'currency': 'us', 'desciption': 'color purple and size xx' },
+{ 'title': 'Women Dress', 'price': '150', 'rating': 4,'totail_star':4, 'photo': 'https://technext.github.io/famms/images/p4.png', 'currency': 'us', 'desciption': 'color red and size x' },
+{ 'title': 'Contrast Hoodie', 'price': '200', 'rating': 4,'totail_star':4, 'photo': 'https://technext.github.io/famms/images/p5.png', 'currency': 'euro', 'desciption': 'color yellow and size m' },
+{ 'title': 'Men Corduroy Shirt', 'price': '65', 'rating': 5,'totail_star':5, 'photo': 'https://technext.github.io/famms/images/p11.png', 'currency': 'us', 'desciption': 'color green and size x' },
+{ 'title': 'Shirttail Hem Tops', 'price': '100', 'rating': 4,'totail_star':5, 'photo': 'https://technext.github.io/famms/images/p8.png', 'currency': 'us', 'desciption': 'color blue and size xl' },
+{ 'title': 'Raincoat', 'price': '450', 'rating': 3,'totail_star':3, 'photo': 'https://technext.github.io/famms/images/p9.png', 'currency': 'euro', 'desciption': 'color black and size xxl' },
+{ 'title': 'Pajamas', 'price': '15', 'rating': 2,'totail_star':2, 'photo': 'https://technext.github.io/famms/images/p10.png', 'currency': 'us', 'desciption': 'color red and size xl' },
+{ 'title': 'Tracksuit', 'price': '20', 'rating': 1,'totail_star':1, 'photo': 'https://technext.github.io/famms/images/p2.png', 'currency': 'us', 'desciption': 'color green and size x' },
+{ 'title': 'Coat', 'price': '90', 'rating': 0,'totail_star':0, 'photo': 'https://technext.github.io/famms/images/p4.png', 'currency': 'euro', 'desciption': 'color white and size xxl' },
+{ 'title': 'Jacket', 'price': '23', 'rating': 0,'totail_star':0, 'photo': 'https://technext.github.io/famms/images/p1.png', 'currency': 'us', 'desciption': 'color gray and size m' },
+{ 'title': 'Blouse', 'price': '11', 'rating': 0,'totail_star':0, 'photo': 'https://i.pinimg.com/564x/e3/7e/96/e37e960b547e04fc3d758ec24a8c4fdb.jpg', 'currency': 'us', 'desciption': 'color green and size l' },
+{ 'title': 'Dress', 'price': '80', 'rating': 0,'totail_star':0, 'photo': 'https://technext.github.io/famms/images/p3.png', 'currency': 'us', 'desciption': 'color orange and size x' },
+{ 'title': 'Lahkos', 'price': '20', 'rating': 0,'totail_star':0, 'photo': 'https://technext.github.io/famms/images/p5.png', 'currency': 'euro', 'desciption': 'color black and size xl' },
+{ 'title': 'Suit', 'price': '300', 'rating': 0,'totail_star':0, 'photo': 'https://technext.github.io/famms/images/p10.png', 'currency': 'euro', 'desciption': 'color green and size x' },
 ]
 let index_editor = 0
 let dom_click_add_product = document.querySelector('#click-add');
