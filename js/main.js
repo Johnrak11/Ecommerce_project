@@ -390,7 +390,7 @@ function alert_message(incon, message) {
 function delete_alert(e){
     Swal.fire({
         title: 'No data?',
-        text: "pleace to to page seller first !",
+        text: "please go to page seller first !",
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
@@ -400,7 +400,7 @@ function delete_alert(e){
         if (result.isConfirmed) {
           Swal.fire(
             'Deleted!',
-            'Your file has been deleted.',
+            'Done!',
             'success'
           )
           location.href = '../pages/seller.html'
