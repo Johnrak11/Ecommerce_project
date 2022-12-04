@@ -163,7 +163,11 @@ function detail_process(event) {
     //change description
     detail_desciption.textContent = 'Desciption: ' + products[index].desciption
     //change price
-    detail_price.textContent = 'Price: ' + products[index].price
+    let currency_detail = '€'
+    if (products[index].currency === 'us'){
+        currency_detail = '$'
+    }
+    detail_price.textContent = 'Price: ' + products[index].price + currency_detail
 }
 
 //add_card
