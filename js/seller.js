@@ -16,7 +16,7 @@ let products = [{ 'title': 'Men Shirt', 'price': '100', 'rating': 5,'totail_star
 { 'title': 'Coat', 'price': '90', 'rating': 0,'totail_star':0, 'photo': 'https://technext.github.io/famms/images/p4.png', 'currency': 'euro', 'desciption': 'color white and size xxl' },
 { 'title': 'Jacket', 'price': '23', 'rating': 0,'totail_star':0, 'photo': 'https://technext.github.io/famms/images/p1.png', 'currency': 'us', 'desciption': 'color gray and size m' },
 { 'title': 'Blouse', 'price': '11', 'rating': 0,'totail_star':0, 'photo': 'https://i.pinimg.com/564x/e3/7e/96/e37e960b547e04fc3d758ec24a8c4fdb.jpg', 'currency': 'us', 'desciption': 'color green and size l' },
-{ 'title': 'Dress', 'price': '80', 'rating': 0,'totail_star':0, 'photo': 'https://technext.github.io/famms/images/p3.png', 'currency': 'us', 'desciption': 'color orange and size x' },
+{ 'title': 'Dress', 'price': '70', 'rating': 0,'totail_star':0, 'photo': 'https://technext.github.io/famms/images/p3.png', 'currency': 'us', 'desciption': 'color orange and size x' },
 { 'title': 'Lahkos', 'price': '20', 'rating': 0,'totail_star':0, 'photo': 'https://technext.github.io/famms/images/p5.png', 'currency': 'euro', 'desciption': 'color black and size xl' },
 { 'title': 'Suit', 'price': '300', 'rating': 0,'totail_star':0, 'photo': 'https://technext.github.io/famms/images/p10.png', 'currency': 'euro', 'desciption': 'color green and size x' },
 ]
