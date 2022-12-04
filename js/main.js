@@ -387,7 +387,7 @@ function alert_message(incon, message) {
     })
 }
 
-function delete_alert(e){
+function delete_alert(){
     Swal.fire({
         title: 'No data?',
         text: "please go to page seller first !",
@@ -407,7 +407,6 @@ function delete_alert(e){
         }
       })
 }
-
 add_items = load_data('add_items')
 numbers_add = load_data('numbers_add')
 rating_number = load_data('rating_number')
