@@ -127,6 +127,7 @@ function load_data(key) {
     if (storage !== null) {
         return storage;
     }
+    
 }
 // ---------search-------------
 function search_process() {

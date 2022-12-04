@@ -130,9 +130,11 @@ function save_data(element, key) {
 //   -----------------load_file------------
 function load_data(key) {
     let storage = JSON.parse(localStorage.getItem(key));
+    let text = 'none'
     if (storage !== null) {
-        return storage;
+        text = storage;
     }
+    return text;
 }
 // ---------search-------------
 
@@ -385,9 +387,35 @@ function alert_message(incon, message) {
     })
 }
 
+function delete_alert(e){
+    Swal.fire({
+        title: 'No data?',
+        text: "pleace to to page seller first !",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire(
+            'Deleted!',
+            'Your file has been deleted.',
+            'success'
+          )
+          location.href = '../pages/seller.html'
+        }
+      })
+}
+
 add_items = load_data('add_items')
 numbers_add = load_data('numbers_add')
 rating_number = load_data('rating_number')
-// save_data(add_items,'add_items')
-// save_data(numbers_add,'numbers_add')
+if (add_items === 'none') {
+    add_items = []
+    numbers_add =0
+}
+if (products === 'none'){
+    delete_alert()
+}
 rander_product()
